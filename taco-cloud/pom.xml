@@ -18,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
+		<h2.version>1.4.196</h2.version>
 	</properties>
 	<!-- Dependencies from Nexus Proxy-Server -->
 	<repositories>
@@ -92,6 +93,19 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- tag::jdbcStarter[] -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!-- end::jdbcStarter[] -->
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -113,5 +127,19 @@
 			<url>http://localhost:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
-
+	<profiles>
+		<profile>
+			<id>dev</id> <!-- profilename -->
+			<properties>
+				<build.profile.id>dev</build.profile.id> <!-- Folder where the application.properties is -->
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/profiles/dev</directory>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
 </project>

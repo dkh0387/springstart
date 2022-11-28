@@ -1,5 +1,6 @@
 package de.dkh.core;
 
+import java.util.Date;
 //tag::all[]
 //tag::allButValidation[]
 import java.util.List;
@@ -21,6 +22,9 @@ import lombok.Data;
  */
 @Data
 public class Taco {
+	
+	private long id;
+	private Date createdAt;
 
 // end::allButValidation[]
 	@NotNull
