@@ -8,29 +8,32 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class JdbcIngredientRepository implements IngredientRepository {
+public class JdbcIngredientRepository extends JdbcRepository implements IngredientRepository {
 
-	// tag::jdbcTemplate[]
-	private JdbcTemplate jdbc;
-
-	// end::jdbcTemplate[]
+	private static final String WHERE_ID = " WHERE %s = ?";
+	private static final String SELECT_FROM_INGREDIENT = "SELECT %s, %s, %s FROM %s";
 
 	@Autowired
 	public JdbcIngredientRepository(JdbcTemplate jdbc) {
-		this.jdbc = jdbc;
+		super(jdbc);
 	}
 //end::classShell[]
 
 	// tag::finders[]
 	@Override
 	public Iterable<Ingredient> findAll() {
-		return jdbc.query("select id, name, type from Ingredient", this::mapRowToIngredient);
+		return getJdbc().query(String.format(SELECT_FROM_INGREDIENT, Ingredient.PROP_ID, Ingredient.PROP_NAME,
+				Ingredient.PROP_TYPE, Ingredient.TABLE_NAME), this::mapRowToIngredient);
 	}
 
 	// tag::findOne[]
 	@Override
 	public Ingredient findById(String id) {
-		return jdbc.queryForObject("select id, name, type from Ingredient where id=?", this::mapRowToIngredient, id);
+		return getJdbc()
+				.queryForObject(
+						String.format(SELECT_FROM_INGREDIENT + WHERE_ID, Ingredient.PROP_ID, Ingredient.PROP_NAME,
+								Ingredient.PROP_TYPE, Ingredient.TABLE_NAME, Ingredient.PROP_ID),
+						this::mapRowToIngredient, id);
 	}
 
 	// end::findOne[]
@@ -51,7 +54,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
 	// tag::save[]
 	@Override
 	public Ingredient save(Ingredient ingredient) {
-		jdbc.update("insert into Ingredient (id, name, type) values (?, ?, ?)", ingredient.getId(),
+		getJdbc().update("insert into Ingredient (id, name, type) values (?, ?, ?)", ingredient.getId(),
 				ingredient.getName(), ingredient.getType().toString());
 		return ingredient;
 	}

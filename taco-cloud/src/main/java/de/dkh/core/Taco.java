@@ -1,5 +1,6 @@
 package de.dkh.core;
 
+import java.sql.Types;
 import java.util.Date;
 //tag::all[]
 //tag::allButValidation[]
@@ -12,6 +13,7 @@ import jakarta.validation.constraints.Size;
 
 //tag::allButValidation[]
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Attributes here correcpods directly with the same named in
@@ -21,8 +23,16 @@ import lombok.Data;
  *
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Taco {
 	
+	public final static String PROP_ID = "id";
+	public final static String PROP_NAME = "name";
+	public static final String PROP_CREATED = "createdAt";
+	public static final String TABLE_NAME = "Taco";
+	public static final ObjectProperty CREATED = new ObjectProperty(PROP_CREATED, Types.TIMESTAMP);
+	public static final ObjectProperty NAME = new ObjectProperty(PROP_NAME, Types.VARCHAR);
+
 	private long id;
 	private Date createdAt;
 
