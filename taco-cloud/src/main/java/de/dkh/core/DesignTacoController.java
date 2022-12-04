@@ -40,6 +40,7 @@ public class DesignTacoController {
 
 	private final IngredientRepository ingredientRepo;
 	private TacoRepositoiry tacoRepository;
+	private static final Order order = new Order();
 
 	@Autowired
 	public DesignTacoController(IngredientRepository ingredientRepo, TacoRepositoiry tacoRepository) {
@@ -49,8 +50,8 @@ public class DesignTacoController {
 	}
 
 	@ModelAttribute(name = "order")
-	public Order order() {
-		return new Order();
+	public static Order order() {
+		return order;
 	}
 
 	@ModelAttribute(name = "taco")

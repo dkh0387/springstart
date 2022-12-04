@@ -16,6 +16,10 @@ import lombok.Data;
 @Data
 public class Order {
 
+	public final static String TABLE_NAME = "Orders";
+	public final static String PROP_ID = "id";
+	public final static String PROP_CREATED = "placedAt";
+
 	private long id;
 	private Date placedAt;
 
@@ -62,7 +66,7 @@ public class Order {
 	private List<Taco> tacos = new ArrayList<>();
 
 	public void addDesign(Taco design) {
-		this.tacos.add(design);
+		tacos.add(design);
 	}
 
 }

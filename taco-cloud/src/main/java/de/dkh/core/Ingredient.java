@@ -3,7 +3,6 @@ package de.dkh.core;
 import java.sql.Types;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -15,7 +14,6 @@ import lombok.RequiredArgsConstructor;
  */
 @Data
 @RequiredArgsConstructor
-@EqualsAndHashCode(callSuper = false)
 public class Ingredient {
 
 	public final static String PROP_ID = "id";

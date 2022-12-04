@@ -13,7 +13,6 @@ import jakarta.validation.constraints.Size;
 
 //tag::allButValidation[]
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * Attributes here correcpods directly with the same named in
@@ -23,9 +22,8 @@ import lombok.EqualsAndHashCode;
  *
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
 public class Taco {
-	
+
 	public final static String PROP_ID = "id";
 	public final static String PROP_NAME = "name";
 	public static final String PROP_CREATED = "createdAt";
