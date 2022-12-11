@@ -6,6 +6,13 @@ import java.util.Date;
 //tag::allButValidation[]
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -22,6 +29,7 @@ import lombok.Data;
  *
  */
 @Data
+@Entity
 public class Taco {
 
 	public final static String PROP_ID = "id";
@@ -31,19 +39,22 @@ public class Taco {
 	public static final ObjectProperty CREATED = new ObjectProperty(PROP_CREATED, Types.TIMESTAMP);
 	public static final ObjectProperty NAME = new ObjectProperty(PROP_NAME, Types.VARCHAR);
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date createdAt;
-
-// end::allButValidation[]
 	@NotNull
 	@Size(min = 5, message = "Name must be at least 5 characters long")
-// tag::allButValidation[]
 	private String name;
-// end::allButValidation[]
+	@ManyToMany(targetEntity = Ingredient.class)
 	@Size(min = 1, message = "You must choose at least 1 ingredient")
-// tag::allButValidation[]
-	private List<String> ingredients;
+	private List<Ingredient> ingredients;
+//	@Size(min = 1, message = "You must choose at least 1 ingredient")
+//	private List<String> ingredients;
+
+	@PrePersist
+	void createdAt() {
+		createdAt = new Date();
+	}
 
 }
-//end::allButValidation[]
-//tag::end[]
