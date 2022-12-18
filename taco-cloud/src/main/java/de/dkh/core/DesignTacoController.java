@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import de.dkh.core.Ingredient.Type;
 import de.dkh.core.data.IngredientRepository;
 import de.dkh.core.data.TacoRepositoiry;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 /**

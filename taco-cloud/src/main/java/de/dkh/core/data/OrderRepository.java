@@ -42,13 +42,13 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
 	List<Order> readByZipAndPlacedAtBetween(String zip, Date dateFrom, Date dateTo);
 
 	/**
-	 * {@code findBy + Order.name + And + Order.city + AllIgnoresCase}
+	 * {@code findBy + Order.name + And + Order.city + AllIgnoreCase}
 	 * 
 	 * @param name
 	 * @param city
 	 * @return
 	 */
-	List<Order> findByNameAndCityAllIgnoresCase(String name, String city);
+	List<Order> findByNameAndCityAllIgnoreCase(String name, String city);
 
 	/**
 	 * If i can not relay on auto recognition i can explicitly define the query
@@ -56,7 +56,7 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
 	 * 
 	 * @return
 	 */
-	@Query("Order o where o.city = 'Seattle'")
+	@Query("from Order where city = 'Seattle'")
 	List<Order> readOrdersDeliveredInSeattle();
 
 }

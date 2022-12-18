@@ -11,14 +11,12 @@ create table if not exists Taco (
 );
 
 create table if not exists Taco_Ingredients (
-  taco bigint not null,
-  ingredient varchar(4) not null
+  taco_id bigint not null,
+  ingredients_id varchar(4) not null
 );
 
-alter table Taco_Ingredients
-    add foreign key (taco) references Taco(id);
-alter table Taco_Ingredients
-    add foreign key (ingredient) references Ingredient(id);
+alter table Taco_Ingredients add foreign key (taco_id) references Taco(id);
+alter table Taco_Ingredients add foreign key (ingredients_id) references Ingredient(id);
 
 create table if not exists Orders (
 	id identity,
@@ -34,11 +32,10 @@ create table if not exists Orders (
 );
 
 create table if not exists Orders_Tacos (
-	orderid bigint not null,
-	tacoid bigint not null
+	orders_id bigint not null,
+	taco_id bigint not null,
+	primary key (orders_id, taco_id)
 );
 
-alter table Orders_Tacos
-    add foreign key (orderid) references Orders(id);
-alter table Orders_Tacos
-    add foreign key (tacoid) references Taco(id);
+alter table Orders_Tacos add foreign key (orders_id) references Orders(id);
+alter table Orders_Tacos add foreign key (taco_id) references Taco(id);
