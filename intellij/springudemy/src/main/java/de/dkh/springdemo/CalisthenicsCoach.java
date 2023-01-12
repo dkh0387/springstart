@@ -1,8 +1,9 @@
 package de.dkh.springdemo;
 
 import lombok.Getter;
+import org.springframework.beans.factory.DisposableBean;
 
-public class CalisthenicsCoach implements Coach {
+public class CalisthenicsCoach implements Coach, DisposableBean {
 
     private FortuneService fortuneService;
     @Getter
@@ -32,6 +33,6 @@ public class CalisthenicsCoach implements Coach {
 
     public void destroy() {
         this.name = null;
-        System.out.println("Coach name reset!");
+        System.out.println(String.format("Coach name for coach %s reset!", this.toString()));
     }
 }

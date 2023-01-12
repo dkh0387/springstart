@@ -7,9 +7,19 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- Bean custom processor to handle calling destroy methods on prototype scoped beans -->
+    <bean id="customProcessor"
+          class="de.dkh.springdemo.MyCustomBeanProcessor">
+    </bean>
+
     <!-- Example for a constructor dependency injection here -->
-    <!-- Example for a bean lifecycle customization -->
-    <bean id="myCoach" class="de.dkh.springdemo.CalisthenicsCoach" init-method="init" destroy-method="destroy">
+    <!-- Example for a bean lifecycle customization. NOTE: only with scope `singleton`! Others should be implemented manually! -->
+    <bean id="myCoachSingleton" class="de.dkh.springdemo.CalisthenicsCoach" scope="singleton" init-method="init"
+          destroy-method="destroy">
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+    <bean id="myCoach" class="de.dkh.springdemo.CalisthenicsCoach" scope="prototype" init-method="init">
         <constructor-arg ref="myFortuneService"/>
     </bean>
 
