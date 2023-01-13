@@ -2,7 +2,7 @@ package de.dkh.springdemo;
 
 import org.springframework.stereotype.Component;
 
-@Component("myFortuneService")
+@Component
 public class HappyFortuneService implements FortuneService {
 
     public HappyFortuneService() {

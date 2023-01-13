@@ -1,6 +1,7 @@
 package de.dkh.springdemo;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,17 @@ public class TennisCoach implements Coach {
 
     private FortuneService fortuneService;
 
+    /**
+     * NOTE: Spring component scan will autowire an implementation of {@linkplain FortuneService}.
+     * If there are many of them we need additional annotation {@link org.springframework.beans.factory.annotation.Qualifier}.
+     * So any instance of {@link this} is created with an instance of {@linkplain FortuneService}.
+     * <p>
+     * As of Spring Framework 4.3, an @Autowired annotation on such a constructor is no longer necessary if the target bean only defines one constructor to begin with.
+     * However, if several constructors are available, at least one must be annotated to teach the container which one to use.
+     *
+     * @param fortuneService
+     */
+    @Autowired
     public TennisCoach(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
@@ -27,6 +39,6 @@ public class TennisCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-        return null;
+        return fortuneService.getFortune();
     }
 }
