@@ -5,7 +5,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * Example of {@linkplain Autowired} using any method.
@@ -24,6 +28,8 @@ public class SwimCoach implements Coach {
     @Getter
     @Value("${foo.name}")
     private String name;
+    @Getter
+    private String nickName;
 
     @Override
     public String getDailyWorkout() {
@@ -38,5 +44,23 @@ public class SwimCoach implements Coach {
     @Autowired
     public void setFortuneServiceInstance(@Qualifier("randomFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
+    }
+
+    /**
+     * Method calling just after instantiation.
+     */
+    @PostConstruct
+    private void initNickname() {
+        nickName = "DKH8703";
+    }
+
+    /**
+     * Method calling just before destroying.
+     * NOTE: this one is called ONLY if {@linkplain Scope == singleton}.
+     * Example to handle prototype scopes see {@code springudemy}.
+     */
+    @PreDestroy
+    private void resetNickName() {
+        nickName = null;
     }
 }

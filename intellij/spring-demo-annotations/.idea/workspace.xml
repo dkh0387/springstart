@@ -22,20 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="Chapter 8: constructor and setter injection using @Autowired.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AnnotationAnyMethodInjectionDemoApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/DANCECoach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/RandomFortuneService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/RideCoach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SleepFortuneService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SwimCoach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fortune.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sport.properties" afterDir="false" />
+    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="Chapter 8 finished.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AnnotationBeanScopeDemoApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AnnotationSetterInjectionDemoApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AnnotationSetterInjectionDemoApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/FootballCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/FootballCoach.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/TennisCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/TennisCoach.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/RandomFortuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/RandomFortuneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SwimCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SwimCoach.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,9 +78,16 @@
       <recent name="C:\privat\IT\springstart\intellij\spring-demo-annotations\src\main\java\de\dkh\springdemo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AnnotationAnyMethodInjectionDemoApp">
+  <component name="RunManager" selected="Application.AnnotationBeanScopeDemoApp">
     <configuration name="AnnotationAnyMethodInjectionDemoApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="de.dkh.springdemo.AnnotationAnyMethodInjectionDemoApp" />
+      <module name="spring-demo-annotations" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnnotationBeanScopeDemoApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="de.dkh.springdemo.AnnotationBeanScopeDemoApp" />
       <module name="spring-demo-annotations" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,6 +122,7 @@
       <item itemvalue="Application.AnnotationDemoApp" />
       <item itemvalue="Application.AnnotationSetterInjectionDemoApp" />
       <item itemvalue="Application.AnnotationAnyMethodInjectionDemoApp" />
+      <item itemvalue="Application.AnnotationBeanScopeDemoApp" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -136,7 +135,7 @@
       <updated>1673619379718</updated>
       <workItem from="1673619381066" duration="1262000" />
       <workItem from="1673620670269" duration="8000000" />
-      <workItem from="1673775613262" duration="5296000" />
+      <workItem from="1673775613262" duration="8422000" />
     </task>
     <task id="LOCAL-00001" summary="Chapter 7 done">
       <created>1673624457214</created>
@@ -152,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673641561411</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Chapter 8 finished.">
+      <created>1673795221183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673795221183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,21 +179,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Chapter 7 done" />
     <MESSAGE value="Chapter 8: constructor and setter injection using @Autowired." />
-    <option name="LAST_COMMIT_MESSAGE" value="Chapter 8: constructor and setter injection using @Autowired." />
+    <MESSAGE value="Chapter 8 finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Chapter 8 finished." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="389" y="253" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1673790846872">
+    <state x="389" y="229" width="1092" height="811" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1673797109939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="389" y="253" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673790846872" />
+    <state x="389" y="229" width="1092" height="811" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673797109939" />
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1673640885571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1673640885571" />
-    <state x="664" y="468" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1673790838048">
+    <state x="664" y="468" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1673797102958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="664" y="468" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673790838048" />
+    <state x="664" y="468" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673797102958" />
     <state x="587" y="208" width="1033" height="821" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1673622087045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -196,30 +203,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673789532759" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1673794469505">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1673795079717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1673794469505" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1673794469505">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673795079717" />
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1673798509820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1673794469505" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1673794469505">
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509820" />
+    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1673798509819">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1673794469505" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1673794469505">
+    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509819" />
+    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1673798509819">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1673794469505" />
+    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509819" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1673798509819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509819" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1673622203225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1673622203225" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1673641565635">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1673795225728">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1673641565635" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1673795225728" />
     <state x="647" y="272" key="spring file set editor" timestamp="1673622147064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
