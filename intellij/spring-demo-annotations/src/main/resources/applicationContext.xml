@@ -6,6 +6,10 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Load the property file to set values on beans -->
+    <context:property-placeholder location="classpath:sport.properties"/>
+
     <!-- Enable component scan for base package by Spring container -->
     <context:component-scan base-package="de.dkh.springdemo"/>
 

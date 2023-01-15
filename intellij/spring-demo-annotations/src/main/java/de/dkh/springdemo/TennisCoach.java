@@ -2,6 +2,7 @@ package de.dkh.springdemo;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Scope("singleton")
 public class TennisCoach implements Coach {
 
+
     private FortuneService fortuneService;
 
     /**
@@ -24,11 +26,14 @@ public class TennisCoach implements Coach {
      * <p>
      * As of Spring Framework 4.3, an @Autowired annotation on such a constructor is no longer necessary if the target bean only defines one constructor to begin with.
      * However, if several constructors are available, at least one must be annotated to teach the container which one to use.
+     * <p>
+     * Further we specify the concrete {@linkplain FortuneService} implementation to use, because we have more that one in project.
+     * Pay attention to the bean ID: just the classname small written.
      *
      * @param fortuneService
      */
     @Autowired
-    public TennisCoach(FortuneService fortuneService) {
+    public TennisCoach(@Qualifier("happyFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
