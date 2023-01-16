@@ -17,10 +17,10 @@ public class AdvancedDemoApp {
         System.out.println(myAdvancedCoach.getDailyWorkout());
         System.out.println(myAdvancedCoach.getDailyFortune());
 
-        System.out.println("Nickname after creating: " +  myAdvancedCoach.getNickName());
+        System.out.println("Nickname after creating: " + myAdvancedCoach.getNickName());
 
         javaApplicationContext.close();
 
-        System.out.println("Nickname before destroying: " +  myAdvancedCoach.getNickName());
+        System.out.println("Nickname before destroying: " + myAdvancedCoach.getNickName());
     }
 }
