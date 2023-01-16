@@ -22,11 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="Chapter 8 finished.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AnnotationBeanScopeDemoApp.java" afterDir="false" />
+    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="Chapter 9 finished.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AdvancedCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/AdvancedDemoApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/JavaConfigDemoApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/MyLoggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SadFortuneService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SportConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mylogger.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/RandomFortuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/RandomFortuneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SwimCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/SwimCoach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/TennisCoach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springdemo/TennisCoach.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +83,14 @@
       <recent name="C:\privat\IT\springstart\intellij\spring-demo-annotations\src\main\java\de\dkh\springdemo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AnnotationBeanScopeDemoApp">
+  <component name="RunManager" selected="Application.AdvancedDemoApp">
+    <configuration name="AdvancedDemoApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="de.dkh.springdemo.AdvancedDemoApp" />
+      <module name="spring-demo-annotations" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AnnotationAnyMethodInjectionDemoApp" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="de.dkh.springdemo.AnnotationAnyMethodInjectionDemoApp" />
       <module name="spring-demo-annotations" />
@@ -107,13 +119,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration name="JavaConfigDemoApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="de.dkh.springdemo.JavaConfigDemoApp" />
+      <module name="spring-demo-annotations" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +144,8 @@
       <item itemvalue="Application.AnnotationSetterInjectionDemoApp" />
       <item itemvalue="Application.AnnotationAnyMethodInjectionDemoApp" />
       <item itemvalue="Application.AnnotationBeanScopeDemoApp" />
+      <item itemvalue="Application.JavaConfigDemoApp" />
+      <item itemvalue="Application.AdvancedDemoApp" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -135,7 +158,8 @@
       <updated>1673619379718</updated>
       <workItem from="1673619381066" duration="1262000" />
       <workItem from="1673620670269" duration="8000000" />
-      <workItem from="1673775613262" duration="8422000" />
+      <workItem from="1673775613262" duration="8444000" />
+      <workItem from="1673857252239" duration="8192000" />
     </task>
     <task id="LOCAL-00001" summary="Chapter 7 done">
       <created>1673624457214</created>
@@ -158,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673795221183</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Chapter 9 finished.">
+      <created>1673798604456</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673798604456</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,21 +211,25 @@
     <MESSAGE value="Chapter 7 done" />
     <MESSAGE value="Chapter 8: constructor and setter injection using @Autowired." />
     <MESSAGE value="Chapter 8 finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Chapter 8 finished." />
+    <MESSAGE value="Chapter 9 finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Chapter 9 finished." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="389" y="229" width="1092" height="811" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1673797109939">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="697" y="260" width="1957" height="1140" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1673876068235">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="389" y="229" width="1092" height="811" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673797109939" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1673640885571">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="697" y="260" width="1957" height="1140" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1673876068235" />
+    <state x="1371" y="304" key="#com.intellij.ide.util.MemberChooser" timestamp="1673859819563">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1673640885571" />
-    <state x="664" y="468" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1673797102958">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1371" y="304" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1400@0.0.3440.1400" timestamp="1673859819563" />
+    <state x="1190" y="630" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1673876062503">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="664" y="468" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673797102958" />
+    <state x="1190" y="630" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1673876062503" />
     <state x="587" y="208" width="1033" height="821" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1673622087045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -207,33 +242,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1673795079717" />
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom" timestamp="1673798509820">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="287" key="GridCell.Tab.0.bottom" timestamp="1673876876198">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509820" />
-    <state width="1877" height="200" key="GridCell.Tab.0.center" timestamp="1673798509819">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1673798612901" />
+    <state width="3397" height="287" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1673876876198" />
+    <state width="3397" height="287" key="GridCell.Tab.0.center" timestamp="1673876876198">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509819" />
-    <state width="1877" height="200" key="GridCell.Tab.0.left" timestamp="1673798509819">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1673798612901" />
+    <state width="3397" height="287" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1673876876198" />
+    <state width="3397" height="287" key="GridCell.Tab.0.left" timestamp="1673876876198">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509819" />
-    <state width="1877" height="200" key="GridCell.Tab.0.right" timestamp="1673798509819">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1673798612901" />
+    <state width="3397" height="287" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1673876876198" />
+    <state width="3397" height="287" key="GridCell.Tab.0.right" timestamp="1673876876198">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1673798509819" />
+    <state width="1877" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1673798612901" />
+    <state width="3397" height="287" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1673876876198" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1673622203225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1673622203225" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1673795225728">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1673798609301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1673795225728" />
-    <state x="647" y="272" key="spring file set editor" timestamp="1673622147064">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1673798609301" />
+    <state x="1159" y="366" key="spring file set editor" timestamp="1673861535990">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="647" y="272" key="spring file set editor/0.0.1920.1040@0.0.1920.1040" timestamp="1673622147064" />
+    <state x="1159" y="366" key="spring file set editor/0.0.3440.1400@0.0.3440.1400" timestamp="1673861535990" />
   </component>
 </project>

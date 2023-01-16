@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
  * By default the ID ist just {@code <classname>}, so {@code tennisCoach} here.
  * We can get a bean instance in the main app class just as before (see {@linkplain AnnotationDemoApp}).
  */
-@Component
-@Scope("singleton")
 public class TennisCoach implements Coach {
 
 
@@ -33,7 +31,7 @@ public class TennisCoach implements Coach {
      * @param fortuneService
      */
     @Autowired
-    public TennisCoach(@Qualifier("happyFortuneService") FortuneService fortuneService) {
+    public TennisCoach(@Qualifier("sadFortuneService") FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
