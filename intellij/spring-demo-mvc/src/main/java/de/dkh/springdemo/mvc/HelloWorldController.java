@@ -46,7 +46,7 @@ public class HelloWorldController {
     public String processFormViewWithModel(HttpServletRequest request, Model model) {
 
         String studentName = request.getParameter("studentName");
-        model.addAttribute("name", studentName);
+        model.addAttribute("name", "Studentname from model: " + studentName);
 
         return "helloworld";
     }

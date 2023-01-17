@@ -12,7 +12,7 @@ Student name from previous form: ${param.studentName}
 
 <br><br>
 
-Student name from model: ${name}
+${name}
 
 </body>
 </html>
