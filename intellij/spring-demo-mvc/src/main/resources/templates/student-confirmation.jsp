@@ -1,3 +1,4 @@
+<jsp:useBean id="student" scope="request" type="de.dkh.springdemo.mvc.Student"/>
 <!DOCTYPE html>
 <html>
 <body>

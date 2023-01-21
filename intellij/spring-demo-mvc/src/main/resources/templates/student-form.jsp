@@ -10,6 +10,7 @@
     We can easily bind the data in the form to the Spring model being an attribute in the according controller method: StudentController#showStudentForm().
     Then, for example in the directing view we can apply those model attributes (see student-confirmation.jsp).
 -->
+<%--@elvariable id="student" type="de.dkh.springdemo.mvc.Student"--%>
 <form:form action="processForm" modelAttribute="student">
     First name: <form:input path="firstName"/>
 
