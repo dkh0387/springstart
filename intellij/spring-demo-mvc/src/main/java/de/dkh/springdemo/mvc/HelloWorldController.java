@@ -3,15 +3,20 @@ package de.dkh.springdemo.mvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/hello")
 public class HelloWorldController {
 
     /**
      * NOTE: there is no mapping between method and view name, either between request mapping url and view name!
      * We just need to make sure the HTTP request using this url is being mappend to the right view!
+     * We can fix the {@linkplain org.springframework.aop.aspectj.AspectJAdviceParameterNameDiscoverer.AmbiguousBindingException} problem
+     * with {@linkplain HelloWorldControllerAmbiguos} unsing parent mapping from class.
+     * So all URLs here will have {@code /hello/...} from the class.
      *
      * @return
      */
@@ -46,8 +51,22 @@ public class HelloWorldController {
     public String processFormViewWithModel(HttpServletRequest request, Model model) {
 
         String studentName = request.getParameter("studentName");
-        model.addAttribute("name", "Studentname from model: " + studentName);
+        model.addAttribute("name", studentName);
 
+        return "helloworld";
+    }
+
+    /**
+     * Here we actually do the same like in {@linkplain this#processFormViewWithModel(HttpServletRequest, Model)},
+     * but we bind the param directly using {@linkplain RequestParam}.
+     *
+     * @param studentName
+     * @param model
+     * @return
+     */
+    @RequestMapping("/processFormWithModelAndReqParam")
+    public String processFormViewWithModelAndReqParam(@RequestParam("studentName") String studentName, Model model) {
+        model.addAttribute("name", studentName);
         return "helloworld";
     }
 }
