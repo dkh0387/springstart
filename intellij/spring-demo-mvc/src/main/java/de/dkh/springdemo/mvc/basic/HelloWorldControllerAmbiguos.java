@@ -1,11 +1,7 @@
-package de.dkh.springdemo.mvc;
+package de.dkh.springdemo.mvc.basic;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * This controller is actually the ambiguos one to the {@linkplain HelloWorldController}.

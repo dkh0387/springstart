@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="student" scope="request" type="de.dkh.springdemo.mvc.Student"/>
+<jsp:useBean id="student" scope="request" type="de.dkh.springdemo.mvc.formtags.Student"/>
 <!DOCTYPE html>
 <html>
 <body>
@@ -15,7 +15,7 @@ Student name: ${student.firstName} ${student.lastName} ${student.country} ${stud
 
 <br><br>
 
-Country: ${student.country} ${student.language}
+Country: ${student.country}
 
 <br><br>
 

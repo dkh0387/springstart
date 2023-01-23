@@ -1,4 +1,4 @@
-package de.dkh.springdemo.mvc;
+package de.dkh.springdemo.mvc.formtags;
 
 import lombok.*;
 import org.springframework.stereotype.Component;

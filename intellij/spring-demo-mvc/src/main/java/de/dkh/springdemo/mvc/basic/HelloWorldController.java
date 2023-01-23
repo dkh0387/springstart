@@ -1,4 +1,4 @@
-package de.dkh.springdemo.mvc;
+package de.dkh.springdemo.mvc.basic;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
