@@ -32,11 +32,19 @@
 
     <br><br>
 
-    Favorite Language:
+    Select Favorite Language:
     <!-- Here we define a radio button group based on values from Student.ProgLanguage.
     Exactly the same thing how in drop down example.-->
     <form:radiobuttons path="language" items="${student.languages}" itemLabel="label"
                        itemValue="label"/>
+
+    <br><br>
+
+    Select Operating System(s):
+    <!-- Here we define a checkbox group based on values from Student.OperatingSystem.
+    Exactly the same thing how in drop down example.-->
+    <form:checkboxes path="selOpSystem" items="${student.opSystems}" itemLabel="label"
+                     itemValue="label"/>
 
     <br><br>
 

@@ -4,8 +4,6 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -31,6 +29,11 @@ public class Student {
     private String language;
     @Getter
     private Set<ProgLanguage> languages = Arrays.stream(ProgLanguage.values()).collect(Collectors.toSet());
+    @Getter
+    @Setter
+    private String[] selOpSystem;
+    @Getter
+    private Set<OperatingSystem> opSystems = Arrays.stream(OperatingSystem.values()).collect(Collectors.toSet());
 
     /**
      * Inner Enum for drop down data binding in {@code student-form.jsp}.
@@ -57,6 +60,21 @@ public class Student {
         private final String label;
 
         ProgLanguage(String label) {
+            this.label = label;
+        }
+
+    }
+
+    /**
+     * Inner Enum for check boxes data binding in {@code student-form.jsp}.
+     */
+    enum OperatingSystem {
+        LINUX("Linux"), WINDOWS("Windows"), MACOS("MACOS");
+
+        @Getter
+        private final String label;
+
+        OperatingSystem(String label) {
             this.label = label;
         }
 
