@@ -20,7 +20,20 @@
 
     <br><br>
 
+    Country:
+    <!-- Binding the values of the inner Enum Country within Student class:
+    it is already enough to add the enum values as an attribute the Model
+    (over the path name setter on the according Student attr will be calling)!
+    Alternatively we can just get the enum values directly from Student object.
+    NOTE: itemLabel: what is in the combo box; itemValue: what we get as selected -->
+    <form:select path="country">
+        <form:options items="${student.countries}" itemValue="label" itemLabel="label"/>
+    </form:select>
+
+    <br><br>
+
     <input type="submit" value="Submit"/>
+
 </form:form>
 
 </body>

@@ -9,7 +9,7 @@
 
 <!-- We can access the student attributes
     from the model being applied as parameter in the corresponding controller method: StudentController#processStudentForm()-->
-Student name from previous form: ${student.firstName} ${student.lastName}
+Student infos from previous form: ${student.firstName} ${student.lastName} ${student.country}
 
 </body>
 </html>

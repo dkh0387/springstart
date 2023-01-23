@@ -12,6 +12,11 @@ public class StudentController {
     @RequestMapping("/showForm")
     public String showStudentForm(Model model) {
         model.addAttribute("student", new Student());
+        /*
+        In case we want bind the enum values to the view over the model we can add an attribute.
+        Otherwise, we just get them from Student object directly.
+         */
+        //model.addAttribute("countries", Student.Country.values());
         return "student-form";
     }
 
