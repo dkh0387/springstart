@@ -21,7 +21,7 @@ public class Customer {
      */
     @Getter
     @Setter
-    @NotNull
+    @NotNull(message = "is required")
     @Size(min = 1, message = "is required")
     private String lastName;
 }

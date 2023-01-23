@@ -1,9 +1,12 @@
 package de.dkh.springdemo.mvc.validation;
 
 import de.dkh.springdemo.mvc.formtags.Student;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,6 +15,20 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+
+    /**
+     * String preprocessing:
+     * white spaces are being passed through the validator {@linkplain Customer#getLastName()}.
+     * This thing trims white spaces to {@code null}.
+     * This method will be calling for ANY web request comming in to this controller and process strings.
+     *
+     * @param binder
+     */
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        binder.registerCustomEditor(String.class, stringTrimmerEditor);
+    }
 
     @RequestMapping("/showForm")
     public String showCustomerForm(Model model) {
