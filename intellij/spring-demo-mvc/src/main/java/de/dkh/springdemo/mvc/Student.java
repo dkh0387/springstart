@@ -26,7 +26,15 @@ public class Student {
     private String country;
     @Getter
     private Set<Country> countries = Arrays.stream(Country.values()).collect(Collectors.toSet());
+    @Getter
+    @Setter
+    private String language;
+    @Getter
+    private Set<ProgLanguage> languages = Arrays.stream(ProgLanguage.values()).collect(Collectors.toSet());
 
+    /**
+     * Inner Enum for drop down data binding in {@code student-form.jsp}.
+     */
     enum Country {
         GERMANY("Germany"), BRAZIL("Brazil"), USA("USA"), JAPAN("Japan");
 
@@ -34,6 +42,21 @@ public class Student {
         private final String label;
 
         Country(String label) {
+            this.label = label;
+        }
+
+    }
+
+    /**
+     * Inner Enum for radios data binding in {@code student-form.jsp}.
+     */
+    enum ProgLanguage {
+        JAVA("Java"), C("C#"), PHP("PHP"), PYTHON("Python");
+
+        @Getter
+        private final String label;
+
+        ProgLanguage(String label) {
             this.label = label;
         }
 

@@ -32,6 +32,14 @@
 
     <br><br>
 
+    Favorite Language:
+    <!-- Here we define a radio button group based on values from Student.ProgLanguage.
+    Exactly the same thing how in drop down example.-->
+    <form:radiobuttons path="language" items="${student.languages}" itemLabel="label"
+                       itemValue="label"/>
+
+    <br><br>
+
     <input type="submit" value="Submit"/>
 
 </form:form>
