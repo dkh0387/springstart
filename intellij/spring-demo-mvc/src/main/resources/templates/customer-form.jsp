@@ -32,7 +32,7 @@
 
     <br><br>
 
-    Free passes: <form:input path="postCode"/>
+    Post code: <form:input path="postCode"/>
     <form:errors path="postCode" cssClass="error"/>
 
     <br><br>
