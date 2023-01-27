@@ -13,5 +13,13 @@
     NOTE: here we have an axample of for each loop using JSP.-->
 Customer name: ${customer.firstName} ${customer.lastName}
 
+<br><br>
+
+Free passes: ${customer.freePasses}
+
+<br><br>
+
+Free passes: ${customer.postCode}
+
 </body>
 </html>
