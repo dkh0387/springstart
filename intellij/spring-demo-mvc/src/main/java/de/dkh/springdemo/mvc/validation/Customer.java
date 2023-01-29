@@ -1,7 +1,6 @@
 package de.dkh.springdemo.mvc.validation;
 
 import lombok.*;
-import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.*;
@@ -38,4 +37,17 @@ public class Customer {
     @Setter
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     private String postCode;
+    @Getter
+    @Setter
+    @CourseCode(value = "LUV", message = "should start with LUV")
+    private String courseCode;
+    @Getter
+    @Setter
+    @Min(value = 18, message = "minimum age is 18", groups = CustomerPersonCheck.class, payload = Severity.Info.class)
+    private Integer age;
+    @Getter
+    @Setter
+    @NotNull(message = "is required", groups = CustomerPersonCheck.class, payload = Severity.Error.class)
+    private String nationality;
+
 }
