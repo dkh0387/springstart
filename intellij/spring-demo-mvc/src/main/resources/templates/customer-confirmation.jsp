@@ -25,5 +25,13 @@ Post code: ${customer.postCode}
 
 Course code: ${customer.courseCode}
 
+<br><br>
+
+Age: ${customer.age}
+
+<br><br>
+
+Nationality: ${customer.nationality}
+
 </body>
 </html>

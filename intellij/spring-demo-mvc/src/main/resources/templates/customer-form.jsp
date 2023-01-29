@@ -9,6 +9,14 @@
         .error {
             color: red
         }
+
+        .errorPayload {
+            color: orange;
+        }
+
+        .infoPayload {
+            color: yellow;
+        }
     </style>
 </head>
 
@@ -39,6 +47,16 @@
 
     Course code: <form:input path="courseCode"/>
     <form:errors path="courseCode" cssClass="error"/>
+
+    <br><br>
+
+    Age: <form:input path="age"/>
+    <form:errors path="age" cssClass="infoPayload"/>
+
+    <br><br>
+
+    Nationality: <form:input path="nationality"/>
+    <form:errors path="nationality" cssClass="errorPayload"/>
 
     <br><br>
 
