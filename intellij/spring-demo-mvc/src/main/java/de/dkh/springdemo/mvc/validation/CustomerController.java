@@ -57,6 +57,7 @@ public class CustomerController {
         final Set<ConstraintViolation<Customer>> validationInfoResults = validateInfo(customer);
         final Set<Class<? extends Payload>> payloads = getPayloads(validationInfoResults);
 
+
         if (bindingResult.hasErrors()) {
             return "customer-form";
         }
