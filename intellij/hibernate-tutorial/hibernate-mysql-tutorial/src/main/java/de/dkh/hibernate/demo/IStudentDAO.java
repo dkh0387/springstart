@@ -12,4 +12,6 @@ public interface IStudentDAO {
     public Student get(long id, Session session);
 
     public List<Student> query(Session session);
+
+    public List<Student> query(Session session, String where);
 }

@@ -38,4 +38,15 @@ public class StudentDAO implements IStudentDAO {
         session.getTransaction().commit();
         return studentList;
     }
+
+    @Override
+    public List<Student> query(Session session, String where) {
+
+        if (!session.getTransaction().isActive()) {
+            session.beginTransaction();
+        }
+        final List<Student> studentList = session.createQuery(String.format("from Student s where %s", where)).getResultList();
+        session.getTransaction().commit();
+        return studentList;
+    }
 }

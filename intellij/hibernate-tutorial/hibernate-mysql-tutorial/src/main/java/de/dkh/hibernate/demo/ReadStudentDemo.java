@@ -11,28 +11,40 @@ public class ReadStudentDemo {
 
     public static void main(String[] args) {
 
+        HibernateUtils hibernateUtils = new HibernateUtils();
+        Session currentSession = hibernateUtils.getSession();
+        StudentDAO studentDAO = new StudentDAO();
+
         try {
-            StudentDAO studentDAO = new StudentDAO();
             // query all students:
-            List<Student> studentList = studentDAO.query(HibernateUtils.getSession());
+            System.out.println("--------------------------------ALL STUDENTS:-------------------------");
+            List<Student> studentList = studentDAO.query(hibernateUtils.getSession());
             System.out.println(studentList.stream().map(Student::toString).collect(Collectors.toSet()));
             System.out.println("----------------------------------------------------------------------");
 
+            // query students with where:
+            System.out.println("--------------------------ALL STUDENTS WHERE:-------------------------");
+            List<Student> studentWhereList = studentDAO.query(hibernateUtils.getSession(), "s.lastName = 'Khaskin'");
+            System.out.println(studentWhereList.stream().map(Student::toString).collect(Collectors.toSet()));
+            System.out.println("----------------------------------------------------------------------");
+
             // save a new student:
+            System.out.println("------------------------------SAVE A STUDENT:-------------------------");
             Student student = new Student("Albert", "Einstein", "albert@gmail.com");
-            studentDAO.save(student, HibernateUtils.getSession());
+            studentDAO.save(student, hibernateUtils.getSession());
             System.out.println("----------------------------------------------------------------------");
 
             // get created student:
-            Student createdStudent = studentDAO.get(student.getId(), HibernateUtils.getSession());
+            System.out.println("---------------------------GET SAVED STUDENT:-------------------------");
+            Student createdStudent = studentDAO.get(student.getId(), hibernateUtils.getSession());
             System.out.println(createdStudent.toString());
             System.out.println("----------------------------------------------------------------------");
 
-            HibernateUtils.getTransaction().commit();
+            hibernateUtils.getTransaction().commit();
 
         } catch (Exception e) {
             e.printStackTrace();
-            HibernateUtils.getSession().getTransaction().rollback();
+            hibernateUtils.getSession().getTransaction().rollback();
         }
     }
 

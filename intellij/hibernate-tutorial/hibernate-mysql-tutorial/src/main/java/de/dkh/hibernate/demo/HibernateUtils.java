@@ -11,7 +11,14 @@ import java.sql.Connection;
 public class HibernateUtils {
     private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactoryInstance() {
+    /**
+     * It is a heavyweight object created only once.
+     * From this we can create different {@linkplain Session} objects for a unit of work.
+     * For testing purpose we will inject {@linkplain HibernateUtils} via constructor and mock everything away.
+     *
+     * @return
+     */
+    public SessionFactory getSessionFactoryInstance() {
 
         if (sessionFactory == null) {
             final Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
@@ -21,17 +28,17 @@ public class HibernateUtils {
         return sessionFactory;
     }
 
-    public static Session getSession() {
-        final Session currentSession = HibernateUtils.getSessionFactoryInstance().getCurrentSession();
+    public Session getSession() {
+        final Session currentSession = getSessionFactoryInstance().getCurrentSession();
 
         if (currentSession.isOpen()) {
             return currentSession;
         } else {
-            return HibernateUtils.getSessionFactoryInstance().openSession();
+            return getSessionFactoryInstance().openSession();
         }
     }
 
-    public static Transaction getTransaction() {
+    public Transaction getTransaction() {
         final Transaction transaction = getSession().getTransaction();
 
         if (transaction.isActive()) {
