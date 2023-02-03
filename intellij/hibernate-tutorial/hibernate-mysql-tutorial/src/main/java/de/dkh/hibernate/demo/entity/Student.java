@@ -1,13 +1,13 @@
 package de.dkh.hibernate.demo.entity;
 
+import de.dkh.hibernate.demo.DateUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Why we are using JPA Annotation instead of Hibernate ?
@@ -24,12 +24,18 @@ import java.io.Serializable;
 @Entity
 @Table(name = "student")
 @NoArgsConstructor
-@ToString
 public class Student implements Serializable {
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+    }
+
+    public Student(String firstName, String lastName, String email, Date dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
         this.email = email;
     }
 
@@ -43,7 +49,7 @@ public class Student implements Serializable {
     @Getter
     @Setter
     private Long id;
-//    @GenericGenerator(name = "custom_id", strategy = "de.dkh.hibernate.demo.IDGenerator")
+    //    @GenericGenerator(name = "custom_id", strategy = "de.dkh.hibernate.demo.IDGenerator")
 //    @GeneratedValue(generator = "custom_id")
 //    @Column(name = "custom_id", nullable = false)
 //    @Getter
@@ -57,9 +63,18 @@ public class Student implements Serializable {
     @Getter
     @Setter
     private String lastName;
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
     @Column(name = "email")
     @Getter
     @Setter
     private String email;
+
+    @Override
+    public String toString() {
+        return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+                + ", dateOfBirth=" + DateUtils.formatDate(dateOfBirth) + "]";
+    }
 
 }

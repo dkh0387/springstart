@@ -4,6 +4,8 @@ import de.dkh.hibernate.demo.dao.StudentDAO;
 import de.dkh.hibernate.demo.entity.Student;
 import org.hibernate.Session;
 
+import java.util.Date;
+
 public class CreateStudentDemo {
     public static void main(String[] args) {
         /* Creating a new session factory. This is a heavyweight object for creating hibernate sessions.
@@ -14,7 +16,9 @@ public class CreateStudentDemo {
         StudentDAO studentDAO = new StudentDAO();
 
         try {
-            Student student = new Student("Denis", "Khaskin", "deniskh87@gmail.com");
+            String theDateOfBirthStr = "31/12/1998";
+            Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
+            Student student = new Student("Melli", "Vogt", "melli@gmail.com", theDateOfBirth);
             studentDAO.save(student, session);
 
         } catch (Exception e) {
