@@ -1,7 +1,6 @@
 package de.dkh.hibernate.demo.dao;
 
 import de.dkh.hibernate.demo.HibernateUtils;
-import de.dkh.hibernate.demo.IStudentDAO;
 import de.dkh.hibernate.demo.entity.Student;
 import org.hibernate.Session;
 import org.springframework.beans.PropertyAccessor;
