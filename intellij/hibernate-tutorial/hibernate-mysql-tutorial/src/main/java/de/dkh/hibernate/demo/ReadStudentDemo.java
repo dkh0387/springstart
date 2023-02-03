@@ -12,7 +12,6 @@ public class ReadStudentDemo {
     public static void main(String[] args) {
 
         HibernateUtils hibernateUtils = new HibernateUtils();
-        Session currentSession = hibernateUtils.getSession();
         StudentDAO studentDAO = new StudentDAO();
 
         try {
@@ -39,8 +38,6 @@ public class ReadStudentDemo {
             Student createdStudent = studentDAO.get(student.getId(), hibernateUtils.getSession());
             System.out.println(createdStudent.toString());
             System.out.println("----------------------------------------------------------------------");
-
-            hibernateUtils.getTransaction().commit();
 
         } catch (Exception e) {
             e.printStackTrace();

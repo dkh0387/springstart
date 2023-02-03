@@ -14,4 +14,6 @@ public interface IStudentDAO {
     public List<Student> query(Session session);
 
     public List<Student> query(Session session, String where);
+
+    public void updateProperty(long id, Session session, String property, String value);
 }

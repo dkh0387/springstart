@@ -66,6 +66,14 @@
             <artifactId>logback-classic</artifactId>
             <version>1.4.5</version>
         </dependency>
+
+        <!-- Spring dependency for example to use {@code PropertyAccessor} for reflection etc. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.3.23</version>
+        </dependency>
+
     </dependencies>
 
 </project>

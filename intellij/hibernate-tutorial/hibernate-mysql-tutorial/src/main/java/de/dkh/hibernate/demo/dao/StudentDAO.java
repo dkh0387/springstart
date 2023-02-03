@@ -4,6 +4,8 @@ import de.dkh.hibernate.demo.HibernateUtils;
 import de.dkh.hibernate.demo.IStudentDAO;
 import de.dkh.hibernate.demo.entity.Student;
 import org.hibernate.Session;
+import org.springframework.beans.PropertyAccessor;
+import org.springframework.beans.PropertyAccessorFactory;
 
 import java.util.List;
 
@@ -48,5 +50,48 @@ public class StudentDAO implements IStudentDAO {
         final List<Student> studentList = session.createQuery(String.format("from Student s where %s", where)).getResultList();
         session.getTransaction().commit();
         return studentList;
+    }
+
+    /**
+     * Example of using reflections in Spring:
+     * If we need to access properties using their getters and setters,
+     * we could use instead the forBeanPropertyAccess method.
+     *
+     * @param id
+     * @param session
+     * @param property
+     * @param value
+     */
+    @Override
+    public void updateProperty(long id, Session session, String property, String value) {
+        Student student = get(id, session);
+        System.out.println("Student before update(): " + student);
+        PropertyAccessor myAccessor = PropertyAccessorFactory.forBeanPropertyAccess(student);
+        // a `setSomeProperty()` method will be used
+        myAccessor.setPropertyValue(property, value);
+        System.out.println("Student after update(): " + student);
+
+        Session newSession = new HibernateUtils().getSession();
+
+        if (!newSession.getTransaction().isActive()) {
+            newSession.beginTransaction();
+        }
+        newSession.update(student);
+        newSession.getTransaction().commit();
+    }
+
+    /**
+     * Example of delete operation.
+     *
+     * @param student
+     * @param session
+     */
+    public void delete(Student student, Session session) {
+
+        if (!session.getTransaction().isActive()) {
+            session.beginTransaction();
+        }
+        session.delete(student);
+        session.getTransaction().commit();
     }
 }

@@ -1,5 +1,6 @@
 package de.dkh.hibernate.demo;
 
+import de.dkh.hibernate.demo.dao.StudentDAO;
 import de.dkh.hibernate.demo.entity.Student;
 import org.hibernate.Session;
 
@@ -9,16 +10,16 @@ public class CreateStudentDemo {
            We do not need to specify the configuration resource here, since it always looks for `hibernate.cfg.xml` in `src/main/resources` folder!
          */
         HibernateUtils hibernateUtils = new HibernateUtils();
-        Session currentSession = hibernateUtils.getSession();
+        Session session = hibernateUtils.getSession();
+        StudentDAO studentDAO = new StudentDAO();
 
         try {
             Student student = new Student("Denis", "Khaskin", "deniskh87@gmail.com");
-            currentSession.beginTransaction();
-            currentSession.save(student);
-            currentSession.getTransaction().commit();
+            studentDAO.save(student, session);
+
         } catch (Exception e) {
             e.printStackTrace();
-            currentSession.getTransaction().rollback();
+            session.getTransaction().rollback();
         }
     }
 
