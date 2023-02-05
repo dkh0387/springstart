@@ -16,6 +16,9 @@ public class DeleteInstructorDemo {
         } catch (Exception e) {
             e.printStackTrace();
             hibernateUtils.getSession().getTransaction().rollback();
+        } finally {
+            hibernateUtils.getSession().close();
+            hibernateUtils.getSessionFactoryInstance().close();
         }
     }
 

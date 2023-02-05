@@ -4,7 +4,6 @@ import de.dkh.hibernate.demo.dao.InstructorDAO;
 import de.dkh.hibernate.demo.entity.Instructor;
 import de.dkh.hibernate.demo.entity.InstructorDetail;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
-import org.hibernate.Session;
 
 public class CreateInstructorDemo {
     public static void main(String[] args) {
@@ -24,6 +23,9 @@ public class CreateInstructorDemo {
         } catch (Exception e) {
             e.printStackTrace();
             hibernateUtils.getSession().getTransaction().rollback();
+        } finally {
+            hibernateUtils.getSession().close();
+            hibernateUtils.getSessionFactoryInstance().close();
         }
     }
 
