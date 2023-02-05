@@ -29,8 +29,13 @@ public class InstructorDetail extends PersistentObject {
     /*
     Here we are extend to bidirectional relation to `Instructor`.
     The difference: we need to reference the relation using existing `instructorDetail``object bound to `Instructor`.
+    We explicitly name all cascade types to exclude the DELETE
+     since we want to delete instructor detail without the instructor itself.
      */
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.MERGE
+            , CascadeType.DETACH
+            , CascadeType.PERSIST
+            , CascadeType.REFRESH})
     @Getter
     @Setter
     private Instructor instructor;

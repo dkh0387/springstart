@@ -10,7 +10,7 @@ public class ReadInstructorDetailDemo {
         InstructorDAO instructorDAO = new InstructorDAO();
 
         try {
-            InstructorDetail instructorDetail = (InstructorDetail) instructorDAO.get(2, InstructorDetail.class, hibernateUtils.getSession());
+            InstructorDetail instructorDetail = (InstructorDetail) instructorDAO.get(4, InstructorDetail.class, hibernateUtils.getSession());
             System.out.println("Instructor detail: " + instructorDetail);
             /*
              * We can get the associated Instructor since we use bidirectional relation.

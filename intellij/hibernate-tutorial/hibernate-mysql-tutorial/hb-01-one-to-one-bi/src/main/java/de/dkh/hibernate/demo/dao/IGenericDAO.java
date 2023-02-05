@@ -15,7 +15,7 @@ public interface IGenericDAO {
 
     public List<PersistentObject> query(Session session, String where);
 
-    public void updateProperty(long id, Session session, String property, String value);
+    public void updateProperty(long id, Class<? extends PersistentObject> entityType, Session session, String property, String value);
 
     public void delete(PersistentObject object, Session session);
 }
