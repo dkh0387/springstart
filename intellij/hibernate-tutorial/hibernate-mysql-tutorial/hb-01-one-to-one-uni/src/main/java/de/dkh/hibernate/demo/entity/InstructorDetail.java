@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Belongs to {@linkplain OneToOne} unidirectional example related to {@linkplain Instructor}.
@@ -26,22 +29,5 @@ public class InstructorDetail extends PersistentObject {
     @Setter
     @Column(name = "hobby")
     private String hobby;
-    /*
-    Here we are extend to bidirectional relation to `Instructor`.
-    The difference: we need to reference the relation using existing `instructorDetail``object bound to `Instructor`.
-     */
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
-    @Getter
-    @Setter
-    private Instructor instructor;
-
-    @Override
-    public String toString() {
-        return "InstructorDetail{" +
-                "youtubeChannel='" + youtubeChannel + '\'' +
-                ", hobby='" + hobby + '\'' +
-                ", instructor=" + instructor.getFirstName() + " " + instructor.getLastName() +
-                '}';
-    }
 
 }
