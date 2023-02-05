@@ -1,7 +1,8 @@
 package de.dkh.hibernate.demo.dao;
 
-import de.dkh.hibernate.demo.utils.HibernateUtils;
+import de.dkh.hibernate.demo.entity.PersistentObject;
 import de.dkh.hibernate.demo.entity.Student;
+import de.dkh.hibernate.demo.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.springframework.beans.PropertyAccessor;
 import org.springframework.beans.PropertyAccessorFactory;
@@ -9,44 +10,44 @@ import org.springframework.beans.PropertyAccessorFactory;
 import java.util.List;
 
 public class StudentDAO implements IGenericDAO {
-    public long save(Student student, Session session) {
+    public long save(PersistentObject object, Session session) {
 
         if (!session.getTransaction().isActive()) {
             session.beginTransaction();
         }
-        session.save(student);
+        session.save(object);
         session.getTransaction().commit();
-        return student.getId();
+        return object.getId();
     }
 
-    public Student get(long id, Session session) {
+    public PersistentObject get(long id, Class<? extends PersistentObject> entityType, Session session) {
 
         if (!session.getTransaction().isActive()) {
             session.beginTransaction();
         }
-        final Student student = session.get(Student.class, id);
+        final PersistentObject object = session.get(entityType, id);
         session.getTransaction().commit();
-        return student;
+        return object;
     }
 
     @Override
-    public List<Student> query(Session session) {
+    public List<PersistentObject> query(Session session) {
 
         if (!session.getTransaction().isActive()) {
             session.beginTransaction();
         }
-        final List<Student> studentList = session.createQuery("from Student").getResultList();
+        final List<PersistentObject> studentList = session.createQuery("from Student").getResultList();
         session.getTransaction().commit();
         return studentList;
     }
 
     @Override
-    public List<Student> query(Session session, String where) {
+    public List<PersistentObject> query(Session session, String where) {
 
         if (!session.getTransaction().isActive()) {
             session.beginTransaction();
         }
-        final List<Student> studentList = session.createQuery(String.format("from Student s where %s", where)).getResultList();
+        final List<PersistentObject> studentList = session.createQuery(String.format("from Student s where %s", where)).getResultList();
         session.getTransaction().commit();
         return studentList;
     }
@@ -55,15 +56,10 @@ public class StudentDAO implements IGenericDAO {
      * Example of using reflections in Spring:
      * If we need to access properties using their getters and setters,
      * we could use instead the forBeanPropertyAccess method.
-     *
-     * @param id
-     * @param session
-     * @param property
-     * @param value
      */
     @Override
-    public void updateProperty(long id, Session session, String property, String value) {
-        Student student = get(id, session);
+    public void updateProperty(long id, Class<? extends PersistentObject> entityType, Session session, String property, String value) {
+        Student student = (Student) get(id, entityType, session);
         System.out.println("Student before update(): " + student);
         PropertyAccessor myAccessor = PropertyAccessorFactory.forBeanPropertyAccess(student);
         // a `setSomeProperty()` method will be used
@@ -81,16 +77,14 @@ public class StudentDAO implements IGenericDAO {
 
     /**
      * Example of delete operation.
-     *
-     * @param student
-     * @param session
      */
-    public void delete(Student student, Session session) {
+    @Override
+    public void delete(PersistentObject object, Session session) {
 
         if (!session.getTransaction().isActive()) {
             session.beginTransaction();
         }
-        session.delete(student);
+        session.delete(object);
         session.getTransaction().commit();
     }
 }

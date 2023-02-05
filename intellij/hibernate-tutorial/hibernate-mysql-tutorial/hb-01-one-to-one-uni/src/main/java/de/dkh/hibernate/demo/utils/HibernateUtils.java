@@ -18,7 +18,6 @@ public class HibernateUtils {
      * NOTE: it is indeed important to add ALL annoted entity classes being used,
      * otherwise hibernate will not find them!
      *
-     * @return
      */
     public SessionFactory getSessionFactoryInstance() {
 

@@ -1,7 +1,8 @@
 package de.dkh.hibernate.demo.crudexamples;
 
-import de.dkh.hibernate.demo.utils.HibernateUtils;
 import de.dkh.hibernate.demo.dao.StudentDAO;
+import de.dkh.hibernate.demo.entity.Student;
+import de.dkh.hibernate.demo.utils.HibernateUtils;
 
 /**
  * Example of {@code update()}.
@@ -13,7 +14,7 @@ public class UpdateStudentDemo {
         StudentDAO studentDAO = new StudentDAO();
 
         try {
-            studentDAO.updateProperty(2, hibernateUtils.getSession(), "email", "deniskaimmerda@yahoo.de");
+            studentDAO.updateProperty(2, Student.class, hibernateUtils.getSession(), "email", "deniskh87@gmail.com");
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -11,18 +11,17 @@ import java.util.Date;
 public class CreateStudentDemo {
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
-        Session session = hibernateUtils.getSession();
         StudentDAO studentDAO = new StudentDAO();
 
         try {
             String theDateOfBirthStr = "31/12/1998";
             Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
             Student student = new Student("Melli", "Vogt", "melli@gmail.com", theDateOfBirth);
-            studentDAO.save(student, session);
+            studentDAO.save(student, hibernateUtils.getSession());
 
         } catch (Exception e) {
             e.printStackTrace();
-            session.getTransaction().rollback();
+            hibernateUtils.getSession().getTransaction().rollback();
         }
     }
 

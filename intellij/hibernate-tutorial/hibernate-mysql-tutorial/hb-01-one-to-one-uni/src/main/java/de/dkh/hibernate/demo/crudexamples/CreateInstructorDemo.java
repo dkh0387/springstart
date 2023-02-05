@@ -9,7 +9,6 @@ import org.hibernate.Session;
 public class CreateInstructorDemo {
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
-        Session session = hibernateUtils.getSession();
         InstructorDAO instructorDAO = new InstructorDAO();
 
         try {
@@ -20,11 +19,11 @@ public class CreateInstructorDemo {
              * NOTE: we do have the cascade type `ALL` here,
              *  so we just need to bind instructorDetail to instructor and save the last one.
              */
-            instructorDAO.save(instructor, session);
+            instructorDAO.save(instructor, hibernateUtils.getSession());
 
         } catch (Exception e) {
             e.printStackTrace();
-            session.getTransaction().rollback();
+            hibernateUtils.getSession().getTransaction().rollback();
         }
     }
 

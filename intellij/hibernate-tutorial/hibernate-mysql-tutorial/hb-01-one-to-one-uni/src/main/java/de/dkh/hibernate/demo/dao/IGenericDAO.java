@@ -9,11 +9,13 @@ public interface IGenericDAO {
 
     public long save(PersistentObject object, Session session);
 
-    public PersistentObject get(long id, Session session);
+    public PersistentObject get(long id, Class<? extends PersistentObject> entityType, Session session);
 
     public List<PersistentObject> query(Session session);
 
     public List<PersistentObject> query(Session session, String where);
 
     public void updateProperty(long id, Session session, String property, String value);
+
+    public void delete(PersistentObject object, Session session);
 }
