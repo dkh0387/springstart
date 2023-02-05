@@ -1,6 +1,6 @@
-package de.dkh.hibernate.demo.crudbasics;
+package de.dkh.hibernate.demo.crudexamples;
 
-import de.dkh.hibernate.demo.HibernateUtils;
+import de.dkh.hibernate.demo.utils.HibernateUtils;
 import de.dkh.hibernate.demo.dao.StudentDAO;
 import de.dkh.hibernate.demo.entity.Student;
 

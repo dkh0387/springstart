@@ -10,13 +10,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Belongs to {@linkplain OneToOne} example related to {@linkplain InstructorDetail}.
+ * Belongs to {@linkplain OneToOne} unidirectional example related to {@linkplain InstructorDetail}.
+ * unidirectional means: we have only the {@linkplain InstructorDetail} relation here, not reversed.
  */
 @Entity
 @Table(name = "instructor")
 @NoArgsConstructor
 @ToString
-public class Instructor implements Serializable {
+public class Instructor extends PersistentObject implements Serializable {
 
     public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -24,12 +25,6 @@ public class Instructor implements Serializable {
         this.email = email;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    @Getter
-    @Setter
-    private Long id;
     @Column(name = "first_name")
     @Getter
     @Setter

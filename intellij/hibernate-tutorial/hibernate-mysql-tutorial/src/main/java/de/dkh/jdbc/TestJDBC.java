@@ -1,4 +1,4 @@
-package de.dkh;
+package de.dkh.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -5,7 +5,7 @@ import org.hibernate.Session;
 
 import java.util.List;
 
-public interface IStudentDAO {
+public interface IGenericDAO {
 
     public long save(Student student, Session session);
 

@@ -1,4 +1,4 @@
-package de.dkh.hibernate.demo;
+package de.dkh.hibernate.demo.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,6 +1,6 @@
 package de.dkh.hibernate.demo.dao;
 
-import de.dkh.hibernate.demo.HibernateUtils;
+import de.dkh.hibernate.demo.utils.HibernateUtils;
 import de.dkh.hibernate.demo.entity.Student;
 import org.hibernate.Session;
 import org.springframework.beans.PropertyAccessor;
@@ -8,7 +8,7 @@ import org.springframework.beans.PropertyAccessorFactory;
 
 import java.util.List;
 
-public class StudentDAO implements IStudentDAO {
+public class StudentDAO implements IGenericDAO {
     public long save(Student student, Session session) {
 
         if (!session.getTransaction().isActive()) {

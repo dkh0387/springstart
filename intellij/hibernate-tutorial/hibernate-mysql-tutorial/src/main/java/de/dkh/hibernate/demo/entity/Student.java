@@ -1,6 +1,6 @@
 package de.dkh.hibernate.demo.entity;
 
-import de.dkh.hibernate.demo.DateUtils;
+import de.dkh.hibernate.demo.utils.DateUtils;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,7 +24,7 @@ import java.util.Date;
 @Entity
 @Table(name = "student")
 @NoArgsConstructor
-public class Student implements Serializable {
+public class Student extends PersistentObject implements Serializable {
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -39,17 +39,8 @@ public class Student implements Serializable {
         this.email = email;
     }
 
-    /**
-     * With the generation {@linkplain GenerationType#AUTO} hibernate will look for the default {@code hibernate_sequence} table,
-     * so change generation to {@linkplain GenerationType#IDENTITY} as below.
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    @Getter
-    @Setter
-    private Long id;
-    //    @GenericGenerator(name = "custom_id", strategy = "de.dkh.hibernate.demo.IDGenerator")
+
+    //@GenericGenerator(name = "custom_id", strategy = "de.dkh.hibernate.demo.utils.IDGenerator")
 //    @GeneratedValue(generator = "custom_id")
 //    @Column(name = "custom_id", nullable = false)
 //    @Getter

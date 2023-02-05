@@ -1,4 +1,4 @@
-package de.dkh.hibernate.demo;
+package de.dkh.hibernate.demo.utils;
 
 import de.dkh.hibernate.demo.entity.Student;
 import org.hibernate.HibernateException;

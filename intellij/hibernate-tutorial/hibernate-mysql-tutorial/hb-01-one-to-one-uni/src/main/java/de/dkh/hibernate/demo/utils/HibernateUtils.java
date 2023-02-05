@@ -1,12 +1,11 @@
-package de.dkh.hibernate.demo;
+package de.dkh.hibernate.demo.utils;
 
-import de.dkh.hibernate.demo.entity.Student;
+import de.dkh.hibernate.demo.entity.Instructor;
+import de.dkh.hibernate.demo.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
-import java.sql.Connection;
 
 public class HibernateUtils {
     private static SessionFactory sessionFactory;
@@ -15,6 +14,9 @@ public class HibernateUtils {
      * It is a heavyweight object created only once.
      * From this we can create different {@linkplain Session} objects for a unit of work.
      * For testing purpose we will inject {@linkplain HibernateUtils} via constructor and mock everything away.
+     * <p>
+     * NOTE: it is indeed important to add ALL annoted entity classes being used,
+     * otherwise hibernate will not find them!
      *
      * @return
      */
@@ -22,7 +24,8 @@ public class HibernateUtils {
 
         if (sessionFactory == null) {
             final Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
-            configuration.addAnnotatedClass(Student.class);
+            configuration.addAnnotatedClass(Instructor.class);
+            configuration.addAnnotatedClass(InstructorDetail.class);
             sessionFactory = configuration.buildSessionFactory();
         }
         return sessionFactory;
