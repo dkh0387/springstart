@@ -6,10 +6,16 @@
         <datasource-map>
           <unit-entry name="hibernate.cfg.xml" value="62b47545-82a3-4553-ab17-834c18f147f5" />
           <unit-entry name="src:hibernate.cfg.xml" />
+          <unit-entry name="src:main:resources:hibernate.cfg.xml" value="12e2c7c3-eec5-4726-8b44-2d2010acbffc" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
       </configuration>
     </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+    </content>
   </component>
 </module>

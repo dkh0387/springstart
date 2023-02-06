@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hb-01-one-to-one-uni" />
+        <module name="hb-03-one-to-many" />
         <module name="hb-01-one-to-one-bi" />
       </profile>
     </annotationProcessing>

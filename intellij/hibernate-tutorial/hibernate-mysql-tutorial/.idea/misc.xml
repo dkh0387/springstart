@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/hb-01-one-to-one-uni" />
+    <file type="web" url="file://$PROJECT_DIR$/hb-03-one-to-many" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
