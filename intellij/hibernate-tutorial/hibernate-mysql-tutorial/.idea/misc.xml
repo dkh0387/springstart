@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/hb-01-one-to-one-uni" />
     <file type="web" url="file://$PROJECT_DIR$/hb-03-one-to-many" />
+    <file type="web" url="file://$PROJECT_DIR$/hb-04-one-to-many-uni" />
     <file type="web" url="file://$PROJECT_DIR$/hb-eager-vs-lazy-demo" />
   </component>
   <component name="MavenProjectsManager">
@@ -12,6 +13,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/hb-01-one-to-one-uni/pom.xml" />
         <option value="$PROJECT_DIR$/hb-eager-vs-lazy-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/hb-04-one-to-many-uni/pom.xml" />
       </list>
     </option>
   </component>

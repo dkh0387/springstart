@@ -1,6 +1,6 @@
 package de.dkh.hibernate.demo.entity;
 
-import de.dkh.hibernate.demo.crudexamples.ReadInstructorCoursesDemo;
+import de.dkh.hibernate.demo.crudexamples.CreateCourseReviewsDemo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,7 +8,6 @@ import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +15,13 @@ import java.util.List;
  * Belongs to {@linkplain OneToOne} unidirectional example related to {@linkplain InstructorDetail}.
  * unidirectional means: we have only the {@linkplain InstructorDetail} relation here, not reversed.
  * NOTE: the {@linkplain FetchType#LAZY} is selected here,
- * because we want to read courses from instructor only on demand, see {@linkplain ReadInstructorCoursesDemo}.
+ * because we want to read courses from instructor only on demand, see {@linkplain CreateCourseReviewsDemo}.
  */
 @Entity
 @Table(name = "instructor")
 @NoArgsConstructor
 @ToString
-public class Instructor extends PersistentObject implements Serializable {
+public class Instructor extends PersistentObject {
 
     public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;

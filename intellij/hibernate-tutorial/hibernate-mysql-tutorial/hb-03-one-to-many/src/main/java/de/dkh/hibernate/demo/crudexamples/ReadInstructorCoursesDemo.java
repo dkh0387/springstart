@@ -1,4 +1,4 @@
-package de.dkh.hibernate.demo;
+package de.dkh.hibernate.demo.crudexamples;
 
 import de.dkh.hibernate.demo.dao.InstructorDAO;
 import de.dkh.hibernate.demo.entity.Instructor;

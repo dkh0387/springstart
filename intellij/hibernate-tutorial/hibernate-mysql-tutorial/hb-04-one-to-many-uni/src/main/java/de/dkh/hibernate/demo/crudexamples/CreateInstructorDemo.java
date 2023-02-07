@@ -1,6 +1,6 @@
-package de.dkh.hibernate.demo;
+package de.dkh.hibernate.demo.crudexamples;
 
-import de.dkh.hibernate.demo.dao.InstructorDAO;
+import de.dkh.hibernate.demo.dao.PersistentDAO;
 import de.dkh.hibernate.demo.entity.Instructor;
 import de.dkh.hibernate.demo.entity.InstructorDetail;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
@@ -8,7 +8,7 @@ import de.dkh.hibernate.demo.utils.HibernateUtils;
 public class CreateInstructorDemo {
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
-        InstructorDAO instructorDAO = new InstructorDAO();
+        PersistentDAO persistentDAO = new PersistentDAO();
 
         try {
             Instructor instructor = new Instructor("Denis", "Khaskin", "denis@gmail.com");
@@ -18,7 +18,7 @@ public class CreateInstructorDemo {
              * NOTE: we do have the cascade type `PERSIST` here,
              *  so we just need to bind instructorDetail to instructor and save the last one.
              */
-            instructorDAO.save(instructor, hibernateUtils.getSession());
+            persistentDAO.save(instructor, hibernateUtils.getSession());
 
         } catch (Exception e) {
             e.printStackTrace();
