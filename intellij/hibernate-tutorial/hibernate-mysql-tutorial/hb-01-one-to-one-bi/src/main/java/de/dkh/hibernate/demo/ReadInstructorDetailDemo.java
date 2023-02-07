@@ -1,24 +1,21 @@
-package de.dkh.hibernate.demo.crudexamples;
+package de.dkh.hibernate.demo;
 
 import de.dkh.hibernate.demo.dao.InstructorDAO;
-import de.dkh.hibernate.demo.entity.Instructor;
 import de.dkh.hibernate.demo.entity.InstructorDetail;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
 
-public class CreateInstructorDemo {
+public class ReadInstructorDetailDemo {
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
         InstructorDAO instructorDAO = new InstructorDAO();
 
         try {
-            Instructor instructor = new Instructor("Denis", "Khaskin", "denis@gmail.com");
-            InstructorDetail instructorDetail = new InstructorDetail("dkh@yt", "coding");
-            instructor.setInstructorDetail(instructorDetail);
+            InstructorDetail instructorDetail = (InstructorDetail) instructorDAO.get(4, InstructorDetail.class, hibernateUtils.getSession());
+            System.out.println("Instructor detail: " + instructorDetail);
             /*
-             * NOTE: we do have the cascade type `ALL` here,
-             *  so we just need to bind instructorDetail to instructor and save the last one.
+             * We can get the associated Instructor since we use bidirectional relation.
              */
-            instructorDAO.save(instructor, hibernateUtils.getSession());
+            System.out.println("Associated instructor: " + instructorDetail.getInstructor());
 
         } catch (Exception e) {
             e.printStackTrace();

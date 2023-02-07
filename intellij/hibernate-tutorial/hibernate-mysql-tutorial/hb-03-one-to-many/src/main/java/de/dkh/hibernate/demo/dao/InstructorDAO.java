@@ -36,6 +36,19 @@ public class InstructorDAO implements IGenericDAO {
         return object;
     }
 
+    public PersistentObject get(long id, Class<? extends PersistentObject> entityType, Session session, boolean commit) {
+
+        if (!session.getTransaction().isActive()) {
+            session.beginTransaction();
+        }
+        final PersistentObject object = session.get(entityType, id);
+
+        if (commit) {
+            session.getTransaction().commit();
+        }
+        return object;
+    }
+
     public List<PersistentObject> query(Session session) {
         return null;
     }

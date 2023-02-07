@@ -1,6 +1,6 @@
 package de.dkh.hibernate.demo.entity;
 
-import de.dkh.hibernate.demo.ReadInstructorCoursesDemo;
+import de.dkh.hibernate.demo.crudexamples.EagerLazyDemo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.util.List;
  * Belongs to {@linkplain OneToOne} unidirectional example related to {@linkplain InstructorDetail}.
  * unidirectional means: we have only the {@linkplain InstructorDetail} relation here, not reversed.
  * NOTE: the {@linkplain FetchType#LAZY} is selected here,
- * because we want to read courses from instructor only on demand, see {@linkplain ReadInstructorCoursesDemo}.
+ * because we want to read courses from instructor only on demand, see {@linkplain EagerLazyDemo}.
  */
 @Entity
 @Table(name = "instructor")

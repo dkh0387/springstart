@@ -5,6 +5,7 @@ import de.dkh.hibernate.demo.utils.HibernateUtils;
 import org.hibernate.Session;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IGenericDAO {
 
@@ -16,9 +17,11 @@ public interface IGenericDAO {
 
     public PersistentObject get(long id, Class<? extends PersistentObject> entityType, Session session, boolean commit);
 
-    public List<PersistentObject> query(Session session);
+    public List<? extends PersistentObject> selectAllQuery(Class<? extends PersistentObject> entityType, Session session);
 
-    public List<PersistentObject> query(Session session, String where);
+    public PersistentObject selectByIdQuery(long id, Class<? extends PersistentObject> entityType, Session session);
+
+    public List<? extends PersistentObject> query(Class<? extends PersistentObject> entityType, String hql, Map<String, Object> paramMap, Session session);
 
     public void updateProperty(long id, Session session, String property, String value);
 
