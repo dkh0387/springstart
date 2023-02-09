@@ -9,12 +9,19 @@ import java.util.List;
 public class PersistentDAO implements IGenericDAO {
 
     public long save(PersistentObject object, Session session) {
+        return save(object, session, true);
+    }
+
+    public long save(PersistentObject object, Session session, boolean commit) {
 
         if (!session.getTransaction().isActive()) {
             session.beginTransaction();
         }
         session.save(object);
-        session.getTransaction().commit();
+
+        if (commit) {
+            session.getTransaction().commit();
+        }
         return object.getId();
     }
 
@@ -23,6 +30,13 @@ public class PersistentDAO implements IGenericDAO {
 
         if (objectList != null) {
             objectList.forEach(o -> save(o, hibernateUtils.getSession()));
+        }
+    }
+
+    public void saveAll(List<PersistentObject> objectList, HibernateUtils hibernateUtils, boolean commit) {
+
+        if (objectList != null) {
+            objectList.forEach(o -> save(o, hibernateUtils.getSession(), commit));
         }
     }
 

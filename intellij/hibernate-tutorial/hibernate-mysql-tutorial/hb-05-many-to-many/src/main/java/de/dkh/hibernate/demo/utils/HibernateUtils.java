@@ -1,9 +1,6 @@
 package de.dkh.hibernate.demo.utils;
 
-import de.dkh.hibernate.demo.entity.Course;
-import de.dkh.hibernate.demo.entity.Instructor;
-import de.dkh.hibernate.demo.entity.InstructorDetail;
-import de.dkh.hibernate.demo.entity.Review;
+import de.dkh.hibernate.demo.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -28,6 +25,7 @@ public class HibernateUtils {
             configuration.addAnnotatedClass(InstructorDetail.class);
             configuration.addAnnotatedClass(Course.class);
             configuration.addAnnotatedClass(Review.class);
+            configuration.addAnnotatedClass(Student.class);
             sessionFactory = configuration.buildSessionFactory();
         }
         return sessionFactory;

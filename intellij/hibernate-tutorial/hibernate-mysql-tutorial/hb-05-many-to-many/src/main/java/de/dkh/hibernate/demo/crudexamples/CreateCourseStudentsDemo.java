@@ -2,16 +2,18 @@ package de.dkh.hibernate.demo.crudexamples;
 
 import de.dkh.hibernate.demo.dao.PersistentDAO;
 import de.dkh.hibernate.demo.entity.Course;
-import de.dkh.hibernate.demo.entity.Review;
+import de.dkh.hibernate.demo.entity.Student;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
 
-/**
- * Example of create multiple {@linkplain Review} on a {@linkplain Course}.
- * We do NOT need to explicitly save the reviews, adding them to the course is enough, so long we keep the session open!
- */
-public class CreateCourseReviewsDemo {
+import java.util.List;
 
-    public static String[] review_ids;
+/**
+ * Example of create multiple {@linkplain Student} on a {@linkplain Course}.
+ */
+public class CreateCourseStudentsDemo {
+
+    public static String[] course_ids;
+    public static String[] student_ids;
 
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
@@ -21,13 +23,16 @@ public class CreateCourseReviewsDemo {
             Course course = (Course) persistentDAO.get(Long.parseLong(args[0]), Course.class, hibernateUtils.getSession(), false);
             System.out.println("Course: " + course);
 
-            Review review1 = new Review("Amazing course!", course);
-            Review review2 = new Review("It was very good!", course);
-            Review review3 = new Review("I found the course a bit difficult!", course);
+            Student student1 = new Student("Denis", "Khaskin", "denis@gmail.com");
+            course.addStudent(student1);
+            student1.addCourse(course);
+            Student student2 = new Student("Elena", "Khaskina", "elena@gmail.com");
+            course.addStudent(student2);
+            student2.addCourse(course);
 
-            hibernateUtils.getSession().getTransaction().commit();
+            persistentDAO.saveAll(List.of(student1, student2), hibernateUtils, false);
 
-            review_ids = new String[]{String.valueOf(review1.getId()), String.valueOf(review2.getId()), String.valueOf(review3.getId())};
+            student_ids = new String[]{String.valueOf(student1.getId()), String.valueOf(student2.getId())};
 
         } catch (Exception e) {
             e.printStackTrace();

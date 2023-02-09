@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public class Student extends PersistentObject {
     @Setter
     private String email;
 
-    @ManyToMany(cascade = {CascadeType.MERGE
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE
             , CascadeType.DETACH
             , CascadeType.PERSIST
             , CascadeType.REFRESH})
@@ -46,4 +47,12 @@ public class Student extends PersistentObject {
     @Setter
     @ToString.Exclude
     private List<Course> courses;
+
+    public void addCourse(Course course) {
+
+        if (courses == null) {
+            courses = new ArrayList<>();
+        }
+        courses.add(course);
+    }
 }

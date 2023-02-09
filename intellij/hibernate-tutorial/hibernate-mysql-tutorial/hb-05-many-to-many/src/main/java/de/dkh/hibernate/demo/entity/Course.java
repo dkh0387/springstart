@@ -43,7 +43,7 @@ public class Course extends PersistentObject {
     @JoinColumn(name = "course_id")
     @ToString.Exclude
     private List<Review> reviews;
-    @ManyToMany(cascade = {CascadeType.MERGE
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE
             , CascadeType.DETACH
             , CascadeType.PERSIST
             , CascadeType.REFRESH})
@@ -65,5 +65,13 @@ public class Course extends PersistentObject {
             reviews = new ArrayList<>();
         }
         reviews.add(review);
+    }
+
+    public void addStudent(Student student) {
+
+        if (students == null) {
+            students = new ArrayList<>();
+        }
+        students.add(student);
     }
 }
