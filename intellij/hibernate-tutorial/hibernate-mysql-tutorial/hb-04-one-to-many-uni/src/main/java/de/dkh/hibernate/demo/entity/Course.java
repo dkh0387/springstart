@@ -43,7 +43,7 @@ public class Course extends PersistentObject {
     private Instructor instructor;
     @Getter
     @Setter
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     @ToString.Exclude
     private List<Review> reviews;

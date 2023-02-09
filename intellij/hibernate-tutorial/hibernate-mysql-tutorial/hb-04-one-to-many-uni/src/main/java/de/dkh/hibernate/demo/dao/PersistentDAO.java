@@ -27,7 +27,7 @@ public class PersistentDAO implements IGenericDAO {
     }
 
     public PersistentObject get(long id, Class<? extends PersistentObject> entityType, Session session) {
-        return get(id, entityType, session, false);
+        return get(id, entityType, session, true);
     }
 
     public PersistentObject get(long id, Class<? extends PersistentObject> entityType, Session session, boolean commit) {
