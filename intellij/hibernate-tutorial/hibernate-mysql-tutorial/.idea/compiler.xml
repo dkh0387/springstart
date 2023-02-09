@@ -12,6 +12,7 @@
         <module name="hb-eager-vs-lazy-demo" />
         <module name="hb-01-one-to-one-uni" />
         <module name="hb-01-one-to-one-bi" />
+        <module name="hb-05-many-to-many" />
       </profile>
     </annotationProcessing>
   </component>
