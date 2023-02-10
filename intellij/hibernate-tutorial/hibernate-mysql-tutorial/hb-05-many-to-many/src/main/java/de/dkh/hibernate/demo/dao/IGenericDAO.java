@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface IGenericDAO {
 
-    public long save(PersistentObject object, Session session);
+    public long save(PersistentObject object, Session session, boolean commit);
+
+    public void saveOrUpdate(PersistentObject object, Session session);
 
     public void saveAll(List<PersistentObject> objectList, HibernateUtils hibernateUtils);
 
@@ -19,6 +21,8 @@ public interface IGenericDAO {
     public List<PersistentObject> query(Session session);
 
     public List<PersistentObject> query(Session session, String where);
+
+    public void executeStatement(Session session, String tableName, String sql);
 
     public void updateProperty(long id, Session session, String property, String value);
 

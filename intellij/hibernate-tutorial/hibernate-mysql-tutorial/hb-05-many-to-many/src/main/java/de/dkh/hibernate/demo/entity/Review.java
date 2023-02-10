@@ -18,6 +18,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @ToString
 public class Review extends PersistentObject {
+
+    public static EntityType ENTITY_TYPE = EntityType.REVIEW;
+
     @Getter
     @Setter
     @Column(name = "comment")

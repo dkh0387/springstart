@@ -5,7 +5,7 @@ import de.dkh.hibernate.demo.entity.Instructor;
 import de.dkh.hibernate.demo.entity.InstructorDetail;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
 
-public class CreateInstructorDemo {
+public class CreateInstructorDetailDemo {
 
     public static long instructor_id;
 

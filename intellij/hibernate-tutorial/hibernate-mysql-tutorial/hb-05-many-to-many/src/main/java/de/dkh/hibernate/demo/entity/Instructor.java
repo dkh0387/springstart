@@ -22,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 public class Instructor extends PersistentObject {
+    public static EntityType ENTITY_TYPE = EntityType.INSTRUCTOR;
 
     public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;

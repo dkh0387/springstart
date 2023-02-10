@@ -11,18 +11,25 @@ import java.util.List;
 
 /**
  * Example of {@linkplain ManyToMany} relation to {@linkplain Course}.
+ * By saving {@linkplain Student} objects on a {@linkplain Course} it is enough to add them to the course {@linkplain Course#addStudent(Student)}.
+ * After that we just have to save students {@linkplain de.dkh.hibernate.demo.crudexamples.CreateCourseStudentsDemo#main(String[])}.
  */
 @Entity
 @Table(name = "student")
 @NoArgsConstructor
 @ToString
 public class Student extends PersistentObject {
-
+    public static EntityType ENTITY_TYPE = EntityType.STUDENT;
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public Student(String firstName, String lastName, String email, Course course) {
+        this(firstName, lastName, email);
+        course.addStudent(this);
     }
 
     @Column(name = "first_name")
@@ -47,6 +54,7 @@ public class Student extends PersistentObject {
     @Setter
     @ToString.Exclude
     private List<Course> courses;
+
 
     public void addCourse(Course course) {
 

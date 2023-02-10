@@ -4,11 +4,12 @@ import de.dkh.hibernate.demo.dao.PersistentDAO;
 import de.dkh.hibernate.demo.entity.Course;
 import de.dkh.hibernate.demo.entity.Student;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
-
-import java.util.List;
+import org.hibernate.Session;
 
 /**
  * Example of create multiple {@linkplain Student} on a {@linkplain Course}.
+ * NOTE: we HAVE TO persist all {@linkplain Student} objects associated to a given {@linkplain Course} BEFORE {@linkplain Session#getTransaction()#commit()},
+ * otherwise we get {@linkplain org.hibernate.HibernateException}
  */
 public class CreateCourseStudentsDemo {
 
@@ -23,14 +24,12 @@ public class CreateCourseStudentsDemo {
             Course course = (Course) persistentDAO.get(Long.parseLong(args[0]), Course.class, hibernateUtils.getSession(), false);
             System.out.println("Course: " + course);
 
-            Student student1 = new Student("Denis", "Khaskin", "denis@gmail.com");
-            course.addStudent(student1);
-            student1.addCourse(course);
-            Student student2 = new Student("Elena", "Khaskina", "elena@gmail.com");
-            course.addStudent(student2);
-            student2.addCourse(course);
-
-            persistentDAO.saveAll(List.of(student1, student2), hibernateUtils, false);
+            Student student1 = new Student("Denis", "Khaskin", "denis@gmail.com", course);
+            Student student2 = new Student("Elena", "Khaskina", "elena@gmail.com", course);
+            persistentDAO.save(student1, hibernateUtils.getSession(), false);
+            persistentDAO.save(student2, hibernateUtils.getSession(), false);
+            hibernateUtils.getSession().getTransaction().commit();
+            System.out.println("Students for the course " + course + " :" + course.getStudents());
 
             student_ids = new String[]{String.valueOf(student1.getId()), String.valueOf(student2.getId())};
 

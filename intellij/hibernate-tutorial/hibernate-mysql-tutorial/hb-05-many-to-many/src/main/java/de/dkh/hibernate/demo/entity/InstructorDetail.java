@@ -16,6 +16,9 @@ import javax.persistence.Table;
 @Table(name = "instructor_detail")
 @NoArgsConstructor
 public class InstructorDetail extends PersistentObject {
+
+    public static EntityType ENTITY_TYPE = EntityType.INSTRUCTOR_DETAIL;
+
     public InstructorDetail(String youtubeChannel, String hobby) {
         this.youtubeChannel = youtubeChannel;
         this.hobby = hobby;

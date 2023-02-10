@@ -19,6 +19,9 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 public class Course extends PersistentObject {
+
+    public static EntityType ENTITY_TYPE = EntityType.COURSE;
+
     public Course(String title, Instructor instructor) {
         this.title = title;
         this.instructor = instructor;
@@ -52,6 +55,11 @@ public class Course extends PersistentObject {
     @Setter
     @ToString.Exclude
     private List<Student> students;
+
+    public Course(String title, Student student) {
+        this.title = title;
+        student.addCourse(this);
+    }
 
     /**
      * This method is REQUIRED, when we use unidirectional relation!
