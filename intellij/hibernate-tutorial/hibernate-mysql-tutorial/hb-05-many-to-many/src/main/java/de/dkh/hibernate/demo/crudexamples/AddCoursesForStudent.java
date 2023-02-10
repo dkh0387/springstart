@@ -7,12 +7,11 @@ import de.dkh.hibernate.demo.utils.HibernateUtils;
 
 /**
  * Example of create multiple {@linkplain Course} on a {@linkplain Student}.
- * Actually it is an inverse process of {@linkplain CreateCourseStudentsDemo#main(String[])}.
+ * Actually it is an inverse process of {@linkplain AddStudentsForCourseDemo#main(String[])}.
  */
-public class CreateStudentCoursesDemo {
+public class AddCoursesForStudent {
 
     public static String[] course_ids;
-    public static String[] student_ids;
 
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
@@ -20,7 +19,7 @@ public class CreateStudentCoursesDemo {
 
         try {
             Student student = (Student) persistentDAO.get(Long.parseLong(args[0]), Student.class, hibernateUtils.getSession(), false);
-            System.out.println("Student: " + student);
+            System.out.println("\n\nStudent: " + student + "\n");
 
             Course course1 = new Course("C++", student);
             Course course2 = new Course("Pascal", student);
@@ -28,7 +27,7 @@ public class CreateStudentCoursesDemo {
             persistentDAO.save(course1, hibernateUtils.getSession(), false);
             persistentDAO.save(course2, hibernateUtils.getSession(), false);
             hibernateUtils.getSession().getTransaction().commit();
-            System.out.println("Courses for the student " + student + " :" + student.getCourses());
+            System.out.println("\n\nCourses for the student " + student + " :" + student.getCourses() + "\n");
 
             course_ids = new String[]{String.valueOf(course1.getId()), String.valueOf(course2.getId())};
 

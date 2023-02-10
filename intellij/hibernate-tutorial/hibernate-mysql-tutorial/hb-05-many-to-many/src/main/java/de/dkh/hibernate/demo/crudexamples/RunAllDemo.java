@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  * Run all in one.
  * NOTE: we need to keep {@linkplain HibernateUtils#getSessionFactoryInstance()} open in order to reuse it for each step!
  */
-public class CreateAllDemo {
+public class RunAllDemo {
 
     public static void main(String[] args) {
 
@@ -27,11 +27,16 @@ public class CreateAllDemo {
 
         CreateCourseReviewsDemo.main(course_ids);
 
-        CreateCourseStudentsDemo.main(course_ids);
-        final String[] student_ids = CreateCourseStudentsDemo.student_ids;
+        AddStudentsForCourseDemo.main(course_ids);
+        final String[] student_ids = AddStudentsForCourseDemo.student_ids;
 
-        CreateStudentCoursesDemo.main(student_ids);
-        final String[] courses_for_student_ids = CreateStudentCoursesDemo.course_ids;
+        AddCoursesForStudent.main(student_ids);
+
+        ReadCoursesForStudent.main(student_ids);
+
+        DeleteCourseDemo.main(course_ids);
+
+        DeleteStudentDemo.main(student_ids);
 
     }
 }

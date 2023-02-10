@@ -2,28 +2,24 @@ package de.dkh.hibernate.demo.crudexamples;
 
 import de.dkh.hibernate.demo.dao.PersistentDAO;
 import de.dkh.hibernate.demo.entity.Course;
-import de.dkh.hibernate.demo.entity.Instructor;
+import de.dkh.hibernate.demo.entity.Student;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
 
-import java.util.List;
-
-public class CreateCoursesDemo {
-
-    public static String[] course_ids;
+/**
+ * Example of reading multiple {@linkplain Course} on a {@linkplain Student}.
+ */
+public class ReadCoursesForStudent {
 
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
         PersistentDAO persistentDAO = new PersistentDAO();
 
         try {
-            Instructor instructor = (Instructor) persistentDAO.get(Long.parseLong(args[0]), Instructor.class, hibernateUtils.getSession());
+            Student student = (Student) persistentDAO.get(Long.parseLong(args[0]), Student.class, hibernateUtils.getSession(), false);
+            System.out.println("\n\nStudent: " + student + "\n");
+            System.out.println("\n\nCourses for the student " + student + " :" + student.getCourses() + "\n");
 
-            Course course1 = new Course("JAVA", instructor);
-            Course course2 = new Course("Python", instructor);
-
-            persistentDAO.saveAll(List.of(course1, course2), hibernateUtils);
-
-            course_ids = new String[]{String.valueOf(course1.getId()), String.valueOf(course2.getId())};
+            hibernateUtils.getSession().getTransaction().commit();
 
         } catch (Exception e) {
             e.printStackTrace();

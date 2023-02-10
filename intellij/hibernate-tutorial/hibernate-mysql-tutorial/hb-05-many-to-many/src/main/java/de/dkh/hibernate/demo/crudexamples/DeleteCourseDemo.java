@@ -2,28 +2,25 @@ package de.dkh.hibernate.demo.crudexamples;
 
 import de.dkh.hibernate.demo.dao.PersistentDAO;
 import de.dkh.hibernate.demo.entity.Course;
-import de.dkh.hibernate.demo.entity.Instructor;
+import de.dkh.hibernate.demo.entity.Student;
 import de.dkh.hibernate.demo.utils.HibernateUtils;
 
-import java.util.List;
-
-public class CreateCoursesDemo {
-
-    public static String[] course_ids;
+/**
+ * Example of deleting a {@linkplain Course}.
+ * NOTE: because of {@linkplain javax.persistence.CascadeType#REMOVE} is not added, we DO NOT delete associated {@linkplain Student} objects, only the rows in the linked table.
+ */
+public class DeleteCourseDemo {
 
     public static void main(String[] args) {
         HibernateUtils hibernateUtils = new HibernateUtils();
         PersistentDAO persistentDAO = new PersistentDAO();
 
         try {
-            Instructor instructor = (Instructor) persistentDAO.get(Long.parseLong(args[0]), Instructor.class, hibernateUtils.getSession());
+            Course course = (Course) persistentDAO.get(Long.parseLong(args[0]), Course.class, hibernateUtils.getSession(), false);
+            System.out.println("\n\nCourse: " + course + "\n");
 
-            Course course1 = new Course("JAVA", instructor);
-            Course course2 = new Course("Python", instructor);
-
-            persistentDAO.saveAll(List.of(course1, course2), hibernateUtils);
-
-            course_ids = new String[]{String.valueOf(course1.getId()), String.valueOf(course2.getId())};
+            persistentDAO.delete(course, hibernateUtils.getSession());
+            System.out.println("\n\nCourse " + course + " deleted!" + "\n");
 
         } catch (Exception e) {
             e.printStackTrace();

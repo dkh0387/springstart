@@ -1,5 +1,6 @@
 package de.dkh.hibernate.demo.entity;
 
+import de.dkh.hibernate.demo.crudexamples.AddStudentsForCourseDemo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Example of {@linkplain ManyToMany} relation to {@linkplain Course}.
  * By saving {@linkplain Student} objects on a {@linkplain Course} it is enough to add them to the course {@linkplain Course#addStudent(Student)}.
- * After that we just have to save students {@linkplain de.dkh.hibernate.demo.crudexamples.CreateCourseStudentsDemo#main(String[])}.
+ * After that we just have to save students {@linkplain AddStudentsForCourseDemo#main(String[])}.
  */
 @Entity
 @Table(name = "student")

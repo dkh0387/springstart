@@ -19,7 +19,7 @@ public class CreateCourseReviewsDemo {
 
         try {
             Course course = (Course) persistentDAO.get(Long.parseLong(args[0]), Course.class, hibernateUtils.getSession(), false);
-            System.out.println("Course: " + course);
+            System.out.println("\n\nCourse: " + course + "\n");
 
             Review review1 = new Review("Amazing course!", course);
             Review review2 = new Review("It was very good!", course);
