@@ -1,0 +1,119 @@
+# Springboot project Setup in intellij
+
+***Basic example here is `https://github.com/dkh0387/springstart.git`***
+
+1. Create a new `MAVEN` `WAR`-project with `spring initializr`
+2. Create `web/WEB-INF` and `web/META-INF` folders
+3. Copy over `web/WEB-INF/web.xml` and `web/META-INF/MANIFEST.MF` files:
+
+  `web.xml`:
+
+
+      <?xml version="1.0" encoding="UTF-8"?>
+    <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+             id="WebApp_ID" version="3.1">
+
+        <display-name>web-customer-tracker</display-name>
+
+        <absolute-ordering/>
+
+        <!-- Spring MVC Configs -->
+
+        <!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
+        <servlet>
+            <servlet-name>dispatcher</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+            <init-param>
+                <param-name>contextConfigLocation</param-name>
+                <param-value>classpath:dispatcher-servlet.xml</param-value>
+            </init-param>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+
+        <!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet. This is kind of front controller sending all HTTP requests over the dispatcher to the beans -->
+        <servlet-mapping>
+            <servlet-name>dispatcher</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+
+    </web-app>
+
+  `MANIFEST.MF`:
+
+    Manifest-Version: 1.0
+    Main-Class: de.dkh.webcostumertracker.WebCostumerTrackerApplication
+
+4. Under `Project Structure-Modules` add the `<project-name>/web` path
+5. Prepare `src/main/resources`:
+
+  - Create subfolders `css`, `images`, `temaplates`
+  - `Spring MVC`: Copy over `dispatcher-servlet.xml` (here `.jps` example for views):
+
+            <?xml version="1.0" encoding="UTF-8"?>
+          <beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc
+              http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+          <!-- Step 3: Add support for component scanning -->
+          <context:component-scan base-package="de.dkh.springdemo"/>
+
+          <!-- Location of html resources like images, css etc. -->
+          <mvc:resources mapping="/resources/**" location="images"></mvc:resources>
+
+          <!-- Custom messages to use
+              NOTE: it is very important to use exactly this id and class in order to load the file {@code messages.properties} properly!
+              Basically we load a normal bean {@code ResourceBundleMessageSource} with id and bind the resource on it -->
+          <bean id="messageSource"
+                class="org.springframework.context.support.ResourceBundleMessageSource">
+              <property name="basenames" value="messages"/>
+          </bean>
+
+          <!-- Step 4: Add support for conversion, formatting and validation support -->
+          <mvc:annotation-driven/>
+
+          <!-- Step 5: Define Spring MVC view resolver -->
+          <bean
+                  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+              <property name="prefix" value="/WEB-INF/classes/templates/"/>
+              <property name="suffix" value=".jsp"/>
+          </bean>
+
+          </beans>
+
+  - `Custom messages`: copy over `messages.properties`:
+
+          typeMismatch.customer.freePasses=invalid number
+          ...
+
+  - `Custom properties` (own values from file for fields etc.): copy over `sport.properties` (just an example):
+
+          foo.email=swimcoach@gmail.com
+          foo.name=Denis
+          fortune.messages=Today is your lucky day!, Be aware from cars!, Warm up properly!
+          ...
+  - `Logger properties`: copy over `mylogger.properties`:
+
+          root.logger.level=FINE
+          printed.logger.level=FINE
+
+6. App Configuration with a `Config` component (example: `AppConfig.java`):
+basically registration of all `@Bean` and `@PropertySource`
+
+7. Application Context configuration:
+open `dispatcher-servlet.xml` and follow the link above right to configure the project with config classes and property files.
+
+8. Tomcat Run Configuration:
+
+- Create a new tomcat run configuration
+- make sure the start url `http://localhost:8080/` is being mapped to a MVC construct (link `main-menu.jsp`, `HomeController.java`)
+- Switch in the Run configuration to `Deployment` and remove the project name from the drop box `Application context` (otherwise tomcat will paste it into the URL, but we want explicitly map to the MVC resources)
