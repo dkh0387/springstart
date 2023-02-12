@@ -51,7 +51,7 @@ public class HelloWorldController {
     public String processFormViewWithModel(HttpServletRequest request, Model model) {
 
         String studentName = request.getParameter("studentName");
-        model.addAttribute("name", studentName);
+        model.addAttribute("studentName", studentName);
 
         return "helloworld";
     }
@@ -66,7 +66,7 @@ public class HelloWorldController {
      */
     @RequestMapping("/processFormWithModelAndReqParam")
     public String processFormViewWithModelAndReqParam(@RequestParam("studentName") String studentName, Model model) {
-        model.addAttribute("name", studentName);
+        model.addAttribute("studentName", studentName);
         return "helloworld";
     }
 }
