@@ -22,13 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="Chapter 9 finished.">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="spring-demo-annotations project: pom.xml restored">
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-demo-annotations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-demo-annotations.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +252,7 @@
       <workItem from="1673775613262" duration="8444000" />
       <workItem from="1673857252239" duration="8192000" />
       <workItem from="1673882989464" duration="620000" />
-      <workItem from="1676209851853" duration="848000" />
+      <workItem from="1676209851853" duration="1419000" />
     </task>
     <task id="LOCAL-00001" summary="Chapter 7 done">
       <created>1673624457214</created>
@@ -300,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673882902826</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="spring-demo-annotations project: pom.xml restored">
+      <created>1676210755129</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676210755129</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +327,7 @@
     <MESSAGE value="Chapter 9 finished." />
     <MESSAGE value="New branch for Spring MVC." />
     <MESSAGE value="New project for Spring MVC." />
-    <option name="LAST_COMMIT_MESSAGE" value="New project for Spring MVC." />
+    <MESSAGE value="spring-demo-annotations project: pom.xml restored" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring-demo-annotations project: pom.xml restored" />
   </component>
 </project>
