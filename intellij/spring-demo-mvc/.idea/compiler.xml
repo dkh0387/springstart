@@ -7,12 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hb-03-one-to-many" />
-        <module name="hb-04-one-to-many-uni" />
-        <module name="hb-eager-vs-lazy-demo" />
-        <module name="hb-01-one-to-one-bi" />
-        <module name="hb-05-many-to-many" />
+        <module name="spring-demo-mvc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-demo-mvc" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-demo-mvc" options="-parameters" />
+    </option>
   </component>
 </project>
