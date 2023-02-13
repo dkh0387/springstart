@@ -18,6 +18,12 @@ and in course chapter 270-275.***
 
         <display-name>web-customer-tracker</display-name>
 
+        <display-name>web-customer-tracker</display-name>
+        <welcome-file-list>
+            <welcome-file>index.jsp</welcome-file>
+            <welcome-file>index.html</welcome-file>
+        </welcome-file-list>
+
         <absolute-ordering/>
 
         <!-- Spring MVC Configs -->
@@ -251,3 +257,23 @@ open `dispatcher-servlet.xml` and follow the link above right to configure the p
 - Static resources like CSS are not being loaded: make sure you palced them under `src/main/resources/static/css` (for CSS) and bind in view (.JSP example):
 
         <link type="text/css" rel="stylesheet" href="/css/style.css">
+
+- Redirecting to a URL: if the app starts it opens `http:localhost:8080/` and we get `404`. To avoid it we need to list welcome pages in `web.xml`:
+
+      <display-name>web-customer-tracker</display-name>
+      <welcome-file-list>
+          <welcome-file>index.jsp</welcome-file>
+          <welcome-file>index.html</welcome-file>
+      </welcome-file-list>
+
+  The `index.jsp` itself looks like:
+
+      <!-- Welcome page, which me listed in the `web.xml` in order to redirect to the customer table-->
+      <% response.sendRedirect("customer/list"); %>
+
+ - If the above redirecting does not work: just create a `HomeController` with `@RequestMapping("/")` and code:
+
+        @RequestMapping("/")
+        public String showHomePage() {
+            return "redirect:/customer/list";
+        }
