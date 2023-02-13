@@ -3,6 +3,8 @@
 <html>
 <body>
 
+<link type="text/css" rel="stylesheet" href="/css/style.css">
+
 <h2>List of Customers</h2>
 
 <div id="wrapper">

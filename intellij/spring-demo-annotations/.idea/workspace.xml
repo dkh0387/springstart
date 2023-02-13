@@ -23,8 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="README.md: ToC created">
+      <change afterPath="$PROJECT_DIR$/../web-costumer-tracker/src/main/resources/static/css/add-customer-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../web-costumer-tracker/src/main/resources/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web-costumer-tracker/src/main/java/de/dkh/webcostumertracker/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../web-costumer-tracker/src/main/java/de/dkh/webcostumertracker/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../web-costumer-tracker/src/main/resources/templates/list-customers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../web-costumer-tracker/src/main/resources/templates/list-customers.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
