@@ -17,7 +17,7 @@ public class Customer extends PersistentObject {
     @Column(name = "first_name")
     @Getter
     @Setter
-    private String firtsName;
+    private String firstName;
     @Column(name = "last_name")
     @Getter
     @Setter
@@ -27,8 +27,8 @@ public class Customer extends PersistentObject {
     @Setter
     private String email;
 
-    public Customer(String firtsName, String lastName, String email) {
-        this.firtsName = firtsName;
+    public Customer(String firstName, String lastName, String email) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }

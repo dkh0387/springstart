@@ -22,7 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="README.md: ToC created" />
+    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="README.md: ToC created">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-costumer-tracker/src/main/java/de/dkh/webcostumertracker/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../web-costumer-tracker/src/main/java/de/dkh/webcostumertracker/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web-costumer-tracker/src/main/resources/templates/list-customers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../web-costumer-tracker/src/main/resources/templates/list-customers.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +78,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/privat/IT/springstart/README.md",
+    "last_opened_file_path": "C:/privat/IT/springstart/intellij/spring-demo-annotations",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,7 +88,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.3632184",
     "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "740030e75515581f5801d56c535a6287",
+    "spring.configuration.checksum": "658f1682e1957f25448feb0a08cc0212",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -250,6 +254,7 @@
       <workItem from="1673857252239" duration="8192000" />
       <workItem from="1673882989464" duration="620000" />
       <workItem from="1676209851853" duration="1535000" />
+      <workItem from="1676298773919" duration="673000" />
     </task>
     <task id="LOCAL-00001" summary="Chapter 7 done">
       <created>1673624457214</created>
