@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="spring-demo-annotations project: pom.xml restored">
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="README.md: ToC created" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,7 +249,7 @@
       <workItem from="1673775613262" duration="8444000" />
       <workItem from="1673857252239" duration="8192000" />
       <workItem from="1673882989464" duration="620000" />
-      <workItem from="1676209851853" duration="1419000" />
+      <workItem from="1676209851853" duration="1535000" />
     </task>
     <task id="LOCAL-00001" summary="Chapter 7 done">
       <created>1673624457214</created>
@@ -303,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676210755129</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="README.md: ToC created">
+      <created>1676211292765</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1676211292765</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +332,7 @@
     <MESSAGE value="New branch for Spring MVC." />
     <MESSAGE value="New project for Spring MVC." />
     <MESSAGE value="spring-demo-annotations project: pom.xml restored" />
-    <option name="LAST_COMMIT_MESSAGE" value="spring-demo-annotations project: pom.xml restored" />
+    <MESSAGE value="README.md: ToC created" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md: ToC created" />
   </component>
 </project>

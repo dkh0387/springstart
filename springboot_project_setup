@@ -1,6 +1,7 @@
 # Springboot project Setup in intellij
 
-***Basic example here is `https://github.com/dkh0387/springstart.git`***
+***Basic example here is `https://github.com/dkh0387/springstart.git` (branch: `springudemy_spring_hibernate_example`)
+and in course chapter 270-275.***
 
 1. Create a new `MAVEN` `WAR`-project with `spring initializr`
 2. Create `web/WEB-INF` and `web/META-INF` folders
@@ -51,44 +52,85 @@
   - Create subfolders `css`, `images`, `temaplates`
   - `Spring MVC`: Copy over `dispatcher-servlet.xml` (here `.jps` example for views):
 
-            <?xml version="1.0" encoding="UTF-8"?>
+          <?xml version="1.0" encoding="UTF-8"?>
           <beans xmlns="http://www.springframework.org/schema/beans"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:context="http://www.springframework.org/schema/context"
-             xmlns:mvc="http://www.springframework.org/schema/mvc"
-             xsi:schemaLocation="
-          http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://www.springframework.org/schema/context
-            http://www.springframework.org/schema/context/spring-context.xsd
-            http://www.springframework.org/schema/mvc
-              http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:context="http://www.springframework.org/schema/context"
+                 xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+                 xsi:schemaLocation="http://www.springframework.org/schema/beans
+              	http://www.springframework.org/schema/beans/spring-beans.xsd
+              	http://www.springframework.org/schema/context
+              	http://www.springframework.org/schema/context/spring-context.xsd
+              	http://www.springframework.org/schema/mvc
+                  http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-          <!-- Step 3: Add support for component scanning -->
-          <context:component-scan base-package="de.dkh.springdemo"/>
+              <!-- Step 3: Add support for component scanning -->
+              <context:component-scan base-package="de.dkh.webcostumertracker"/>
 
-          <!-- Location of html resources like images, css etc. -->
-          <mvc:resources mapping="/resources/**" location="images"></mvc:resources>
+              <!-- Custom messages to use
+                  NOTE: it is very important to use exactly this id and class in order to load the file {@code messages.properties} properly!
+                  Basically we load a normal bean {@code ResourceBundleMessageSource} with id and bind the resource on it -->
+              <bean id="messageSource"
+                    class="org.springframework.context.support.ResourceBundleMessageSource">
+                  <property name="basenames" value="messages"/>
+              </bean>
 
-          <!-- Custom messages to use
-              NOTE: it is very important to use exactly this id and class in order to load the file {@code messages.properties} properly!
-              Basically we load a normal bean {@code ResourceBundleMessageSource} with id and bind the resource on it -->
-          <bean id="messageSource"
-                class="org.springframework.context.support.ResourceBundleMessageSource">
-              <property name="basenames" value="messages"/>
-          </bean>
+              <!-- Step 4: Add support for conversion, formatting and validation support -->
+              <mvc:annotation-driven/>
 
-          <!-- Step 4: Add support for conversion, formatting and validation support -->
-          <mvc:annotation-driven/>
+              <!-- Step 5: Define Spring MVC view resolver -->
+              <bean
+                      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                  <property name="prefix" value="/WEB-INF/classes/templates/"/>
+                  <property name="suffix" value=".jsp"/>
+              </bean>
 
-          <!-- Step 5: Define Spring MVC view resolver -->
-          <bean
-                  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-              <property name="prefix" value="/WEB-INF/classes/templates/"/>
-              <property name="suffix" value=".jsp"/>
-          </bean>
+              <!-- Step 1: Define Database DataSource / connection pool -->
+              <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+                    destroy-method="close">
+                  <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+                  <property name="jdbcUrl"
+                            value="jdbc:mysql://localhost:3307/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC"/>
+                  <property name="user" value="springstudent"/>
+                  <property name="password" value="springstudent"/>
 
-          </beans>
+                  <!-- these are connection pool properties for C3P0 -->
+                  <property name="initialPoolSize" value="5"/>
+                  <property name="minPoolSize" value="5"/>
+                  <property name="maxPoolSize" value="20"/>
+                  <property name="maxIdleTime" value="30000"/>
+              </bean>
+
+              <!-- Step 2: Setup Hibernate session factory for db connection -->
+              <bean id="sessionFactory"
+                    class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+                  <property name="dataSource" ref="myDataSource"/>
+                  <!-- packages to scan: it is a recursive scan, starting at `de.dkh.webcostumertracker`;
+                       we can also define a list of packages-->
+                  <property name="packagesToScan" value="de.dkh.webcostumertracker.entity"/>
+                  <property name="hibernateProperties">
+                      <props>
+                          <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                          <prop key="hibernate.show_sql">true</prop>
+                      </props>
+                  </property>
+              </bean>
+
+              <!-- Step 3: Setup Hibernate transaction manager -->
+              <bean id="myTransactionManager"
+                    class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+                  <property name="sessionFactory" ref="sessionFactory"/>
+              </bean>
+
+              <!-- Step 4: Enable configuration of transactional behavior based on annotations.
+                   It allows us to use `@Transactional` annotation in order to minimize coding to start and stop transactions.
+                      Spring own `HibernateTransactionManager` handle this for us-->
+          <tx:annotation-driven transaction-manager="myTransactionManager"/>
+
+          <!-- Add support for reading web resources: css, images, js, etc ... -->
+          <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+
+      </beans>
 
   - `Custom messages`: copy over `messages.properties`:
 
@@ -106,14 +148,102 @@
           root.logger.level=FINE
           printed.logger.level=FINE
 
-6. App Configuration with a `Config` component (example: `AppConfig.java`):
+
+6. Needed `Maven` dependencies (example using mySQL and hibernate):
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Bring hibernate ORM and Spring together in order to configure db in dispatcher_servlet.xml-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
+           <groupId>org.hibernate</groupId>
+           <artifactId>hibernate-core</artifactId>
+           <version>5.6.5.Final</version>
+       </dependency>
+
+       <dependency>
+           <groupId>org.hibernate.javax.persistence</groupId>
+           <artifactId>hibernate-jpa-2.1-api</artifactId>
+           <version>1.0.2.Final</version>
+       </dependency>
+
+       <!-- Integration for c3p0 Connection pooling into Hibernate ORM  -->
+       <dependency>
+           <groupId>org.hibernate</groupId>
+           <artifactId>hibernate-c3p0</artifactId>
+           <version>5.6.5.Final</version>
+           <type>pom</type>
+       </dependency>
+
+       <!-- Spring 5 does not support Jakarta EE 9 and hibernate >= 7 does,
+          so there are compatibility issues. To avoid this we need to use hibernate validator 6.
+          Spring 6 will resolve this.-->
+       <dependency>
+           <groupId>org.hibernate.validator</groupId>
+           <artifactId>hibernate-validator</artifactId>
+           <version>6.2.5.Final</version>
+       </dependency>
+
+       <!-- NOTE: these dependencies are necessary in order to use hibernate with JAVA >= 9!
+           Java 9 and higher has removed java.xml.bind from its default classpath.
+           That's why we get the class not found exception.
+           We have to explicitly add JAR files to the build path.
+        -->
+       <dependency>
+           <groupId>javax.xml.bind</groupId>
+           <artifactId>jaxb-api</artifactId>
+           <version>2.2.8</version>
+       </dependency>
+
+       <dependency>
+           <groupId>com.sun.xml.bind</groupId>
+           <artifactId>jaxb-core</artifactId>
+           <version>4.0.1</version>
+       </dependency>
+
+       <dependency>
+           <groupId>com.sun.xml.bind</groupId>
+           <artifactId>jaxb-impl</artifactId>
+           <version>4.0.1</version>
+       </dependency>
+
+       <dependency>
+           <groupId>com.sun.activation</groupId>
+           <artifactId>javax.activation</artifactId>
+           <version>1.2.0</version>
+       </dependency>
+
+       <!-- This is for rendering JSP files properly -->
+       <dependency>
+           <groupId>jstl</groupId>
+           <artifactId>jstl</artifactId>
+           <version>1.2</version>
+       </dependency>
+
+
+
+7. App Configuration with a `Config` component (example: `AppConfig.java`):
 basically registration of all `@Bean` and `@PropertySource`
 
 7. Application Context configuration:
 open `dispatcher-servlet.xml` and follow the link above right to configure the project with config classes and property files.
 
-8. Tomcat Run Configuration:
+9. Tomcat Run Configuration:
 
 - Create a new tomcat run configuration
 - make sure the start url `http://localhost:8080/` is being mapped to a MVC construct (link `main-menu.jsp`, `HomeController.java`)
 - Switch in the Run configuration to `Deployment` and remove the project name from the drop box `Application context` (otherwise tomcat will paste it into the URL, but we want explicitly map to the MVC resources)
+
+10. Troubleshooting:
+
+- Tomcat Run configuration: app does not start: check the `Project settings Modules`, and make sure `web.xml` is binded properly.
+  Otherwise tomcat can not find the `dispatcher_servlet.xml` and all configurations to start.
