@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -41,15 +40,8 @@ public class CustomerDAOImpl implements CustomerDAO {
         return null;
     }
 
-    /**
-     * Very important concept of handling {@linkplain org.hibernate.Transaction}.
-     * Actually we do NOT need to begin and close transactions, Spring do all this behind the scene!
-     * We just need to annotate the method with {@linkplain Transactional}.
-     *
-     * @return
-     */
+
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
 
         Session currentSession = sessionFactory.getCurrentSession();
