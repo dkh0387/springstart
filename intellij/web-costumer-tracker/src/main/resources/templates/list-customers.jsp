@@ -15,6 +15,15 @@
 
 <div id="container">
     <div id="content">
+        <!-- add button: Add Customer
+             onClick code means: we call the form for adding a new Customer.
+             We do that by calling a according Spring controller mapping for `showFormForAdd`.
+             This is a very important concept how to call views in views using Spring MVC!
+         -->
+
+        <input type="button" value="Add Customer" onclick="window.location.href='showFormForAdd'; return false;"
+               class="add-button">
+
         <!-- add html table here -->
         <table>
             <tr>

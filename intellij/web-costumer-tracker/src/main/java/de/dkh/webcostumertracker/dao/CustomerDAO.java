@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CustomerDAO {
 
-    public long saveCustomer();
+    public long saveCustomer(Customer customer);
 
-    public Customer getCustomer();
+    public Customer getCustomer(long id);
 
     public List<Customer> getCustomers();
 
