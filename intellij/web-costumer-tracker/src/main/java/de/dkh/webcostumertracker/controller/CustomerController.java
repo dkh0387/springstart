@@ -78,12 +78,7 @@ public class CustomerController {
      */
     @PostMapping("/saveCustomer")
     public String processCustomer(@ModelAttribute("customer") Customer customer) {
-
-        if (customer.getId() > 0) {
-            customerService.updateCustomer(customer);
-        } else {
-            customerService.saveCustomer(customer);
-        }
+        customerService.saveCustomer(customer);
         return "redirect:/customer/list";
     }
 }

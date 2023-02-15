@@ -14,5 +14,4 @@ public interface CustomerDAO {
 
     public void deleteCustomer();
 
-    public void updateCustomer(Customer customer);
 }

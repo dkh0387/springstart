@@ -12,5 +12,4 @@ public interface CustomerService {
 
     public void saveCustomer(Customer customer);
 
-    public void updateCustomer(Customer customer);
 }
