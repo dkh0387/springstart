@@ -71,6 +71,7 @@ public class CustomerController {
      * <p>
      * NOTE: we are using this mapping for both: saving a new and updating an existing customer.
      * We need to keep track on {@linkplain Customer#getId()} in order to recognize update vs. save.
+     * In the background we let hibernate do the job using {@linkplain org.hibernate.Session#saveOrUpdate(Object)}.
      * For that purpose we use a hidden form with the id in {@code customer-form.jsp}.
      *
      * @param customer
