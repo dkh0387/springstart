@@ -82,4 +82,18 @@ public class CustomerController {
         customerService.saveCustomer(customer);
         return "redirect:/customer/list";
     }
+
+    /**
+     * Example of deleting a {@linkplain Customer} using a param. GET-request.
+     * The same game as in {@linkplain this#showEditCustomerForm(long, Model)}.
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/deleteCustomer")
+    public String deleteCustomer(@RequestParam("customerId") long id) {
+        Customer customer = customerService.getCustomer(id);
+        customerService.deleteCustomer(customer);
+        return "redirect:/customer/list";
+    }
 }
