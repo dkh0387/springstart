@@ -1,3 +1,4 @@
+<%@ page import="de.dkh.webcostumertracker.utils.SortUtils" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -36,10 +37,27 @@
 
         <!-- Add html table here -->
         <table>
+
+            <!-- Construct a sort link for first name.
+                 Each column obtains a link obove for a param URL with column number to sort.
+                 If the user click on it provides to the controller method and redirect back here with sorted list on model.
+                 Note the usage of Java classes directly inside .JSP files!-->
+            <c:url var="sortLinkFirstName" value="/customer/listSorted">
+                <c:param name="sort" value="<%= Integer.toString(SortUtils.FIRST_NAME) %>"/>
+            </c:url>
+
+            <c:url var="sortLinkLastName" value="/customer/listSorted">
+                <c:param name="sort" value="<%= Integer.toString(SortUtils.LAST_NAME) %>"/>
+            </c:url>
+
+            <c:url var="sortLinkEmail" value="/customer/listSorted">
+                <c:param name="sort" value="<%= Integer.toString(SortUtils.EMAIL) %>"/>
+            </c:url>
+
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
+                <th><a href="${sortLinkFirstName}">First Name</a></th>
+                <th><a href="${sortLinkLastName}">Last Name</a></th>
+                <th><a href="${sortLinkEmail}">Email</a></th>
                 <th>Action</th>
             </tr>
             <!-- Loop over and show all customers

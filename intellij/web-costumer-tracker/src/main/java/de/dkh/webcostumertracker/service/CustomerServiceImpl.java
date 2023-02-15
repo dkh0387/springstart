@@ -51,6 +51,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
+    public List<Customer> getSortedCustomers(int colNumberToSort) {
+        return customerDAO.getSortedCustomers(colNumberToSort);
+    }
+
+    @Override
+    @Transactional
     public void saveCustomer(Customer customer) {
         customerDAO.saveCustomer(customer);
     }
@@ -66,5 +72,6 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> searchCustomerByName(String searchName) {
         return customerDAO.searchCustomerByName(searchName);
     }
+
 
 }

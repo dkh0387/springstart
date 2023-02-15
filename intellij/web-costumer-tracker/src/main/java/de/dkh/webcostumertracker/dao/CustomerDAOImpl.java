@@ -60,6 +60,14 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
+    public List<Customer> getSortedCustomers(int colNumberToSort) {
+        Session currentSession = getSession();
+        Query<Customer> customerQuery = currentSession.createQuery("from Customer order by :sort", Customer.class);
+        customerQuery.setParameter("sort", colNumberToSort);
+        return customerQuery.getResultList();
+    }
+
+    @Override
     public void deleteCustomer(Customer customer) {
         Session currentSession = getSession();
         currentSession.delete(customer);

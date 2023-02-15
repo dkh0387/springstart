@@ -112,4 +112,11 @@ public class CustomerController {
         model.addAttribute("customers", customers);
         return "list-customers";
     }
+
+    @GetMapping("/listSorted")
+    public String showSortedCustomers(@RequestParam("sort") int colNumberToSort, Model model) {
+        List<Customer> customers = customerService.getSortedCustomers(colNumberToSort);
+        model.addAttribute("customers", customers);
+        return "list-customers";
+    }
 }

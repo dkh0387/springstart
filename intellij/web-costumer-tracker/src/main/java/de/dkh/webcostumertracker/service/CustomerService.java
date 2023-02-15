@@ -10,9 +10,13 @@ public interface CustomerService {
 
     public List<Customer> getCustomers();
 
+    public List<Customer> getSortedCustomers(int colNumberToSort);
+
     public void saveCustomer(Customer customer);
 
     public void deleteCustomer(Customer customer);
 
     public List<Customer> searchCustomerByName(String searchName);
+
+
 }

@@ -12,7 +12,11 @@ public interface CustomerDAO {
 
     public List<Customer> getCustomers();
 
+    public List<Customer> getSortedCustomers(int colNumberToSort);
+
     public void deleteCustomer(Customer customer);
 
     public List<Customer> searchCustomerByName(String searchName);
+
+
 }
