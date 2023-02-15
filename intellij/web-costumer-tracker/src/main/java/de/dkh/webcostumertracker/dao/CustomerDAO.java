@@ -13,4 +13,6 @@ public interface CustomerDAO {
     public List<Customer> getCustomers();
 
     public void deleteCustomer();
+
+    public void updateCustomer(Customer customer);
 }

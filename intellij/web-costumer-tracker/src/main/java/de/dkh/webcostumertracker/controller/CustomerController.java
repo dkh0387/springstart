@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,16 +47,43 @@ public class CustomerController {
     }
 
     /**
+     * Example of mapping GET-requests with parameters.
+     * We retrieve the URL {@code /customer/showFormForEdit?customerId=...} and can read the {@linkplain Customer#getId()}
+     * using {@linkplain RequestParam}. We can then use this id to find the {@linkplain Customer} in the db.
+     * Then we bind the customer to the model and send it over to the {@code customer-form.jsp} to prefill the form.
+     * <p>
+     * NOTE: the name of the model attribute has EXACTLY to match with the one in {@code customer-form.jsp}!
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/showFormForEdit")
+    public String showEditCustomerForm(@RequestParam("customerId") long id, Model model) {
+        Customer customer = customerService.getCustomer(id);
+        model.addAttribute("customer", customer);
+        return "customer-form";
+    }
+
+    /**
      * MVC mapping for saving a new {@linkplain Customer}.
      * The {@linkplain ModelAttribute} attribute is the one in {@link this#showAddCustomerForm(Model)}.
      * After saving the customer we are going back to the {@code customer-list.jsp}.
+     * <p>
+     * NOTE: we are using this mapping for both: saving a new and updating an existing customer.
+     * We need to keep track on {@linkplain Customer#getId()} in order to recognize update vs. save.
+     * For that purpose we use a hidden form with the id in {@code customer-form.jsp}.
      *
      * @param customer
      * @return
      */
     @PostMapping("/saveCustomer")
     public String processCustomer(@ModelAttribute("customer") Customer customer) {
-        customerService.saveCustomer(customer);
+
+        if (customer.getId() > 0) {
+            customerService.updateCustomer(customer);
+        } else {
+            customerService.saveCustomer(customer);
+        }
         return "redirect:/customer/list";
     }
 }

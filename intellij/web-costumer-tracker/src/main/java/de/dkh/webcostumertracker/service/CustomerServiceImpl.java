@@ -29,6 +29,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Qualifier("customerDAOImpl")
     private CustomerDAO customerDAO;
 
+    @Override
+    @Transactional
+    public Customer getCustomer(long id) {
+        return customerDAO.getCustomer(id);
+    }
+
     /**
      * Very important concept of handling {@linkplain org.hibernate.Transaction}.
      * Actually we do NOT need to begin and close transactions, Spring do all this behind the scene!
@@ -47,5 +53,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void saveCustomer(Customer customer) {
         customerDAO.saveCustomer(customer);
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        customerDAO.updateCustomer(customer);
     }
 }

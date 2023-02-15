@@ -18,5 +18,5 @@ public class PersistentObject implements Serializable {
     @Column(name = "id", nullable = false)
     @Getter
     @Setter
-    protected Long id;
+    protected long id;
 }

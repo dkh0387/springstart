@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -62,5 +63,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public void deleteCustomer() {
 
+    }
+
+    @Override
+    @Transactional
+    public void updateCustomer(Customer customer) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.update(customer);
     }
 }

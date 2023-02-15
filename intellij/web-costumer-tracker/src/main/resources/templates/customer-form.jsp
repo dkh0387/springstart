@@ -26,6 +26,10 @@
     <%--@elvariable id="customer" type="de.dkh.webcostumertracker.entity.Customer"--%>
     <form:form action="saveCustomer" modelAttribute="customer" method="POST">
 
+        <!-- Problem: we use this form for both: saving a new and updating an existing customer.
+        We need to keep track on the incoming customer id to recognize the customer as existing!-->
+        <form:hidden path="id"/>
+
         <table>
             <tbody>
 
@@ -54,7 +58,7 @@
     </form:form>
 
     <div style="clear: both;">
-    <!-- moving back to the customer list -->
+        <!-- moving back to the customer list -->
         <p>
             <a href="/customer/list">Back to list</a>
         </p>
