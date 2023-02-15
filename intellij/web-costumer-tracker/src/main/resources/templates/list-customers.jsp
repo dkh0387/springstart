@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <body>
@@ -23,6 +24,15 @@
 
         <input type="button" value="Add Customer" onclick="window.location.href='showFormForAdd'; return false;"
                class="add-button">
+
+        <!--  Add a search box.
+         NOTE: we set the name of the search box to `searchName`.
+         In controller, we can use it as a `RequestParam`-->
+        <form:form action="searchCustomer" method="GET">
+            Search customer: <input type="text" name="searchName"/>
+
+            <input type="submit" value="Search" class="add-button"/>
+        </form:form>
 
         <!-- Add html table here -->
         <table>

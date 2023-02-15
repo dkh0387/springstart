@@ -96,4 +96,20 @@ public class CustomerController {
         customerService.deleteCustomer(customer);
         return "redirect:/customer/list";
     }
+
+    /**
+     * MVC mapping for search by first name.
+     * The trick is actually to use the {@linkplain RequestParam} from the searh field
+     * and bind the search results to the {@linkplain Model}.
+     *
+     * @param searchName
+     * @param model
+     * @return
+     */
+    @GetMapping("/searchCustomer")
+    public String searchCustomer(@RequestParam("searchName") String searchName, Model model) {
+        List<Customer> customers = customerService.searchCustomerByName(searchName);
+        model.addAttribute("customers", customers);
+        return "list-customers";
+    }
 }

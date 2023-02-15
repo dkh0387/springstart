@@ -38,14 +38,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public long saveCustomer(Customer customer) {
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = getSession();
         currentSession.saveOrUpdate(customer);
         return customer.getId();
     }
 
     @Override
     public Customer getCustomer(long id) {
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = getSession();
         return currentSession.get(Customer.class, id);
     }
 
@@ -53,7 +53,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public List<Customer> getCustomers() {
 
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = getSession();
         Query<Customer> customerQuery = currentSession.createQuery("from Customer order by lastName", Customer.class);
 
         return customerQuery.getResultList();
@@ -61,8 +61,29 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public void deleteCustomer(Customer customer) {
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = getSession();
         currentSession.delete(customer);
+    }
+
+    @Override
+    public List<Customer> searchCustomerByName(String theSearchName) {
+        Session currentSession = getSession();
+
+        if (theSearchName != null && theSearchName.trim().length() > 0) {
+            Query<Customer> query = currentSession.createQuery("from Customer c" +
+                            " where lower(c.firstName) like : searchName" +
+                            " or lower(lastName) like : searchName",
+                    Customer.class);
+            query.setParameter("searchName", "%" + theSearchName.toLowerCase() + "%");
+            return query.getResultList();
+        } else {
+            return getCustomers();
+        }
+    }
+
+    private Session getSession() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession;
     }
 
 }
