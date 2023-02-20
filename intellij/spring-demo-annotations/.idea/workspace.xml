@@ -23,6 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fc7866c-4eaa-47ce-8474-770e832145f9" name="Default Changelist" comment="README.md: ToC created">
+      <change afterPath="$PROJECT_DIR$/../spring-demo-aop/src/main/java/de/dkh/springdemoaop/DemoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-demo-aop/src/main/java/de/dkh/springdemoaop/aspect/DemoLoggingAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-demo-aop/src/main/java/de/dkh/springdemoaop/dao/AccountDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +79,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/privat/IT/springstart/intellij/web-costumer-tracker",
+    "last_opened_file_path": "C:/privat/IT/springstart/intellij/spring-demo-annotations",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -254,6 +257,7 @@
       <workItem from="1676209851853" duration="1535000" />
       <workItem from="1676298773919" duration="673000" />
       <workItem from="1676375839814" duration="113000" />
+      <workItem from="1676922026223" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="Chapter 7 done">
       <created>1673624457214</created>
