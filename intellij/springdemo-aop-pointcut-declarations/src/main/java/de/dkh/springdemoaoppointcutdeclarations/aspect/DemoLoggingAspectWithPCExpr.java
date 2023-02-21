@@ -17,21 +17,31 @@ public class DemoLoggingAspectWithPCExpr {
     /**
      * This point cut expression defined as a method can be referred any time further.
      */
-    @Pointcut("execution(public void de.dkh.springdemoaoppointcutdeclarations.dao.AccountDAO.add*(java.util.List))")
-    private void forAddAccounts() {
+    @Pointcut("execution(* de.dkh.springdemoaoppointcutdeclarations.dao.*.add*(java.util.List))")
+    private void forAdd() {
     }
 
-    @Pointcut("execution(public void de.dkh.springdemoaoppointcutdeclarations.dao.AccountDAO.addVIP*(java.util.List))")
-    private void forAddVIPAccounts() {
+    @Pointcut("execution(* de.dkh.springdemoaoppointcutdeclarations.dao.*.addVIP*(java.util.List))")
+    private void forAddVIP() {
+    }
+
+    @Pointcut("execution(* de.dkh.springdemoaoppointcutdeclarations.dao.*.update*(de.dkh.springdemoaoppointcutdeclarations.entity.Account))")
+    private void forUpdate() {
     }
 
     /**
      * Combining two pointcut expressions.
      * Any other logical operation is possible: `&&`, `||`, `!`.
      */
-    @Before("forAddAccounts() || forAddVIPAccounts()")
+    @Before("forAdd() || forAddVIP()")
     public void beforeAddAccountsWithMultPredefPointCutsAdvise() {
 
         System.out.println("\n=========>> Executing @Before advise before AccountDAO#add*Accounts(List<Account> accounts) using multiple point cut declarations");
+    }
+
+    @Before("!forAdd() && !forAddVIP() && forUpdate()")
+    public void beforeAllAccountDAOExceptAddAdvise() {
+
+        System.out.println("\n=========>> Executing @Before advise before AccountDAO#updateAccount(Account account) excluding multiple point cut declarations");
     }
 }

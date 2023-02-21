@@ -15,4 +15,8 @@ public class AccountDAO {
     public void addVIPAccounts(List<Account> accounts) {
         System.out.println("CALLING addVIPAccounts(List<Account> accounts)");
     }
+
+    public void updateAccount(Account account) {
+        System.out.println("CALLING updateAccount(Account account)");
+    }
 }
