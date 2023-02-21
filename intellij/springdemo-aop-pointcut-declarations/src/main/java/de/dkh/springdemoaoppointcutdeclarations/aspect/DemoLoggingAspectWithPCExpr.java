@@ -29,6 +29,10 @@ public class DemoLoggingAspectWithPCExpr {
     private void forUpdate() {
     }
 
+    /**
+     * Combining two pointcut expressions.
+     * Any other logical operation is possible: `&&`, `||`, `!`.
+     */
     @Pointcut("forAdd() || forAddVIP()")
     private void forAddOrAddVIP() {
     }
@@ -37,10 +41,7 @@ public class DemoLoggingAspectWithPCExpr {
     private void forUpdateAndNotForAdd() {
     }
 
-    /**
-     * Combining two pointcut expressions.
-     * Any other logical operation is possible: `&&`, `||`, `!`.
-     */
+
     @Before("forAddOrAddVIP()")
     public void beforeAddAccountsWithMultPredefPointCutsAdvise() {
 
