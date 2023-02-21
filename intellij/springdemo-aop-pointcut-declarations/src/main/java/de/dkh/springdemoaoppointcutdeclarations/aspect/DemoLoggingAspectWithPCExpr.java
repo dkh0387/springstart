@@ -29,17 +29,25 @@ public class DemoLoggingAspectWithPCExpr {
     private void forUpdate() {
     }
 
+    @Pointcut("forAdd() || forAddVIP()")
+    private void forAddOrAddVIP() {
+    }
+
+    @Pointcut("!forAdd() && !forAddVIP() && forUpdate()")
+    private void forUpdateAndNotForAdd() {
+    }
+
     /**
      * Combining two pointcut expressions.
      * Any other logical operation is possible: `&&`, `||`, `!`.
      */
-    @Before("forAdd() || forAddVIP()")
+    @Before("forAddOrAddVIP()")
     public void beforeAddAccountsWithMultPredefPointCutsAdvise() {
 
         System.out.println("\n=========>> Executing @Before advise before AccountDAO#add*Accounts(List<Account> accounts) using multiple point cut declarations");
     }
 
-    @Before("!forAdd() && !forAddVIP() && forUpdate()")
+    @Before("forUpdateAndNotForAdd()")
     public void beforeAllAccountDAOExceptAddAdvise() {
 
         System.out.println("\n=========>> Executing @Before advise before AccountDAO#updateAccount(Account account) excluding multiple point cut declarations");
