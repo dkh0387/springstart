@@ -41,7 +41,10 @@ public class DemoLoggingAspectWithPCExpr {
     private void forUpdateAndNotForAdd() {
     }
 
-
+    /**
+     * Example of {@linkplain org.aspectj.lang.reflect.Advice}.
+     * This one is a {@linkplain Before} advice, means it is executed BEFORE the method call.
+     */
     @Before("forAddOrAddVIP()")
     public void beforeAddAccountsWithMultPredefPointCutsAdvise() {
 
