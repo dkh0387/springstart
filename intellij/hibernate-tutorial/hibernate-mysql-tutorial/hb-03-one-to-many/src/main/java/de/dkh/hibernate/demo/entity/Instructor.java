@@ -8,6 +8,7 @@ import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,10 +54,14 @@ public class Instructor extends PersistentObject implements Serializable {
             , CascadeType.DETACH
             , CascadeType.PERSIST
             , CascadeType.REFRESH})
-    @Getter
     @Setter
     @ToString.Exclude
     private List<Course> courses;
+
+    @Transactional
+    public List<Course> getCourses() {
+        return courses;
+    }
 
     /**
      * We do need this method to create a bidirectional relation,
