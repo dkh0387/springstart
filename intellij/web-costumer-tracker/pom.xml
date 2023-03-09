@@ -122,6 +122,20 @@
             <artifactId>logback-classic</artifactId>
             <version>1.4.5</version>
         </dependency>
+
+        <!-- AspectJ Framework for Spring AOP as basis,
+             because Spring AOP uses some of AspectJ resources.
+             The first dependency is for using AspectJ annotations-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.19</version>
+        </dependency>
     </dependencies>
 
     <build>
