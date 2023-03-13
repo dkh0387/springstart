@@ -1,0 +1,5 @@
+de\dkh\springsecuritydemo02basicsecurity\controller\DemoController.class
+de\dkh\springsecuritydemo02basicsecurity\config\SpringMVCDispatcherServletInitializer.class
+de\dkh\springsecuritydemo02basicsecurity\config\DemoSecurityConfig.class
+de\dkh\springsecuritydemo02basicsecurity\config\DemoConfig.class
+de\dkh\springsecuritydemo02basicsecurity\config\SecurityWebApplicationInitializer.class
