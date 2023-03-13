@@ -9,28 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: basisc example with in memory auth">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo03customloginform/config/DemoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo03customloginform/config/DemoSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo03customloginform/config/SecurityWebApplicationInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo03customloginform/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo03customloginform/controller/DemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo03customloginform/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security-demo-02-basic-security/src/main/java/de/dkh/springsecuritydemo02basicsecurity/config/DemoSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-demo-02-basic-security/src/main/java/de/dkh/springsecuritydemo02basicsecurity/config/DemoSecurityConfig.java" afterDir="false" />
+    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: example using custom login form">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/plain-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +202,7 @@
       <option name="presentableId" value="Default" />
       <updated>1678698472487</updated>
       <workItem from="1678698473674" duration="8603000" />
-      <workItem from="1678715818754" duration="1727000" />
+      <workItem from="1678715818754" duration="3691000" />
     </task>
     <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
       <created>1678710999695</created>
@@ -230,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678710999695</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Spring security: example using custom login form">
+      <created>1678717816786</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678717816786</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +226,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Spring security: basisc example with in memory auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring security: basisc example with in memory auth" />
+    <MESSAGE value="Spring security: example using custom login form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spring security: example using custom login form" />
   </component>
 </project>
