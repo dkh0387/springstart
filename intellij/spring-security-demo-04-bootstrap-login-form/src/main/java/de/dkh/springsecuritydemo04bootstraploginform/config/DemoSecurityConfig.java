@@ -46,6 +46,7 @@ public class DemoSecurityConfig {
      * 1. Any request faces the login form
      * 2. we navigate to the custom login page using mapping {@code /showMyLoginPage}
      * 3. Everyone is allowed to see the login page
+     * 4. NOTE: Configure Spring Security to allow unauthenticated requests (permit all)to the "/css" directory
      *
      * @param http
      * @return
@@ -57,6 +58,8 @@ public class DemoSecurityConfig {
         return http
                 .authorizeRequests(configurer ->
                         configurer
+                                .antMatchers("/css/**")
+                                .permitAll()
                                 .anyRequest()
                                 .authenticated())
 
