@@ -2,34 +2,36 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="spring-security-demo-03-custom-login-form:war exploded" />
+      <artifact name="spring-security-demo-04-bootstrap-login-form:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: plain custom login form with error by invalid creds">
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/java/de/dkh/springsecuritydemo03customloginform/config/DemoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/java/de/dkh/springsecuritydemo03customloginform/config/DemoSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/java/de/dkh/springsecuritydemo03customloginform/config/SecurityWebApplicationInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/java/de/dkh/springsecuritydemo03customloginform/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/java/de/dkh/springsecuritydemo03customloginform/controller/DemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/java/de/dkh/springsecuritydemo03customloginform/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-04-bootstrap-login-form/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
+    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: example using custom login form">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo04bootstraploginform/config/DemoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo04bootstraploginform/config/DemoSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo04bootstraploginform/config/SecurityWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo04bootstraploginform/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo04bootstraploginform/controller/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo04bootstraploginform/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/fancy-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-03-custom-login-form/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-demo-03-custom-login-form/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,12 +85,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/privat/IT/springstart/intellij/spring-security-demo-04-bootstrap-login-form",
+    "last_opened_file_path": "C:/privat/IT/springstart/intellij/spring-security-demo-04-bootstrap-login-form/src/main/webapp/WEB-INF/view",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3632184",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
@@ -97,7 +99,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\privat\IT\springstart\intellij" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-04-bootstrap-login-form\src\main\webapp\WEB-INF\view" />
       <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-03-custom-login-form\src\main\webapp\WEB-INF\view" />
       <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-02-basic-security\src\main\java\de\dkh\springsecuritydemo02basicsecurity\config" />
     </key>
@@ -110,13 +112,13 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="spring-security-demo-03-custom-login-form" />
+      <module name="spring-security-demo-04-bootstrap-login-form" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="spring-security-demo-03-custom-login-form" />
+      <module name="spring-security-demo-04-bootstrap-login-form" />
       <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,7 +129,7 @@
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="spring-security-demo-03-custom-login-form:war exploded">
+        <artifact name="spring-security-demo-04-bootstrap-login-form:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
@@ -207,7 +209,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="spring-security-demo-03-custom-login-form:war exploded" />
+          <artifact name="spring-security-demo-04-bootstrap-login-form:war exploded" />
         </option>
       </method>
     </configuration>
@@ -221,7 +223,8 @@
       <option name="presentableId" value="Default" />
       <updated>1678698472487</updated>
       <workItem from="1678698473674" duration="8603000" />
-      <workItem from="1678715818754" duration="4013000" />
+      <workItem from="1678715818754" duration="3691000" />
+      <workItem from="1678720411691" duration="971000" />
     </task>
     <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
       <created>1678710999695</created>
@@ -237,14 +240,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678717816786</updated>
     </task>
-    <task id="LOCAL-00003" summary="Spring security: plain custom login form with error by invalid creds">
-      <created>1678720178033</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1678720178033</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +249,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Spring security: basisc example with in memory auth" />
     <MESSAGE value="Spring security: example using custom login form" />
-    <MESSAGE value="Spring security: plain custom login form with error by invalid creds" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring security: plain custom login form with error by invalid creds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spring security: example using custom login form" />
   </component>
 </project>
