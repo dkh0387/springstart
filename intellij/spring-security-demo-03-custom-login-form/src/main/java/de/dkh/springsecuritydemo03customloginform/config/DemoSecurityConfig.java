@@ -1,4 +1,4 @@
-package de.dkh.springsecuritydemo02basicsecurity.config;
+package de.dkh.springsecuritydemo03customloginform.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
