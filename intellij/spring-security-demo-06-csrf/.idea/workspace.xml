@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="spring-security-demo-05-logout:war exploded" />
+      <artifact name="spring-security-demo-07-user-roles:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,30 +10,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: example of logout">
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/java/de/dkh/springsecuritydemo05logout/config/DemoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/java/de/dkh/springsecuritydemo05logout/config/DemoSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/java/de/dkh/springsecuritydemo05logout/config/SecurityWebApplicationInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/java/de/dkh/springsecuritydemo05logout/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/java/de/dkh/springsecuritydemo05logout/controller/DemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/java/de/dkh/springsecuritydemo05logout/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/webapp/WEB-INF/view/fancy-login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/src/main/webapp/css/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/DemoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/DemoSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/SecurityWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/controller/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/fancy-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/spring-security-demo-04-bootstrap-login-form.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/java/de/dkh/springsecuritydemo06csrf/config/DemoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/java/de/dkh/springsecuritydemo06csrf/config/DemoSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/java/de/dkh/springsecuritydemo06csrf/config/SecurityWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/java/de/dkh/springsecuritydemo06csrf/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/java/de/dkh/springsecuritydemo06csrf/controller/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/java/de/dkh/springsecuritydemo06csrf/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/webapp/WEB-INF/view/fancy-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-07-user-roles/src/main/webapp/css/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-05-logout/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-demo-05-logout/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,8 +109,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/privat/IT/springstart/intellij/spring-security-demo-06-csrf",
+    "last_opened_file_path": "C:/privat/IT/springstart/intellij",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,7 +120,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3632184",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "spring.configuration.checksum": "875edb0d331f015da2087be75010ae8b",
+    "spring.configuration.checksum": "0f49ff077dfb7c1cdd8c8247e2b82ee8",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -117,12 +141,25 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="spring-security-demo-07-user-roles" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="spring-security-demo-07-user-roles" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="tomcat 9.0.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="tomcat 9.0.37" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="spring-security-demo-05-logout:war exploded">
+        <artifact name="spring-security-demo-07-user-roles:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="" />
           </settings>
@@ -202,7 +239,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="spring-security-demo-05-logout:war exploded" />
+          <artifact name="spring-security-demo-07-user-roles:war exploded" />
         </option>
       </method>
     </configuration>
@@ -221,7 +258,7 @@
       <workItem from="1678730274155" duration="340000" />
       <workItem from="1678730750355" duration="1671000" />
       <workItem from="1678785180938" duration="37000" />
-      <workItem from="1678819899394" duration="633000" />
+      <workItem from="1678820542912" duration="2382000" />
     </task>
     <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
       <created>1678710999695</created>
