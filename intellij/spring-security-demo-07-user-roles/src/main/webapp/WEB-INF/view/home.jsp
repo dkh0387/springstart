@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <html>
 
 <head>
@@ -12,6 +13,19 @@
 <p>
     Welcome to company home page
 </p>
+
+<p>
+    User: <security:authentication property="principal.username"/>
+    Role(s): <security:authentication property="principal.authorities"/>
+</p>
+
+<hr>
+
+<!-- Add a link to point to /leaders ONLY for Role MANAGER-->
+<p>
+    <a href="/leaders">Leadership Meeting</a>
+</p>
+<hr>
 
 <!-- Add a logout button.
 NOTE: In Spring Security, the default logout URL is "/logout",

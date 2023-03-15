@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -49,35 +50,57 @@ public class DemoSecurityConfig {
      * 4. NOTE: Configure Spring Security to allow unauthenticated requests (permit all)to the "/css" directory
      * 5. In Spring Security, the default logout URL is "/logout". There is auto redirection to the login page after logout,
      * all we need is to hang "/logout" action on a submit button (see {@code home.jsp})
+     * 6. Pay attention to {@code .antMatchers("/leaders").hasRole("MANAGER")}:
+     * after login /leaders path is being processed for MANAGER roles
      *
      * @param http
      * @return
      * @throws Exception
      */
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//
+//        return http
+//                .authorizeRequests(configurer ->
+//                        configurer
+//                                .antMatchers("/css/**")
+//                                .permitAll()
+//                                .anyRequest()
+//                                .authenticated()
+//                )
+//                .formLogin(configurer -> {
+//                    try {
+//                        configurer
+//                                .loginPage("/showMyLoginPage")
+//                                .loginProcessingUrl("/authenticateTheUser")
+//                                .permitAll()
+//                                .and()
+//                                .logout()
+//                                .permitAll();
+//                    } catch (Exception e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                })
+//
+//                .build();
+//    }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         return http
                 .authorizeRequests(configurer ->
                         configurer
-                                .antMatchers("/css/**")
-                                .permitAll()
-                                .anyRequest()
-                                .authenticated())
+                                .antMatchers("/").hasAnyRole("EMPLOYEE", "MANAGER", "ADMIN")
+                                .antMatchers("/leaders/**").hasRole("MANAGER")
+                                .antMatchers("/systems/**").hasRole("ADMIN"))
 
-                .formLogin(configurer -> {
-                    try {
+                .formLogin(configurer ->
                         configurer
                                 .loginPage("/showMyLoginPage")
                                 .loginProcessingUrl("/authenticateTheUser")
-                                .permitAll()
-                                .and()
-                                .logout()
-                                .permitAll();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                })
+                                .permitAll())
+
+                .logout(LogoutConfigurer::permitAll)
 
                 .build();
     }

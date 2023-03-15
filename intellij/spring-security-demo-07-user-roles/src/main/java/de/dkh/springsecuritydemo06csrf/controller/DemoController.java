@@ -15,4 +15,14 @@ public class DemoController {
     public String showHome() {
         return "home";
     }
+
+    /**
+     * Request mapping for manager page. This one is showing up after a MANAGER role logged in.
+     *
+     * @return
+     */
+    @GetMapping("/leaders")
+    public String showLeaders() {
+        return "leaders";
+    }
 }
