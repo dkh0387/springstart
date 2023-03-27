@@ -52,6 +52,8 @@ public class DemoSecurityConfig {
      * all we need is to hang "/logout" action on a submit button (see {@code home.jsp})
      * 6. Pay attention to {@code .antMatchers("/leaders").hasRole("MANAGER")}:
      * after login /leaders path is being processed for MANAGER roles
+     * 7. Access denied page: if the user role is not allowed to see the requested page
+     * the custom {@code access-denied} page is showing up.
      *
      * @param http
      * @return
@@ -101,8 +103,8 @@ public class DemoSecurityConfig {
                                 .permitAll())
 
                 .logout(LogoutConfigurer::permitAll)
-
-                .build();
+                .exceptionHandling().accessDeniedPage("/access-denied")
+                .and().build();
     }
 
 }

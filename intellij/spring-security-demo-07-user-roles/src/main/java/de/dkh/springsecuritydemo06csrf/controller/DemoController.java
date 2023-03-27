@@ -38,4 +38,15 @@ public class DemoController {
         return "systems";
     }
 
+    /**
+     * Request mapping for access denied custom page.
+     * Redirect to this one is configured in {@linkplain de.dkh.springsecuritydemo06csrf.config.DemoSecurityConfig}.
+     *
+     * @return
+     */
+    @GetMapping("/access-denied")
+    public String showAccessDenied() {
+        return "access-denied";
+    }
+
 }
