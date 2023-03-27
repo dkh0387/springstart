@@ -27,6 +27,14 @@
 </p>
 <hr>
 
+<hr>
+
+<!-- Add a link to point to /systems ONLY for Role ADMIN-->
+<p>
+    <a href="/systems">Admins Meeting</a>
+</p>
+<hr>
+
 <!-- Add a logout button.
 NOTE: In Spring Security, the default logout URL is "/logout",
  so we do NOT need to redirect manually via controller to the login page, it is just enough to activate Spring logout in DemoSecurityConfig!-->

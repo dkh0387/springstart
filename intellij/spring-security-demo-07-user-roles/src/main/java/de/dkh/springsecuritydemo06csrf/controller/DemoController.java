@@ -18,6 +18,7 @@ public class DemoController {
 
     /**
      * Request mapping for manager page. This one is showing up after a MANAGER role logged in.
+     * See: {@linkplain de.dkh.springsecuritydemo06csrf.config.DemoSecurityConfig}.
      *
      * @return
      */
@@ -25,4 +26,16 @@ public class DemoController {
     public String showLeaders() {
         return "leaders";
     }
+
+    /**
+     * Request mapping for manager page. This one is showing up after a ADMIN role logged in.
+     * See: {@linkplain de.dkh.springsecuritydemo06csrf.config.DemoSecurityConfig}.
+     *
+     * @return
+     */
+    @GetMapping("/systems")
+    public String showSystems() {
+        return "systems";
+    }
+
 }

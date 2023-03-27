@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: example of logout">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/leaders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: example of restrict access to urls using user roles">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/systems.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/config/DemoSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/config/DemoSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/controller/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/controller/DemoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
     </list>
@@ -208,7 +206,10 @@
       <workItem from="1678785180938" duration="37000" />
       <workItem from="1678820542912" duration="748000" />
       <workItem from="1678895037633" duration="422000" />
-      <workItem from="1678895485441" duration="3614000" />
+      <workItem from="1678895485441" duration="3727000" />
+      <workItem from="1678967073519" duration="890000" />
+      <workItem from="1679050146089" duration="68000" />
+      <workItem from="1679914713604" duration="956000" />
     </task>
     <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
       <created>1678710999695</created>
@@ -245,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678731800693</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Spring security: example of restrict access to urls using user roles">
+      <created>1678899210137</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678899210137</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +265,7 @@
     <MESSAGE value="Spring security: example using custom login form designed with bootstrap" />
     <MESSAGE value="Spring security: example of configuration of internal css style resources" />
     <MESSAGE value="Spring security: example of logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring security: example of logout" />
+    <MESSAGE value="Spring security: example of restrict access to urls using user roles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spring security: example of restrict access to urls using user roles" />
   </component>
 </project>
