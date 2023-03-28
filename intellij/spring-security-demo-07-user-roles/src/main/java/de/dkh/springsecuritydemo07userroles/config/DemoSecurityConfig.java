@@ -1,4 +1,4 @@
-package de.dkh.springsecuritydemo06csrf.config;
+package de.dkh.springsecuritydemo07userroles.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -21,18 +21,23 @@
 
 <hr>
 
-<!-- Add a link to point to /leaders ONLY for Role MANAGER-->
-<p>
-    <a href="/leaders">Leadership Meeting</a>
-</p>
-<hr>
+<!-- We can use Spring JSP security tasks
+ in order to bound the access according to the roles. The HTML content inside is only visible if the access is allowed-->
 
-<hr>
+<security:authorize access="hasRole('MANAGER')">
+    <!-- Add a link to point to /leaders ONLY for Role MANAGER-->
+    <p>
+        <a href="/leaders">Leadership Meeting</a>
+    </p>
+</security:authorize>
 
-<!-- Add a link to point to /systems ONLY for Role ADMIN-->
-<p>
-    <a href="/systems">Admins Meeting</a>
-</p>
+<security:authorize access="hasRole('ADMIN')">
+    <!-- Add a link to point to /systems ONLY for Role ADMIN-->
+    <p>
+        <a href="/systems">Admins Meeting</a>
+    </p>
+</security:authorize>
+
 <hr>
 
 <!-- Add a logout button.

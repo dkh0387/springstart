@@ -1,4 +1,4 @@
-package de.dkh.springsecuritydemo06csrf.controller;
+package de.dkh.springsecuritydemo07userroles.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class DemoController {
 
     /**
      * Request mapping for manager page. This one is showing up after a MANAGER role logged in.
-     * See: {@linkplain de.dkh.springsecuritydemo06csrf.config.DemoSecurityConfig}.
+     * See: {@linkplain de.dkh.springsecuritydemo07userroles.config.DemoSecurityConfig}.
      *
      * @return
      */
@@ -29,24 +29,13 @@ public class DemoController {
 
     /**
      * Request mapping for manager page. This one is showing up after a ADMIN role logged in.
-     * See: {@linkplain de.dkh.springsecuritydemo06csrf.config.DemoSecurityConfig}.
+     * See: {@linkplain de.dkh.springsecuritydemo07userroles.config.DemoSecurityConfig}.
      *
      * @return
      */
     @GetMapping("/systems")
     public String showSystems() {
         return "systems";
-    }
-
-    /**
-     * Request mapping for access denied custom page.
-     * Redirect to this one is configured in {@linkplain de.dkh.springsecuritydemo06csrf.config.DemoSecurityConfig}.
-     *
-     * @return
-     */
-    @GetMapping("/access-denied")
-    public String showAccessDenied() {
-        return "access-denied";
     }
 
 }
