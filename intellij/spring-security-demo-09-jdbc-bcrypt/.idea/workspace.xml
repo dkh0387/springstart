@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: restore 09_bcrypt">
+      <change afterPath="$PROJECT_DIR$/../../.idea/springstart.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/jarRepositories.xml" afterDir="false" />
@@ -17,7 +18,6 @@
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/spring-security-demo-04-bootstrap-login-form.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/Dockerfile" afterDir="false" />
@@ -26,6 +26,12 @@
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/db/01-create-user.sql.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/db/02-setup-spring-security-demo-database-bcrypt.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/java/de/dkh/springsecuritydemodbbcrypt/config/DemoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/java/de/dkh/springsecuritydemodbbcrypt/config/DemoSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/java/de/dkh/springsecuritydemodbbcrypt/config/SecurityWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/java/de/dkh/springsecuritydemodbbcrypt/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/java/de/dkh/springsecuritydemodbbcrypt/controller/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/java/de/dkh/springsecuritydemodbbcrypt/controller/LoginController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/resources/persistence-mysql.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt-landingpage/src/main/webapp/WEB-INF/view/access-denied.jsp" afterDir="false" />
@@ -152,6 +158,8 @@
       <workItem from="1681067454400" duration="141000" />
       <workItem from="1681067703324" duration="113000" />
       <workItem from="1681067996731" duration="74000" />
+      <workItem from="1681069606658" duration="77000" />
+      <workItem from="1681069742623" duration="271000" />
     </task>
     <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
       <created>1678710999695</created>
