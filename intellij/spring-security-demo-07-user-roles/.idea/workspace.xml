@@ -10,14 +10,101 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: example of redirecting to a custom access-denied page if the role is not allowed to see the resource">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/config/DemoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/DemoConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/config/DemoSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/DemoSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/config/SecurityWebApplicationInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/SecurityWebApplicationInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/config/SpringMVCDispatcherServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/controller/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/controller/DemoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo06csrf/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dkh/springsecuritydemo07userroles/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/db/setup-spring-security-demo-database-plaintext.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/DemoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/DemoSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/SecurityWebApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/SpringMVCDispatcherServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/controller/DemoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/resources/persistence-mysql.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/WEB-INF/view/access-denied.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/WEB-INF/view/fancy-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/WEB-INF/view/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/WEB-INF/view/leaders.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/WEB-INF/view/plain-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/WEB-INF/view/systems.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/src/main/webapp/css/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/de/dkh/springsecuritydemo07userroles/config/DemoConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/de/dkh/springsecuritydemo07userroles/config/DemoSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/de/dkh/springsecuritydemo07userroles/config/SecurityWebApplicationInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/de/dkh/springsecuritydemo07userroles/config/SpringMVCDispatcherServletInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/de/dkh/springsecuritydemo07userroles/controller/DemoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/classes/de/dkh/springsecuritydemo07userroles/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/de/dkh/springsecuritydemo07userroles/config/DemoConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/de/dkh/springsecuritydemo07userroles/config/DemoSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/de/dkh/springsecuritydemo07userroles/config/SecurityWebApplicationInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/de/dkh/springsecuritydemo07userroles/config/SpringMVCDispatcherServletInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/de/dkh/springsecuritydemo07userroles/controller/DemoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/classes/de/dkh/springsecuritydemo07userroles/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/antlr4-runtime-4.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/byte-buddy-1.12.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/classmate-1.5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/hibernate-commons-annotations-6.0.1.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/hibernate-core-6.0.2.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/hibernate-validator-7.0.4.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/istack-commons-runtime-4.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jakarta.activation-2.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jakarta.inject-api-2.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jakarta.persistence-api-3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jakarta.transaction-api-2.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jakarta.validation-api-3.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jakarta.xml.bind-api-3.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jandex-2.4.2.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/javax.servlet-api-3.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/javax.servlet.jsp-api-2.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jaxb-api-2.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jaxb-core-3.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jaxb-runtime-3.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jboss-logging-3.4.3.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-aop-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-beans-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-context-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-core-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-expression-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-jcl-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-jdbc-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-security-acl-5.7.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-security-config-5.7.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-security-core-5.7.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-security-crypto-5.7.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-security-taglibs-5.7.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-security-web-5.7.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-tx-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-web-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/spring-webmvc-5.3.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/lib/txw2-3.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/view/access-denied.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/view/fancy-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/view/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/view/leaders.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/view/plain-login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/WEB-INF/view/systems.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/target/spring-security-demo-user-roles/css/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-security-demo-db-plaintext/tomcat-users.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-06-csrf/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security-demo-06-csrf/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +138,6 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2Mx9fXrr4OBgFtHz1oIQfouCHvy" />
   <component name="ProjectLevelVcsManager">
@@ -72,7 +154,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/privat/IT/springstart/intellij/spring-security-demo-07-user-roles/src/main/webapp/WEB-INF/view",
+    "last_opened_file_path": "/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-07-user-roles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,13 +162,14 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3632184",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "a84519df7518ee641481b34535d92f14",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.." />
       <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-07-user-roles\src\main\webapp\WEB-INF\view" />
       <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-04-bootstrap-login-form\src\main\webapp\WEB-INF\view" />
       <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-03-custom-login-form\src\main\webapp\WEB-INF\view" />
@@ -100,98 +183,6 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="de.dkh.springsecuritydemo02basicsecurity.controller" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="tomcat 9.0.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="tomcat 9.0.37" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <artifact name="spring-security-demo-07-user-roles:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="68bd4a24-c1c6-48b6-9520-7098280682f0" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="49369" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="spring-security-demo-06-csrf:war exploded" />
-          <artifact name="spring-security-demo-07-user-roles:war exploded" />
-        </option>
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -213,6 +204,9 @@
       <workItem from="1678967073519" duration="890000" />
       <workItem from="1679050146089" duration="68000" />
       <workItem from="1679914713604" duration="4794000" />
+      <workItem from="1680976190557" duration="63000" />
+      <workItem from="1680976356666" duration="1376000" />
+      <workItem from="1680978222669" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
       <created>1678710999695</created>
