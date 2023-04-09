@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="spring-security-demo-07-user-roles:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="Spring security: defining and parametrize a JDBC data source from .properties file and autowire them in DemoSecurityConfig.java">
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-security-demo-09-jdbc-bcrypt/src/main/db/02-setup-spring-security-bcrypt-demo-database.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="spring_tomcat_mysql_docker" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Mx9fXrr4OBgFtHz1oIQfouCHvy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3632184&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;a65b1c795287ff9a1ffe269e8eaaca7a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/db" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-07-user-roles\src\main\webapp\WEB-INF\view" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-04-bootstrap-login-form\src\main\webapp\WEB-INF\view" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-03-custom-login-form\src\main\webapp\WEB-INF\view" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-02-basic-security\src\main\java\de\dkh\springsecuritydemo02basicsecurity\config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-04-bootstrap-login-form\src\main\webapp" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-04-bootstrap-login-form\src\main\webapp\WEB-INF" />
+      <recent name="C:\privat\IT\springstart\intellij\spring-security-demo-02-basic-security\src\main\webapp\WEB-INF\view" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.dkh.springsecuritydemo02basicsecurity.controller" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d758314-2d85-4421-aa43-6ddd2cce5ae5" name="Changes" comment="" />
+      <created>1678698472487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678698472487</updated>
+      <workItem from="1678698473674" duration="8603000" />
+      <workItem from="1678715818754" duration="3691000" />
+      <workItem from="1678720411691" duration="1968000" />
+      <workItem from="1678730274155" duration="340000" />
+      <workItem from="1678730750355" duration="1671000" />
+      <workItem from="1678785180938" duration="37000" />
+      <workItem from="1678820542912" duration="748000" />
+      <workItem from="1678895037633" duration="422000" />
+      <workItem from="1678895485441" duration="3727000" />
+      <workItem from="1678967073519" duration="890000" />
+      <workItem from="1679050146089" duration="68000" />
+      <workItem from="1679914713604" duration="4794000" />
+      <workItem from="1680976190557" duration="63000" />
+      <workItem from="1680978890573" duration="1393000" />
+      <workItem from="1680980300843" duration="1289000" />
+      <workItem from="1680981635639" duration="7798000" />
+      <workItem from="1681063112440" duration="68000" />
+    </task>
+    <task id="LOCAL-00001" summary="Spring security: basisc example with in memory auth">
+      <created>1678710999695</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678710999695</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Spring security: example using custom login form">
+      <created>1678717816786</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678717816786</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Spring security: example using custom login form designed with bootstrap">
+      <created>1678721523228</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678721523228</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Spring security: example of configuration of internal css style resources">
+      <created>1678722346822</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678722346822</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Spring security: example of logout">
+      <created>1678731800693</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678731800693</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Spring security: example of restrict access to urls using user roles">
+      <created>1678899210137</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678899210137</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Spring security: example of restrict access to urls using user roles: extra pages for managers and admins access">
+      <created>1679917784687</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679917784687</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Spring security: example of redirecting to a custom access-denied page if the role is not allowed to see the resource">
+      <created>1679937046490</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679937046490</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Spring security: example of reading users and roles from mysql db (docker compose usage)">
+      <created>1680979223081</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680979223081</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Spring security: example of reading users and roles from mysql db (docker compose usage)">
+      <created>1680979429073</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680979429073</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Spring security: example of reading users and roles from mysql db (docker compose usage)">
+      <created>1680979972385</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680979972385</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Spring security: example of reading users and roles from mysql db (docker compose usage)">
+      <created>1680979981568</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680979981568</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Spring security: JDBC connection properties as .properties source and configure them in DemoConfig.java">
+      <created>1680981434858</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680981434858</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Spring security: JDBC connection properties as .properties source and configure them in DemoConfig.java">
+      <created>1680981658807</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680981658807</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Spring security: defining and parametrize a JDBC data source from .properties file and autowire them in DemoSecurityConfig.java">
+      <created>1680983755772</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680983755772</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Spring security: basisc example with in memory auth" />
+    <MESSAGE value="Spring security: example using custom login form" />
+    <MESSAGE value="Spring security: example using custom login form designed with bootstrap" />
+    <MESSAGE value="Spring security: example of configuration of internal css style resources" />
+    <MESSAGE value="Spring security: example of logout" />
+    <MESSAGE value="Spring security: example of restrict access to urls using user roles" />
+    <MESSAGE value="Spring security: example of restrict access to urls using user roles: extra pages for managers and admins access" />
+    <MESSAGE value="Spring security: example of redirecting to a custom access-denied page if the role is not allowed to see the resource" />
+    <MESSAGE value="Spring security: example of reading users and roles from mysql db (docker compose usage)" />
+    <MESSAGE value="Spring security: JDBC connection properties as .properties source and configure them in DemoConfig.java" />
+    <MESSAGE value="Spring security: defining and parametrize a JDBC data source from .properties file and autowire them in DemoSecurityConfig.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spring security: defining and parametrize a JDBC data source from .properties file and autowire them in DemoSecurityConfig.java" />
+  </component>
+</project>
