@@ -1,0 +1,6 @@
+de/dkh/springsecuritydemo07userroles/controller/DemoController.class
+de/dkh/springsecuritydemo07userroles/config/DemoSecurityConfig.class
+de/dkh/springsecuritydemo07userroles/config/DemoConfig.class
+de/dkh/springsecuritydemo07userroles/config/SpringMVCDispatcherServletInitializer.class
+de/dkh/springsecuritydemo07userroles/controller/LoginController.class
+de/dkh/springsecuritydemo07userroles/config/SecurityWebApplicationInitializer.class

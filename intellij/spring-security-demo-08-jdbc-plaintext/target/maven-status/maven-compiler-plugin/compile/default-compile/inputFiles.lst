@@ -1,0 +1,6 @@
+/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/DemoConfig.java
+/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/controller/DemoController.java
+/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/DemoSecurityConfig.java
+/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/SecurityWebApplicationInitializer.java
+/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/config/SpringMVCDispatcherServletInitializer.java
+/Users/deniskhaskin/IdeaProjects/springstart/intellij/spring-security-demo-08-jdbc-plaintext/src/main/java/de/dkh/springsecuritydemodbplaintext/controller/LoginController.java
