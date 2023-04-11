@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spring-security-demo-09-jdbc-bcrypt-landing.iml" filepath="$PROJECT_DIR$/spring-security-demo-09-jdbc-bcrypt-landing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-security-demo-09-jdbc-bcrypt-landingpage.iml" filepath="$PROJECT_DIR$/spring-security-demo-09-jdbc-bcrypt-landingpage.iml" />
     </modules>
   </component>
 </project>
