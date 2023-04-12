@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.io.Serializable;
 
 @Entity
-@Table(schema = "mysql_customerapi", name = "customer")
+@Table(schema = "customerapi_db", name = "customer")
 public class Customer extends PersistentObject implements Serializable {
 
     @Getter
