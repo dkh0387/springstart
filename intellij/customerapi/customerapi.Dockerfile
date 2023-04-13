@@ -1,7 +1,7 @@
 #
 # Maven container for building the app
 #
-FROM maven:3.8.3-openjdk-11 AS build
+FROM maven:3.8.3-openjdk-17 AS build
 
 MAINTAINER de.dkh
 
@@ -16,7 +16,7 @@ RUN mvn -f /home/app/pom.xml package
 #
 # JDK container for running the app
 #
-FROM openjdk:11-jdk-slim
+FROM openjdk:17-jdk-slim
 
 RUN apt-get update --fix-missing \
     && apt-get install -y --no-install-recommends netcat \
