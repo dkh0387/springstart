@@ -16,12 +16,20 @@ RUN mvn -f /home/app/pom.xml package
 #
 # JDK container for running the app
 #
-FROM eclipse-temurin:11-jdk
+FROM openjdk:11-jdk-slim
+
+RUN apt-get update --fix-missing \
+    && apt-get install -y --no-install-recommends netcat \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /opt/app
 
 # Copy source files to app folder structure
 COPY --from=build /home/app/target/customerapi.jar /opt/app/ROOT.jar
 
+COPY ./docker_entrypoint.sh docker_entrypoint.sh
+RUN chmod 100 docker_entrypoint.sh
+ENTRYPOINT [ "./docker_entrypoint.sh" ]
+
 # And run the app
-CMD ["java", "-jar", "/opt/app/ROOT.jar"]
+#CMD ["java", "-jar", "/opt/app/ROOT.jar"]
