@@ -1,18 +1,12 @@
 version: "3.9" #version of docker-compose
 services:
   mysql:
-    networks:
-      - springboot-mysql-net
-    container_name: mysql_customerapi
     restart: always
     build:
       context: ./
       dockerfile: mysql.Dockerfile
     command:
       --default-authentication-plugin=mysql_native_password
-      --max_connections=666
-      --bind-address=0.0.0.0
-      --skip-networking=0
     ports:
       - "3307:3306"
     expose:
@@ -26,11 +20,8 @@ services:
       #- ./data:/var/lib/mysql                         #database data volume
       - ./src/main/db:/docker-entrypoint-initdb.d/:ro #database files called when the container is built and started for the first time
   data_api:
-    networks:
-      - springboot-mysql-net
     depends_on:
       - mysql
-    container_name: customerapi_service
     build:
       context: ./
       dockerfile: customerapi.Dockerfile
@@ -43,7 +34,3 @@ services:
     restart: always
     ports:
       - "9000:8080"
-networks:
-  springboot-mysql-net:
-    driver: bridge
-    name: springboot-mysql-net
