@@ -6,6 +6,4 @@ import org.springframework.data.repository.CrudRepository
 
 interface BankRepository : CrudRepository<Bank, Int> {
 
-    @Query("SELECT * FROM BANKS")
-    override fun findAll(): List<Bank>
 }

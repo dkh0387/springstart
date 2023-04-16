@@ -11,5 +11,5 @@ class BankService(val bankRepository: BankRepository) {
         bankRepository.save(bank)
     }
 
-    fun findAll(): List<Bank> = bankRepository.findAll()
+    fun findAll(): List<Bank> = bankRepository.findAll().toList()
 }
