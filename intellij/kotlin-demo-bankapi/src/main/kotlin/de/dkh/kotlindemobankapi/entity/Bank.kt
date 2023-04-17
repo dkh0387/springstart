@@ -12,8 +12,10 @@ import org.springframework.data.relational.core.mapping.Table
  *  because data classes implement those methods by default
  */
 @Table("BANKS")
-data class Bank(@Id val id: Int?,
-                val bankName: String,
-                val accountNumber: String,
-                val trust: Double,
-                val transactionFee: Int)
+data class Bank(
+    @Id val id: Int?,
+    val bankName: String?,
+    val accountNumber: String,
+    val trust: Double,
+    val transactionFee: Int
+)

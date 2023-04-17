@@ -8,14 +8,14 @@ import org.springframework.data.relational.core.mapping.Table
 /**
  * Example of Java like style of writing classes in Kotlin
  */
-@Table("BANKS")
+//@Table("BANKS")
 @ToString
 @EqualsAndHashCode
 class BankJavaStyle {
     @Id
     private val id: Int?
     private val bankName: String
-        //Getter in Kotlin: its gonna be converted in Java byte code like getBankName()
+        //Getter in Kotlin: it's going to be converted in Java byte code like getBankName()
         // NOTE we do not need this one, because Getter are automatically generated for all `val`
         get() = field
 

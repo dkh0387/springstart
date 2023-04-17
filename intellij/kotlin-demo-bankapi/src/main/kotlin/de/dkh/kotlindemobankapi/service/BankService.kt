@@ -2,20 +2,16 @@ package de.dkh.kotlindemobankapi.service
 
 import de.dkh.kotlindemobankapi.entity.Bank
 import de.dkh.kotlindemobankapi.repository.BankRepository
-import de.dkh.kotlindemobankapi.repository.BankRepositoryImpl
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 
 @Service
-class BankService(private val bankRepository: BankRepositoryImpl) {
+class BankService(private val bankRepository: BankRepository) {
 
-    fun save(bank: Bank) {
+    fun saveBank(bank: Bank) {
         bankRepository.save(bank)
     }
 
-    fun findAll(): List<Bank> = bankRepository.findAll().toList()
+    fun findBanks(): List<Bank> = bankRepository.findBanks()
 
-    /**
-     * NOTE: for testing only!
-     */
-    fun getBanks(): List<Bank> = bankRepository.getBanks()
 }

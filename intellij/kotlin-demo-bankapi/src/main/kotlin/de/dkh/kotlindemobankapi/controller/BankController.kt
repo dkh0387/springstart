@@ -8,19 +8,22 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class BankController(val bankService: BankService) {
+class BankController(private val bankService: BankService) {
 
     @GetMapping("/")
     fun index(): String = "Hello world!"
 
-    @GetMapping("/testGetBanks")
-    fun showBanksForTest(): List<Bank> = bankService.getBanks()
-
     @GetMapping("/banks")
-    fun showBanks(): List<Bank> = bankService.findAll()
+    fun showBanks(): List<Bank> = bankService.findBanks()
 
     @PostMapping("/post")
     fun saveBank(@RequestBody bank: Bank) {
-        bankService.save(bank)
+
+        try {
+            bankService.saveBank(bank)
+        } catch (e: Exception) {
+            println(e.localizedMessage)
+        }
+
     }
 }

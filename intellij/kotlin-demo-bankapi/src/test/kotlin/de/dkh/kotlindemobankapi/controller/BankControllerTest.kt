@@ -1,5 +1,7 @@
 package de.dkh.kotlindemobankapi.controller
 
+import io.mockk.every
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -15,7 +17,7 @@ import javax.management.Query.value
 
 
 /**
- * Example of "real" application test. {@code SpringBootTest}.
+ * Example of "real" integration test. {@code SpringBootTest}.
  * Doing so, Spring initialize all beans and start up the app.
  * So we can test explicitly the REST endpoint in controller (get all banks as JSON from controller).
  * NOTE: makes sense for integration tests doe to performance issues.
@@ -41,7 +43,7 @@ class BankControllerTest {
     @Test
     fun `should return all banks`() {
 
-        val resultActionsDsl: ResultActionsDsl = mockMvc.get("/testGetBanks")
+        val resultActionsDsl: ResultActionsDsl = mockMvc.get("/banks")
 
         resultActionsDsl
             .andDo { print() }
