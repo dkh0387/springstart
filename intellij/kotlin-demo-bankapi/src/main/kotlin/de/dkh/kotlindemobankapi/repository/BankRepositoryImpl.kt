@@ -11,13 +11,17 @@ class BankRepositoryImpl : BankRepository {
     private val banks: List<Bank> = listOf(Bank(1, "Testbank", "23Fr", 34.5, 12))
 
     /**
-     * @TODO: actually return the db result list.
+     * NOTE: for testing only!
      */
     //@Query("SELECT * FROM BANKS")
-    override fun findAll(): List<Bank> = banks
+    fun getBanks(): List<Bank> = banks
 
 
-    override fun <S : Bank?> save(entity: S): S {
+    @Query("SELECT * FROM BANKS")
+    override fun findAll(): List<Bank> = findAll()
+
+
+    override fun <S : Bank> save(entity: S): S {
         TODO("Not yet implemented")
     }
 

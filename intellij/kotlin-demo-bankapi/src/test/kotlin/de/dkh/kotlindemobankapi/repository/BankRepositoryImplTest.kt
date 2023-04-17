@@ -13,7 +13,7 @@ class BankRepositoryImplTest {
 
 
         // when
-        val banks = bankRepository.findAll()
+        val banks = bankRepository.getBanks()
 
         // then
         assertThat(banks).isNotEmpty
@@ -24,7 +24,7 @@ class BankRepositoryImplTest {
         // given
 
         // when
-        val banks = bankRepository.findAll()
+        val banks = bankRepository.getBanks()
 
         // then
         assertThat(banks).allMatch { it.accountNumber.isNotBlank() }

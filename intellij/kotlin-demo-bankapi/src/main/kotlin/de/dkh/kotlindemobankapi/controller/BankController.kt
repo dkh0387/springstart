@@ -13,6 +13,9 @@ class BankController(val bankService: BankService) {
     @GetMapping("/")
     fun index(): String = "Hello world!"
 
+    @GetMapping("/testGetBanks")
+    fun showBanksForTest(): List<Bank> = bankService.getBanks()
+
     @GetMapping("/banks")
     fun showBanks(): List<Bank> = bankService.findAll()
 
