@@ -2,6 +2,7 @@ package de.dkh.kotlindemobankapi.controller
 
 import io.mockk.every
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -43,7 +44,7 @@ class BankControllerTest {
     @Test
     fun `should return all banks`() {
 
-        val resultActionsDsl: ResultActionsDsl = mockMvc.get("/banks")
+        val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/banks")
 
         resultActionsDsl
             .andDo { print() }
@@ -51,6 +52,25 @@ class BankControllerTest {
                 status { isOk() }
                 content { contentType(MediaType.APPLICATION_JSON) }
                 jsonPath("$[0].bankName") { value("Testbank") }
+            }
+    }
+
+    /**
+     * Example of usage parameters in REST URLs!
+     */
+    @Test
+    fun `should return a bank by given account number`() {
+        // given
+        val accountNumber: String = "23Fr"
+
+        val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/account/$accountNumber")
+
+        resultActionsDsl
+            .andDo { print() }
+            .andExpect {
+                status { isOk() }
+                content { contentType(MediaType.APPLICATION_JSON) }
+                jsonPath("accountNumber") { value(accountNumber) }
             }
     }
 }

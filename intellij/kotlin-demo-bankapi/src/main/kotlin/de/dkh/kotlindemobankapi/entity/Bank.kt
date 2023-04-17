@@ -1,5 +1,6 @@
 package de.dkh.kotlindemobankapi.entity
 
+import lombok.ToString
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
@@ -12,6 +13,7 @@ import org.springframework.data.relational.core.mapping.Table
  *  because data classes implement those methods by default
  */
 @Table("BANKS")
+@ToString
 data class Bank(
     @Id val id: Int?,
     val bankName: String?,

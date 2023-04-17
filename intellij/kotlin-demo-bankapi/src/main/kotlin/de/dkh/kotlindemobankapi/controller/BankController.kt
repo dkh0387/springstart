@@ -2,19 +2,17 @@ package de.dkh.kotlindemobankapi.controller
 
 import de.dkh.kotlindemobankapi.entity.Bank
 import de.dkh.kotlindemobankapi.service.BankService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/bank")
 class BankController(private val bankService: BankService) {
 
-    @GetMapping("/")
+    @GetMapping
     fun index(): String = "Hello world!"
 
     @GetMapping("/banks")
-    fun showBanks(): List<Bank> = bankService.findBanks()
+    fun getBanks(): List<Bank> = bankService.findBanks()
 
     @PostMapping("/post")
     fun saveBank(@RequestBody bank: Bank) {
@@ -26,4 +24,11 @@ class BankController(private val bankService: BankService) {
         }
 
     }
+
+    @GetMapping("/id/{id}")
+    fun getBankById(@PathVariable id: Int): Bank = bankService.findBankById(id)
+
+    @GetMapping("/account/{accountNumber}")
+    fun getBankByAccount(@PathVariable accountNumber: String): Bank = bankService.findBankByAccountNumber(accountNumber)
+
 }
