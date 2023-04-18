@@ -1,20 +1,14 @@
 package de.dkh.kotlindemobankapi.controller
 
-import io.mockk.every
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.http.MediaType
-import org.springframework.test.web.client.match.MockRestRequestMatchers.content
-import org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.ResultActionsDsl
 import org.springframework.test.web.servlet.get
-import org.springframework.web.servlet.function.RequestPredicates.contentType
 import javax.management.Query.value
+
 
 
 /**
@@ -35,24 +29,34 @@ class BankControllerTest {
     lateinit var mockMvc: MockMvc
 
     /**
-     * 1. Make the GET request to the endpoint
-     * 2. Print the recall
-     * 3. Check the status = 200
-     * 4. Check the return type is JSON
-     * 5. Check the first object in JSON has bankName = "Testbank"
+     * Encapsulate test groups with an inner class.
+     * It makes the running process more structured.
      */
-    @Test
-    fun `should return all banks`() {
+    @Nested
+    @DisplayName("getBanks()")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class GetBanks {
+        /**
+         * 1. Make the GET request to the endpoint
+         * 2. Print the recall
+         * 3. Check the status = 200
+         * 4. Check the return type is JSON
+         * 5. Check the first object in JSON has bankName = "Testbank"
+         */
+        @Test
+        fun `should return all banks`() {
 
-        val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/banks")
+            val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/banks")
 
-        resultActionsDsl
-            .andDo { print() }
-            .andExpect {
-                status { isOk() }
-                content { contentType(MediaType.APPLICATION_JSON) }
-                jsonPath("$[0].bankName") { value("Testbank") }
-            }
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isOk() }
+                    content { contentType(MediaType.APPLICATION_JSON) }
+                    jsonPath("$[0].bankName") { value("Testbank") }
+                }
+        }
+
     }
 
     /**

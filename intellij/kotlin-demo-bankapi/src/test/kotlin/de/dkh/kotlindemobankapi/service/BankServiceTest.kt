@@ -2,12 +2,10 @@ package de.dkh.kotlindemobankapi.service
 
 import de.dkh.kotlindemobankapi.entity.Bank
 import de.dkh.kotlindemobankapi.repository.BankRepository
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.verify
-import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+
 
 /**
  * Test example with mocking and stubbing.
@@ -40,7 +38,7 @@ class BankServiceTest {
         val banks = bankService.findBanks()
 
         // then
-        assertThat(banks).isNotEmpty
+        assertTrue(banks.isNotEmpty())
     }
 
     @Test
@@ -51,7 +49,9 @@ class BankServiceTest {
         val banks = bankService.findBanks()
 
         // then
-        assertThat(banks).allMatch { it.accountNumber.isNotBlank() }
+        assertTrue(banks.all { it.accountNumber.isNotBlank() })
+
+            //.allMatch { it.accountNumber.isNotBlank() })
 
     }
 
@@ -62,7 +62,7 @@ class BankServiceTest {
         bankService.findBanks()
 
         // then verify, that repository is being called
-        verify(exactly = 1) { bankRepository.findBanks()}
+        verify(exactly = 1) { bankRepository.findBanks() }
 
     }
 
