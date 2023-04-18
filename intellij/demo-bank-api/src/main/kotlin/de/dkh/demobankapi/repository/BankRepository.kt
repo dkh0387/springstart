@@ -23,8 +23,8 @@ interface BankRepository : CrudRepository<Bank, Int> {
      * Alternatively we could use the whole list and filter it per stream.
      */
 /*    fun findByAccountNumber(@Param("account") theAccountNumber: String): Bank {
-        findBanks().first { theAccountNumber == it.accountNumber }
-        throw NoSuchElementException("There is no bank for the account number $theAccountNumber in the list!")
+        findBanks().firstOrNull { theAccountNumber == it.accountNumber }
+        ?: throw NoSuchElementException("There is no bank for the account number $theAccountNumber in the list!")
     }*/
 
 }
