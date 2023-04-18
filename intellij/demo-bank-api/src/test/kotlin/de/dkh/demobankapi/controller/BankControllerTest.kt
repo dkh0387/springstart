@@ -11,7 +11,6 @@ import org.springframework.test.web.servlet.get
 import javax.management.Query.value
 
 
-
 /**
  * Example of "real" integration test. {@code SpringBootTest}.
  * Doing so, Spring initialize all beans and start up the app.
@@ -60,22 +59,30 @@ class BankControllerTest {
 
     }
 
-    /**
-     * Example of usage parameters in REST URLs!
-     */
-    @Test
-    fun `should return a bank by given account number`() {
-        // given
-        val accountNumber: String = "23Fr"
+    @Nested
+    @DisplayName("getBankByAccountNumber()")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class GetBankByAccountNumber {
 
-        val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/account/$accountNumber")
+        /**
+         * Example of usage parameters in REST URLs!
+         */
+        @Test
+        fun `should return a bank by given account number`() {
+            // given
+            val accountNumber: String = "23Fr"
 
-        resultActionsDsl
-            .andDo { print() }
-            .andExpect {
-                status { isOk() }
-                content { contentType(MediaType.APPLICATION_JSON) }
-                jsonPath("accountNumber") { value(accountNumber) }
-            }
+            val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/account/$accountNumber")
+
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isOk() }
+                    content { contentType(MediaType.APPLICATION_JSON) }
+                    jsonPath("accountNumber") { value(accountNumber) }
+                }
+        }
     }
+
+
 }
