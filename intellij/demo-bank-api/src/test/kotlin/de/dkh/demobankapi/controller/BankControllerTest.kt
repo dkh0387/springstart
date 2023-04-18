@@ -82,6 +82,24 @@ class BankControllerTest {
                     jsonPath("accountNumber") { value(accountNumber) }
                 }
         }
+
+        /**
+         * Example of testing HTTP_STATUS 404 (not found).
+         * We need an exception handling in controller (see {@code BankController}), otherwise test remains red.
+         */
+        @Test
+        fun `should return NOT FOUND for not existing given account number`() {
+            // given
+            val accountNumber: String = "1234"
+
+            val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/account/$accountNumber")
+
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isNotFound() }
+                }
+        }
     }
 
 
