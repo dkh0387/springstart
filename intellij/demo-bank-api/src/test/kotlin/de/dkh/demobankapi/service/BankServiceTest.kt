@@ -8,11 +8,13 @@ import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.boot.test.context.SpringBootTest
 
 
 /**
  * Test example with mocking and stubbing.
  */
+@SpringBootTest
 class BankServiceTest {
     /**
      * NOTE: {@code relaxed = true} meaning: if we call a method on mock it returns automatically some default value,
