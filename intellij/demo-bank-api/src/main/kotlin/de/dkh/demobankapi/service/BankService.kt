@@ -1,10 +1,8 @@
-package de.dkh.kotlindemobankapi.service
+package de.dkh.demobankapi.service
 
+import de.dkh.demobankapi.repository.BankRepository
 import de.dkh.kotlindemobankapi.entity.Bank
-import de.dkh.kotlindemobankapi.repository.BankRepository
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
-import kotlin.jvm.optionals.getOrNull
 
 @Service
 class BankService(private val bankRepository: BankRepository) {

@@ -1,7 +1,7 @@
-package de.dkh.kotlindemobankapi.controller
+package de.dkh.demobankapi.controller
 
+import de.dkh.demobankapi.service.BankService
 import de.dkh.kotlindemobankapi.entity.Bank
-import de.dkh.kotlindemobankapi.service.BankService
 import org.springframework.web.bind.annotation.*
 
 @RestController

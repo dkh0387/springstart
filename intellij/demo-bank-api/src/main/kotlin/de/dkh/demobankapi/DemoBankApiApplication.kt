@@ -1,11 +1,11 @@
-package de.dkh.kotlindemobankapi
+package de.dkh.demobankapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class KotlinDemoBankingApplication
+class DemoBankApiApplication
 
 fun main(args: Array<String>) {
-    runApplication<KotlinDemoBankingApplication>(*args)
+    runApplication<DemoBankApiApplication>(*args)
 }

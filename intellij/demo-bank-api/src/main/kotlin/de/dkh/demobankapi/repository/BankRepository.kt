@@ -1,4 +1,4 @@
-package de.dkh.kotlindemobankapi.repository
+package de.dkh.demobankapi.repository
 
 import de.dkh.kotlindemobankapi.entity.Bank
 import org.springframework.data.jdbc.repository.query.Query

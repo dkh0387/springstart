@@ -1,7 +1,10 @@
-package de.dkh.kotlindemobankapi.service
+package de.dkh.demobankapi.service
 
+import de.dkh.demobankapi.repository.BankRepository
 import de.dkh.kotlindemobankapi.entity.Bank
-import de.dkh.kotlindemobankapi.repository.BankRepository
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
