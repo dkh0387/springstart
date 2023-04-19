@@ -174,15 +174,13 @@ class BankControllerTest {
         @Test
         fun `should update bank name for a given bank`() {
             // given: a bank passed inside PATCH for updating the name
-            val bank = Bank("Testbank3", "dkh0387", 45.6, 12)
-            val newBankName = "New Bank name"
-            val updatedBank = Bank(newBankName, "dkh0387", 45.6, 12)
+            val newBank = Bank("New Bank name", "dkh0387", 45.6, 12)
 
             // when
-            val resultActionsDsl: ResultActionsDsl = mockMvc.patch("$BASE_URL/update/$newBankName") {
+            val resultActionsDsl: ResultActionsDsl = mockMvc.patch("$BASE_URL/update/${1}") {
                 contentType = MediaType.APPLICATION_JSON
-                // newBank object is being passed into the request body:
-                content = objectMapper.writeValueAsString(bank)
+                // bank object is being passed into the request body:
+                content = objectMapper.writeValueAsString(newBank)
             }
 
             // then
@@ -193,7 +191,7 @@ class BankControllerTest {
                     content {
                         contentType(MediaType.APPLICATION_JSON)
                         // check, whether the given bank is coming updated after request:
-                        json(objectMapper.writeValueAsString(updatedBank))
+                        json(objectMapper.writeValueAsString(newBank))
                     }
                 }
 

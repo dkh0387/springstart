@@ -4,6 +4,7 @@ import de.dkh.demobankapi.repository.BankRepository
 import de.dkh.kotlindemobankapi.entity.Bank
 import org.springframework.stereotype.Service
 import java.lang.IllegalArgumentException
+import java.util.*
 
 @Service
 class BankService(private val bankRepository: BankRepository) {
@@ -17,13 +18,26 @@ class BankService(private val bankRepository: BankRepository) {
         bankRepository.save(bank)
     }
 
-    private fun validate(bank: Bank): Boolean = bank.bankName != null && bank.accountNumber != null
+    private fun validate(bank: Bank): Boolean =
+        (Objects.nonNull(bank.bankName) && !"".equals(
+            bank.bankName,
+            ignoreCase = true
+        ))
+                &&
+                (Objects.nonNull(bank.accountNumber) && !"".equals(
+                    bank.accountNumber,
+                    ignoreCase = true
+                ))
 
 
     fun findBanks(): List<Bank> = bankRepository.findBanks()
     fun findBankById(id: Int): Bank = bankRepository.findById(id).get()
     fun findBankByAccountNumber(accountNumber: String): Bank = bankRepository.findByAccountNumber(accountNumber)
-    fun updateBankNameByAccountNumber(accountNumber: String, newBankName: String): Bank =
-        bankRepository.updateBankNameByAccountNumber(accountNumber, newBankName)
+    fun updateBankById(bank: Bank, id: Int): Bank? {
+        val existingBank = bankRepository.findById(id).get()
+
+        return bankRepository.updateBankById(existingBank, bank, id)
+    }
+
 
 }

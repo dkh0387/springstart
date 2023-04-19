@@ -57,10 +57,7 @@ class BankController(private val bankService: BankService) {
      * PATCH allows updating of partial properties
      * PUT requires the whole object being passed
      */
-    @PatchMapping("/update/{newName}")
-    fun updateBank(@RequestBody bank: Bank, @PathVariable newName: String): Bank {
-        bank.bankName = newName
-        return bank
-    }
+    @PatchMapping("/update/{id}")
+    fun updateBankById(@RequestBody bank: Bank, @PathVariable id: Int): Bank? = bankService.updateBankById(bank, id)
 
 }

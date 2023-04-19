@@ -8,8 +8,16 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 
+/**
+ * Basis repository for handling bank data.
+ * This one HAS to extend both, {@code CrudRepository} and {@code BankRepositoryCustom},
+ * where the last one contains the custom DAO methods.
+ * Those custom DAO methods will EXPLICITLY NOT being interpreted as object properties,
+ * since they are in a separate interface!
+ * See: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.custom-implementations
+ */
 @Repository
-interface BankRepository : CrudRepository<Bank, Int> {
+interface BankRepository : CrudRepository<Bank, Int>, BankRepositoryCustom {
 
     @Query("SELECT * FROM BANKS")
     fun findBanks(): List<Bank>
@@ -17,22 +25,8 @@ interface BankRepository : CrudRepository<Bank, Int> {
     /**
      * Example of usage method params inside of queries.
      */
-    @Query("SELECT * FROM BANKS b WHERE b.ACCOUNT_NUMBER =: account")
-    fun findByAccountNumber(@Param("account") accountNumber: String): Bank
-
-    @Query("UPDATE BANKS b SET b.BANK_NAME =: 'newBankName' WHERE b.ACCOUNT_NUMBER =: 'accountNumber'")
-    fun updateBankNameByAccountNumber(
-        @Param("accountNumber") accountNumber: String,
-        @Param("newBankName") newBankName: String
-    ): Bank =
-        findBanks().first { accountNumber == it.accountNumber }
-
-    /**
-     * Alternatively we could use the whole list and filter it per stream.
-     */
-    /*    fun findByAccountNumber(@Param("account") theAccountNumber: String): Bank {
-            findBanks().firstOrNull { theAccountNumber == it.accountNumber }
-            ?: throw NoSuchElementException("There is no bank for the account number $theAccountNumber in the list!")
-        }*/
+    //@Query("SELECT * FROM BANKS WHERE ACCOUNT_NUMBER =: account")
+    fun findByAccountNumber(@Param("account") accountNumber: String): Bank =
+        findBanks().first { it.accountNumber == accountNumber }
 
 }

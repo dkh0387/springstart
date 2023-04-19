@@ -1,5 +1,7 @@
 package de.dkh.kotlindemobankapi.entity
 
+import lombok.Getter
+import lombok.Setter
 import lombok.ToString
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
@@ -15,12 +17,22 @@ import org.springframework.data.relational.core.mapping.Table
 @Table("BANKS")
 @ToString
 data class Bank(
+    @Getter
+    @Setter
     var bankName: String?,
-    val accountNumber: String?,
-    val trust: Double?,
-    val transactionFee: Int?
+    @Getter
+    @Setter
+    var accountNumber: String?,
+    @Getter
+    @Setter
+    var trust: Double?,
+    @Getter
+    @Setter
+    var transactionFee: Int?
 ) {
     @Id
     private var id: Int = 0
+
+
 
 }
