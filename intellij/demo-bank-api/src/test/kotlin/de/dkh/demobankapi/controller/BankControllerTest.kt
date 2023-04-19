@@ -1,6 +1,9 @@
 package de.dkh.demobankapi.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.jayway.jsonpath.JsonPath
+import de.dkh.demobankapi.repository.BankRepository
 import de.dkh.kotlindemobankapi.entity.Bank
 import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.ResultActionsDsl
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
+import javax.management.Query
 import javax.management.Query.value
 
 
@@ -46,6 +50,7 @@ class BankControllerTest {
     @Nested
     @DisplayName("getBanks()")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
     inner class GetBanks {
         /**
          * 1. Make the GET request to the endpoint
@@ -118,24 +123,43 @@ class BankControllerTest {
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class SaveBank {
 
+        private fun getBanks(afterPost: Boolean) {
+
+            val requestGetBanks: ResultActionsDsl = mockMvc.get("$BASE_URL/banks")
+            requestGetBanks
+                .andDo { print() }
+                .andExpect {
+                    status { isOk() }
+                    content { contentType(MediaType.APPLICATION_JSON) }
+                    jsonPath("$[0].bankName") { value("Testbank") }
+
+                    if (afterPost)
+                        jsonPath("$[1].bankName") { value("Testbank2") }
+                }
+        }
+
         @Test
         fun `should save a new bank in the database`() {
 
+            getBanks(false)
+
             val resultActionsDsl = mockMvc.post("$BASE_URL/post") {
                 contentType = MediaType.APPLICATION_JSON
-                val newBank = Bank("Testbank", "dkh0387", 45.6, 12)
+                val newBank = Bank("Testbank2", "dkh0387", 45.6, 12)
                 content = objectMapper.writeValueAsString(newBank)
             }
             resultActionsDsl
-                .andDo { print() }
+                //.andDo { print() }
                 .andExpect {
                     status { isCreated() }
                     content { contentType(MediaType.APPLICATION_JSON) }
-                    jsonPath("$.bankName") { value("Testbank") }
+                    jsonPath("$.bankName") { value("Testbank2") }
                     jsonPath("$.accountNumber") { value("dkh0387") }
                     jsonPath("$.trust") { value(45.6) }
                     jsonPath("$.transactionFee") { value(12) }
                 }
+
+            getBanks(true)
         }
 
     }
