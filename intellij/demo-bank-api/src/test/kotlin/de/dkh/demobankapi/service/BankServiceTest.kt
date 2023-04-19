@@ -71,5 +71,5 @@ class BankServiceTest {
 
     }
 
-    private fun getBankList(): List<Bank> = listOf(Bank(1, "Testbank", "23Fr", 34.5, 12))
+    private fun getBankList(): List<Bank> = listOf(Bank("Testbank", "23Fr", 34.5, 12))
 }

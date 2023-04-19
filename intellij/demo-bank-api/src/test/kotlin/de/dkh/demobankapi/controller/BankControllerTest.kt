@@ -1,5 +1,7 @@
 package de.dkh.demobankapi.controller
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import de.dkh.kotlindemobankapi.entity.Bank
 import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -8,8 +10,11 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.ResultActionsDsl
 import org.springframework.test.web.servlet.get
+import org.springframework.test.web.servlet.post
 import javax.management.Query.value
 
+
+private const val BASE_URL = "http://localhost:8080/bank"
 
 /**
  * Example of "real" integration test. {@code SpringBootTest}.
@@ -29,6 +34,12 @@ class BankControllerTest {
     lateinit var mockMvc: MockMvc
 
     /**
+     * ObjectMapper from jackson to convert JSON-POJO and reversed.
+     */
+    @Autowired
+    lateinit var objectMapper: ObjectMapper
+
+    /**
      * Encapsulate test groups with an inner class.
      * It makes the running process more structured.
      */
@@ -46,7 +57,7 @@ class BankControllerTest {
         @Test
         fun `should return all banks`() {
 
-            val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/banks")
+            val resultActionsDsl: ResultActionsDsl = mockMvc.get("$BASE_URL/banks")
 
             resultActionsDsl
                 .andDo { print() }
@@ -72,14 +83,14 @@ class BankControllerTest {
             // given
             val accountNumber: String = "23Fr"
 
-            val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/account/$accountNumber")
+            val resultActionsDsl: ResultActionsDsl = mockMvc.get("$BASE_URL/account/$accountNumber")
 
             resultActionsDsl
                 .andDo { print() }
                 .andExpect {
                     status { isOk() }
                     content { contentType(MediaType.APPLICATION_JSON) }
-                    jsonPath("accountNumber") { value(accountNumber) }
+                    jsonPath("$.accountNumber") { value(accountNumber) }
                 }
         }
 
@@ -92,7 +103,7 @@ class BankControllerTest {
             // given
             val accountNumber: String = "1234"
 
-            val resultActionsDsl: ResultActionsDsl = mockMvc.get("http://localhost:8080/bank/account/$accountNumber")
+            val resultActionsDsl: ResultActionsDsl = mockMvc.get("$BASE_URL/account/$accountNumber")
 
             resultActionsDsl
                 .andDo { print() }
@@ -102,5 +113,31 @@ class BankControllerTest {
         }
     }
 
+    @Nested
+    @DisplayName("saveBank()")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class SaveBank {
+
+        @Test
+        fun `should save a new bank in the database`() {
+
+            val resultActionsDsl = mockMvc.post("$BASE_URL/post") {
+                contentType = MediaType.APPLICATION_JSON
+                val newBank = Bank("Testbank", "dkh0387", 45.6, 12)
+                content = objectMapper.writeValueAsString(newBank)
+            }
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isCreated() }
+                    content { contentType(MediaType.APPLICATION_JSON) }
+                    jsonPath("$.bankName") { value("Testbank") }
+                    jsonPath("$.accountNumber") { value("dkh0387") }
+                    jsonPath("$.trust") { value(45.6) }
+                    jsonPath("$.transactionFee") { value(12) }
+                }
+        }
+
+    }
 
 }

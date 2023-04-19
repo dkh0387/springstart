@@ -25,15 +25,22 @@ class BankController(private val bankService: BankService) {
     @GetMapping("/banks")
     fun getBanks(): List<Bank> = bankService.findBanks()
 
+    /**
+     * Example of POST endpoint.
+     * We save a new bank by providing it as a JSON into request body.
+     * To make sure the method returns the right HTTP status we explicitly annotate it.
+     */
     @PostMapping("/post")
-    fun saveBank(@RequestBody bank: Bank) {
+    @ResponseStatus(HttpStatus.CREATED)
+    fun saveBank(@RequestBody bank: Bank): Bank? {
 
         try {
             bankService.saveBank(bank)
+            return bank
         } catch (e: Exception) {
             println(e.localizedMessage)
         }
-
+        return null
     }
 
     @GetMapping("/id/{id}")

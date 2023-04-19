@@ -15,9 +15,13 @@ import org.springframework.data.relational.core.mapping.Table
 @Table("BANKS")
 @ToString
 data class Bank(
-    @Id val id: Int?,
+    //@Id val id: Int?,
     val bankName: String?,
     val accountNumber: String,
     val trust: Double,
     val transactionFee: Int
-)
+) {
+    @Id
+    private var id: Int? = null
+
+}
