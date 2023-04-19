@@ -43,6 +43,9 @@ class BankControllerTest {
     @Autowired
     lateinit var objectMapper: ObjectMapper
 
+    @Autowired
+    lateinit var bankRepository: BankRepository
+
     /**
      * Encapsulate test groups with an inner class.
      * It makes the running process more structured.
@@ -123,25 +126,10 @@ class BankControllerTest {
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class SaveBank {
 
-        private fun getBanks(afterPost: Boolean) {
-
-            val requestGetBanks: ResultActionsDsl = mockMvc.get("$BASE_URL/banks")
-            requestGetBanks
-                .andDo { print() }
-                .andExpect {
-                    status { isOk() }
-                    content { contentType(MediaType.APPLICATION_JSON) }
-                    jsonPath("$[0].bankName") { value("Testbank") }
-
-                    if (afterPost)
-                        jsonPath("$[1].bankName") { value("Testbank2") }
-                }
-        }
-
         @Test
         fun `should save a new bank in the database`() {
 
-            getBanks(false)
+            val numberOFBanksBeforePOST = bankRepository.findBanks().count()
 
             val resultActionsDsl = mockMvc.post("$BASE_URL/post") {
                 contentType = MediaType.APPLICATION_JSON
@@ -149,7 +137,7 @@ class BankControllerTest {
                 content = objectMapper.writeValueAsString(newBank)
             }
             resultActionsDsl
-                //.andDo { print() }
+                .andDo { print() }
                 .andExpect {
                     status { isCreated() }
                     content { contentType(MediaType.APPLICATION_JSON) }
@@ -159,7 +147,24 @@ class BankControllerTest {
                     jsonPath("$.transactionFee") { value(12) }
                 }
 
-            getBanks(true)
+            val numberOFBanksAfterPOST = bankRepository.findBanks().count()
+
+            assert(numberOFBanksAfterPOST == numberOFBanksBeforePOST + 1)
+        }
+
+        @Test
+        fun `should return BAD REQUEST if a bank without bank name trying to save`() {
+
+            val resultActionsDsl = mockMvc.post("$BASE_URL/post") {
+                contentType = MediaType.APPLICATION_JSON
+                val newBank = Bank(null, "dkh0387", 45.6, 12)
+                content = objectMapper.writeValueAsString(newBank)
+            }
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isBadRequest() }
+                }
         }
 
     }

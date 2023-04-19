@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Table
 
 /**
  * NOTE:
- * "?" means the field can not be null
+ * "?" means the field can be null
  *  The constructor in the class body is called "primary constructor".
  *  Any field with {@code val} is {@code final}!
  *  Further all of them are in {@code toString, equals(), hashCode()},
@@ -15,13 +15,13 @@ import org.springframework.data.relational.core.mapping.Table
 @Table("BANKS")
 @ToString
 data class Bank(
-    //@Id val id: Int?,
+    //@Id val id: Int!!,
     val bankName: String?,
-    val accountNumber: String,
-    val trust: Double,
-    val transactionFee: Int
+    val accountNumber: String?,
+    val trust: Double?,
+    val transactionFee: Int?
 ) {
     @Id
-    private var id: Int? = null
+    private var id: Int = 0
 
 }

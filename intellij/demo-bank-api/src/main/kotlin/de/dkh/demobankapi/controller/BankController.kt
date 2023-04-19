@@ -4,7 +4,6 @@ import de.dkh.demobankapi.service.BankService
 import de.dkh.kotlindemobankapi.entity.Bank
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -19,6 +18,13 @@ class BankController(private val bankService: BankService) {
     fun handleNotFound(e: EmptyResultDataAccessException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.NOT_FOUND)
 
+    /**
+     * Internal handling of BAD_REQUEST exceptions by calling a mapping for elements, which do not exist.
+     */
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleBadRequest(e: IllegalArgumentException): ResponseEntity<String> =
+        ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
+
     @GetMapping
     fun index(): String = "Hello world!"
 
@@ -32,15 +38,9 @@ class BankController(private val bankService: BankService) {
      */
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
-    fun saveBank(@RequestBody bank: Bank): Bank? {
-
-        try {
-            bankService.saveBank(bank)
-            return bank
-        } catch (e: Exception) {
-            println(e.localizedMessage)
-        }
-        return null
+    fun saveBank(@RequestBody bank: Bank): Bank {
+        bankService.saveBank(bank)
+        return bank
     }
 
     @GetMapping("/id/{id}")

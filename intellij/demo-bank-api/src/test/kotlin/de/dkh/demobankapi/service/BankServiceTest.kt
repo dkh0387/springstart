@@ -54,7 +54,7 @@ class BankServiceTest {
         val banks = bankService.findBanks()
 
         // then
-        assertTrue(banks.all { it.accountNumber.isNotBlank() })
+        assertTrue(banks.all { it.accountNumber != null && it.accountNumber!!.isNotBlank() })
 
             //.allMatch { it.accountNumber.isNotBlank() })
 
