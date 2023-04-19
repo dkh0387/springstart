@@ -23,6 +23,7 @@ class BankService(private val bankRepository: BankRepository) {
     fun findBanks(): List<Bank> = bankRepository.findBanks()
     fun findBankById(id: Int): Bank = bankRepository.findById(id).get()
     fun findBankByAccountNumber(accountNumber: String): Bank = bankRepository.findByAccountNumber(accountNumber)
-
+    fun updateBankNameByAccountNumber(accountNumber: String, newBankName: String): Bank =
+        bankRepository.updateBankNameByAccountNumber(accountNumber, newBankName)
 
 }

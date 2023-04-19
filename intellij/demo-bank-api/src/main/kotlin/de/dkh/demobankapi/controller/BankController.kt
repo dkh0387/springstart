@@ -2,6 +2,7 @@ package de.dkh.demobankapi.controller
 
 import de.dkh.demobankapi.service.BankService
 import de.dkh.kotlindemobankapi.entity.Bank
+import jakarta.websocket.server.PathParam
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -49,5 +50,17 @@ class BankController(private val bankService: BankService) {
     @GetMapping("/account/{accountNumber}")
     fun getBankByAccount(@PathVariable accountNumber: String): Bank =
         bankService.findBankByAccountNumber(accountNumber)
+
+    /**
+     * Example of PATCH endpoint: updating a bank.
+     * Difference between PUT and PATCH:
+     * PATCH allows updating of partial properties
+     * PUT requires the whole object being passed
+     */
+    @PatchMapping("/update/{newName}")
+    fun updateBank(@RequestBody bank: Bank, @PathVariable newName: String): Bank {
+        bank.bankName = newName
+        return bank
+    }
 
 }

@@ -1,8 +1,6 @@
 package de.dkh.demobankapi.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.jayway.jsonpath.JsonPath
 import de.dkh.demobankapi.repository.BankRepository
 import de.dkh.kotlindemobankapi.entity.Bank
 import org.junit.jupiter.api.*
@@ -10,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
-import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.ResultActionsDsl
-import org.springframework.test.web.servlet.get
-import org.springframework.test.web.servlet.post
-import javax.management.Query
+import org.springframework.test.web.servlet.*
 import javax.management.Query.value
 
 
@@ -167,6 +161,43 @@ class BankControllerTest {
                 }
         }
 
+    }
+
+    /**
+     * Examples of testing PATCH endpoints.
+     */
+    @Nested
+    @DisplayName("updateBank()")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class UpdateBank {
+
+        @Test
+        fun `should update bank name for a given bank`() {
+            // given: a bank passed inside PATCH for updating the name
+            val bank = Bank("Testbank3", "dkh0387", 45.6, 12)
+            val newBankName = "New Bank name"
+            val updatedBank = Bank(newBankName, "dkh0387", 45.6, 12)
+
+            // when
+            val resultActionsDsl: ResultActionsDsl = mockMvc.patch("$BASE_URL/update/$newBankName") {
+                contentType = MediaType.APPLICATION_JSON
+                // newBank object is being passed into the request body:
+                content = objectMapper.writeValueAsString(bank)
+            }
+
+            // then
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isOk() }
+                    content {
+                        contentType(MediaType.APPLICATION_JSON)
+                        // check, whether the given bank is coming updated after request:
+                        json(objectMapper.writeValueAsString(updatedBank))
+                    }
+                }
+
+        }
     }
 
 }
