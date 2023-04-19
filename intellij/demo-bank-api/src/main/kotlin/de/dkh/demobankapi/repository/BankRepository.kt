@@ -22,9 +22,6 @@ interface BankRepository : CrudRepository<Bank, Int>, BankRepositoryCustom {
     @Query("SELECT * FROM BANKS")
     fun findBanks(): List<Bank>
 
-    /**
-     * Example of usage method params inside of queries.
-     */
     //@Query("SELECT * FROM BANKS WHERE ACCOUNT_NUMBER =: account")
     fun findByAccountNumber(@Param("account") accountNumber: String): Bank =
         findBanks().first { it.accountNumber == accountNumber }
