@@ -5,9 +5,12 @@ import de.dkh.demobankapi.repository.BankRepository
 import de.dkh.kotlindemobankapi.entity.Bank
 import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.test.annotation.DirtiesContext
+import org.springframework.test.context.jdbc.Sql
 import org.springframework.test.web.servlet.*
 import javax.management.Query.value
 
@@ -224,9 +227,17 @@ class BankControllerTest {
         }
     }
 
+    /**
+     * NOTE: very useful feature: we re-create database using {@code @Sql} annotation.
+     * Doing so, we can start here with an initial db, without the result of saving a bank in the previous test.
+     */
     @Nested
     @DisplayName("deleteBankById()")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    @Sql(
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD,
+        scripts = ["classpath:sql/schema.sql", "classpath:sql/data.sql"]
+    )
     inner class DeleteBankById {
 
         @Test
@@ -244,7 +255,7 @@ class BankControllerTest {
                 .andDo { print() }
                 .andExpect {
                     status {
-                        isOk()
+                        isNoContent()
                         content {
                             contentType(MediaType.APPLICATION_JSON)
                             // check, whether the deleted bank is returned after request:
@@ -267,6 +278,7 @@ class BankControllerTest {
                             contentType(MediaType.APPLICATION_JSON)
                             // check, whether the deleted bank is returned after request:
                             json("[]")
+
                         }
                     }
                 }
