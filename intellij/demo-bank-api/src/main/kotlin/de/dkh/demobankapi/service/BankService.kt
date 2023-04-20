@@ -34,9 +34,19 @@ class BankService(private val bankRepository: BankRepository) {
     fun findBankById(id: Int): Bank = bankRepository.findById(id).get()
     fun findBankByAccountNumber(accountNumber: String): Bank = bankRepository.findByAccountNumber(accountNumber)
     fun updateBankById(bank: Bank, id: Int): Bank? {
-        val existingBank = bankRepository.findById(id).get()
+        val existingBank = findBankById(id)
+
+        if (existingBank == null)
+            throw NoSuchElementException("Bank with id $id does not exist and can not be updated!")
 
         return bankRepository.updateBankById(existingBank, bank, id)
+    }
+
+    fun deleteBankById(id: Int): Bank {
+        val bank = findBankById(id)
+        bankRepository.delete(bank)
+
+        return bank
     }
 
 

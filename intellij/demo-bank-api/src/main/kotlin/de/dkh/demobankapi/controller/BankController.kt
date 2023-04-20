@@ -26,6 +26,13 @@ class BankController(private val bankService: BankService) {
     fun handleBadRequest(e: IllegalArgumentException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
+    /**
+     * Internal handling of BAD_REQUEST exceptions by calling a mapping for elements, which do not exist.
+     */
+    @ExceptionHandler(NoSuchElementException::class)
+    fun handleNoSuchElement(e: NoSuchElementException): ResponseEntity<String> =
+        ResponseEntity(e.message, HttpStatus.NOT_ACCEPTABLE)
+
     @GetMapping
     fun index(): String = "Hello world!"
 
@@ -59,5 +66,11 @@ class BankController(private val bankService: BankService) {
      */
     @PatchMapping("/update/{id}")
     fun updateBankById(@RequestBody bank: Bank, @PathVariable id: Int): Bank? = bankService.updateBankById(bank, id)
+
+    /**
+     * Example of
+     */
+    @DeleteMapping("/delete/{id}")
+    fun deleteBankById(@PathVariable id: Int): Bank = bankService.deleteBankById(id)
 
 }

@@ -173,11 +173,12 @@ class BankControllerTest {
 
         @Test
         fun `should update bank name for a given bank`() {
-            // given: a bank passed inside PATCH for updating the name
+            // given: a bank passed inside PATCH for updating the name and an id of existing bank
             val newBank = Bank("New Bank name", "dkh0387", 45.6, 12)
+            val existingBankId = 1
 
             // when
-            val resultActionsDsl: ResultActionsDsl = mockMvc.patch("$BASE_URL/update/${1}") {
+            val resultActionsDsl: ResultActionsDsl = mockMvc.patch("$BASE_URL/update/$existingBankId") {
                 contentType = MediaType.APPLICATION_JSON
                 // bank object is being passed into the request body:
                 content = objectMapper.writeValueAsString(newBank)
@@ -195,6 +196,31 @@ class BankControllerTest {
                     }
                 }
 
+        }
+
+        /**
+         * If a bank for the given id does not exist, then the {@code NoSuchElementException} is being thrown.
+         * {@code ExceptionHandler} in {@code BankController} maps it to {@code HttpStatus.NOT_ACCEPTABLE}.
+         */
+        @Test
+        fun `should throw an NoSuchElementException if the updateable bank does not exist`() {
+            // given: a bank passed inside PATCH for updating the name and an id of existing bank
+            val newBank = Bank("New Bank name", "dkh0387", 45.6, 12)
+            val existingBankId = 999
+
+            // when
+            val resultActionsDsl: ResultActionsDsl = mockMvc.patch("$BASE_URL/update/$existingBankId") {
+                contentType = MediaType.APPLICATION_JSON
+                // bank object is being passed into the request body:
+                content = objectMapper.writeValueAsString(newBank)
+            }
+
+            // then
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status { isNotAcceptable() }
+                }
         }
     }
 
