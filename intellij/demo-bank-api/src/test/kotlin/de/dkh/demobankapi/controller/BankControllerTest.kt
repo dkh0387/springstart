@@ -224,4 +224,58 @@ class BankControllerTest {
         }
     }
 
+    @Nested
+    @DisplayName("deleteBankById()")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class DeleteBankById {
+
+        @Test
+        fun `should delete an existing bank by given id`() {
+            // given
+            val existingBankId = 1
+
+            // when
+            val resultActionsDsl: ResultActionsDsl = mockMvc.delete("$BASE_URL/delete/$existingBankId") {
+
+            }
+
+            // then
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status {
+                        isOk()
+                        content {
+                            contentType(MediaType.APPLICATION_JSON)
+                            // check, whether the deleted bank is returned after request:
+                            jsonPath("$.bankName") { value("Testbank") }
+                        }
+                    }
+                }
+        }
+
+        @Test
+        fun `should throw a NonSuchElementException by deleting an non existing bank by given id`() {
+            // given
+            val existingBankId = 999
+
+            // when
+            val resultActionsDsl: ResultActionsDsl = mockMvc.delete("$BASE_URL/delete/$existingBankId") {
+
+            }
+
+            // then
+            resultActionsDsl
+                .andDo { print() }
+                .andExpect {
+                    status {
+                        isNotAcceptable()
+                        content {
+                            contentType(MediaType.TEXT_PLAIN_VALUE + ";charset=UTF-8")
+                        }
+                    }
+                }
+        }
+    }
+
 }

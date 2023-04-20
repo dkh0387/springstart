@@ -42,11 +42,15 @@ class BankService(private val bankRepository: BankRepository) {
         return bankRepository.updateBankById(existingBank, bank, id)
     }
 
-    fun deleteBankById(id: Int): Bank {
-        val bank = findBankById(id)
-        bankRepository.delete(bank)
+    fun deleteBankById(id: Int): Bank? {
+        val existingBank = findBankById(id)
 
-        return bank
+        if (existingBank == null)
+            throw NoSuchElementException("Bank with id $id does not exist and can not be deleted!")
+
+        bankRepository.delete(existingBank)
+
+        return existingBank
     }
 
 

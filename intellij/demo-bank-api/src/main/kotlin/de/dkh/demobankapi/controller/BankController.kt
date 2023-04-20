@@ -71,6 +71,6 @@ class BankController(private val bankService: BankService) {
      * Example of
      */
     @DeleteMapping("/delete/{id}")
-    fun deleteBankById(@PathVariable id: Int): Bank = bankService.deleteBankById(id)
+    fun deleteBankById(@PathVariable id: Int): Bank? = bankService.deleteBankById(id)
 
 }
