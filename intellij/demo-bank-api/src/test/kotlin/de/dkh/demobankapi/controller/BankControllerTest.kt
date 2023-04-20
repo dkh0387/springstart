@@ -118,9 +118,15 @@ class BankControllerTest {
         }
     }
 
+    /**
+     * NOTE: methods like save() or delete() are changing the db state.
+     * To force Spring to create a new app context we can use {@code @DirtiesContext}.
+     * This will create a new context with all beans.
+     */
     @Nested
     @DisplayName("saveBank()")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    @DirtiesContext
     inner class SaveBank {
 
         @Test
@@ -241,6 +247,7 @@ class BankControllerTest {
     inner class DeleteBankById {
 
         @Test
+        @DirtiesContext
         fun `should delete an existing bank by given id`() {
             // given
             val existingBankId = 1
