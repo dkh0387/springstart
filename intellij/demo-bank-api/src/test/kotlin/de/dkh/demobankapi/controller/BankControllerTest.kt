@@ -252,6 +252,24 @@ class BankControllerTest {
                         }
                     }
                 }
+            // is the bank really deleted?
+            val requestAllBanks: ResultActionsDsl = mockMvc.get("$BASE_URL/banks") {
+
+            }
+
+            // then
+            requestAllBanks
+                .andDo { print() }
+                .andExpect {
+                    status {
+                        isOk()
+                        content {
+                            contentType(MediaType.APPLICATION_JSON)
+                            // check, whether the deleted bank is returned after request:
+                            json("[]")
+                        }
+                    }
+                }
         }
 
         @Test
