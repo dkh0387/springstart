@@ -27,9 +27,11 @@ class KafkaProducer(
      * Example of sending a message to the defined topic.
      * NOTE: the {@code NewTopic} singelton is being created in {@code KafkaTopicConfig}.
      */
-    fun sendMessage(messsage: String) {
-        logger.info("Message sent: $messsage")
+    fun sendMessage(messsage: String): String {
+        val sentMessageAlert = "Message: $messsage have been successfully sent!"
+        logger.info(sentMessageAlert)
         kafkaTemplate.send(TOPIC_NAME, messsage)
+        return sentMessageAlert
     }
 
 
