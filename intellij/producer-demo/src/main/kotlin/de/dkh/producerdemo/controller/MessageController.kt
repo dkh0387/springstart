@@ -27,6 +27,11 @@ class MessageController(
      * Doing:
      * 1. {@code KafkaProducer} sends a message using {@code KafkaTemplate}
      * 2. This message is being passed into GET request of this REST endpoint and shown in browser
+     *
+     * To see the topic within Kafka broker run:
+     * `kafka-topics --describe --topic topic1 --bootstrap-server kafka-service:29092` in zookeeper bash
+     * In order to verify events=messages being sent to the topic run:
+     * `kafka-console-consumer --topic  topic1 --from-beginning --bootstrap-server kafka-service:29092` in zookeeper bash.
      */
     @GetMapping("/publish")
     fun publishMessage(@RequestParam("customerId") customerId: Int): ResponseEntity<String> {

@@ -11,5 +11,5 @@ const val TOPIC_NAME = "topic1"
 class KafkaTopicConfig {
 
     @Bean
-    fun newTopic(): NewTopic = TopicBuilder.name(TOPIC_NAME).build()
+    fun newTopic(): NewTopic = TopicBuilder.name(TOPIC_NAME).replicas(3).build()
 }

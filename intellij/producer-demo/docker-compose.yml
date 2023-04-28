@@ -44,13 +44,21 @@ services:
       - '2181:2181'
   kafka-service:
     container_name: kafka
-    image: confluentinc/cp-kafka:latest
+    #image: confluentinc/cp-kafka:latest
+    build:
+      context: ./
+      dockerfile: kafka.Dockerfile
     environment:
       - KAFKA_BROKER_ID=0
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper-service:2181
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka-service:9092
+      #- KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka-service:9092
       - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_LISTENERS=LISTENER_INTERNAL://kafka-service:29092,LISTENER_EXTERNAL://kafka-service:9092
+      - KAFKA_ADVERTISED_LISTENERS=LISTENER_INTERNAL://kafka-service:29092,LISTENER_EXTERNAL://localhost:9092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=LISTENER_INTERNAL:PLAINTEXT,LISTENER_EXTERNAL:PLAINTEXT
+      - KAFKA_INTER_BROKER_LISTENER_NAME=LISTENER_INTERNAL
     ports:
+      - '29092:29092'
       - '9092:9092'
       - '8082:8082'
     depends_on:
