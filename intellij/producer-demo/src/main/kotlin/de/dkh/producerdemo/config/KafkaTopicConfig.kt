@@ -5,10 +5,11 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.config.TopicBuilder
 
+const val TOPIC_NAME = "topic1"
+
 @Configuration
 class KafkaTopicConfig {
 
     @Bean
-    fun newTopic(): NewTopic = TopicBuilder.name("topic1")
-        .build()
+    fun newTopic(): NewTopic = TopicBuilder.name(TOPIC_NAME).build()
 }
