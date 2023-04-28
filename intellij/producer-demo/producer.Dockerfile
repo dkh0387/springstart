@@ -27,4 +27,4 @@ RUN chmod 100 docker_entrypoint.sh
 ENTRYPOINT [ "./docker_entrypoint.sh" ]
 
 # And run the app
-#CMD ["java", "-jar", "/opt/app/ROOT.jar"]
+#CMD ["java", "-jar", "/opt/app/producer.jar"]

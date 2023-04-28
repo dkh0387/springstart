@@ -1,4 +1,4 @@
-package de.dkh.demomicroserviceskafka.service
+package de.dkh.producerdemo.service
 
 import org.springframework.stereotype.Service
 

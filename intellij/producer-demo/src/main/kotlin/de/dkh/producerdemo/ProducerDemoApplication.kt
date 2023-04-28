@@ -1,13 +1,11 @@
-package de.dkh.demomicroserviceskafka
+package de.dkh.producerdemo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DemoMicroservicesKafkaApplication {
-
-}
+class ProducerDemoApplication
 
 fun main(args: Array<String>) {
-    runApplication<DemoMicroservicesKafkaApplication>(*args)
+    runApplication<ProducerDemoApplication>(*args)
 }

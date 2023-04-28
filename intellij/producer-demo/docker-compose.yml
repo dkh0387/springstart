@@ -1,6 +1,7 @@
 version: "3.9" #version of docker-compose
 services:
   mysql-service:
+    container_name: mysql
     image: mysql:latest
     restart: always
     command:
@@ -15,17 +16,19 @@ services:
     volumes:
       #- ./data:/var/lib/mysql                         #database data volume
       - ./src/main/db:/docker-entrypoint-initdb.d/:ro #database files called when the container is built and started for the first time
-  data-service:
+  producer-service:
+    container_name: producer
     depends_on:
       - mysql-service
     build:
       context: ./
-      dockerfile: customerapi.Dockerfile
+      dockerfile: producer.Dockerfile
     command:
       --publish 8081:8080
     ports:
       - "8081:8080"
-  adminer:
+  adminer-service:
+    container_name: adminer
     image: adminer
     restart: always
     ports:
