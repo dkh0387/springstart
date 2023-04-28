@@ -33,3 +33,25 @@ services:
     restart: always
     ports:
       - "9000:8080"
+  zookeeper:
+    container_name: zookeeper
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      - ZOO_ENABLE_PROMETHEUS_METRICS=yes
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      - ZOOKEEPER_CLIENT_PORT=2181
+    ports:
+      - '2181:2181'
+  kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka:latest
+    environment:
+      - KAFKA_BROKER_ID=0
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+    ports:
+      - '9092:9092'
+      - '8082:8082'
+    depends_on:
+      - zookeeper
