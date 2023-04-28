@@ -1,11 +1,14 @@
 package de.dkh.producerdemo.kafka
 
+import de.dkh.producerdemo.entity.Customer
 import de.dkh.producerdemo.config.TOPIC_NAME
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
+import java.lang.IllegalArgumentException
+import kotlin.jvm.Throws
 
 /**
  * Kafka producer service.
@@ -27,10 +30,11 @@ class KafkaProducer(
      * Example of sending a message to the defined topic.
      * NOTE: the {@code NewTopic} singelton is being created in {@code KafkaTopicConfig}.
      */
-    fun sendMessage(messsage: String): String {
-        val sentMessageAlert = "Message: $messsage have been successfully sent!"
+    @Throws(IllegalArgumentException::class)
+    fun sendMessage(customer: Customer?): String {
+        val sentMessageAlert = "Customer infos for: $customer have been successfully sent!"
         logger.info(sentMessageAlert)
-        kafkaTemplate.send(TOPIC_NAME, messsage)
+        kafkaTemplate.send(TOPIC_NAME, customer.toString())
         return sentMessageAlert
     }
 
