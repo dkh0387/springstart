@@ -6,6 +6,9 @@ services:
     restart: always
     command:
       --default-authentication-plugin=mysql_native_password
+#    `ports` is responsible for exposing container ports to the host machine.
+#    Simply put, when running docker-compose on our computer with a 123:456 setting,
+#    we will be able to access a container’s 456 port through localhost:123
     ports:
       - "3307:3306"
     environment:
@@ -33,7 +36,7 @@ services:
     restart: always
     ports:
       - "9000:8080"
-  zookeeper-service:
+  zookeeper:
     container_name: zookeeper
     image: confluentinc/cp-zookeeper:latest
     environment:
@@ -42,24 +45,44 @@ services:
       - ZOOKEEPER_CLIENT_PORT=2181
     ports:
       - '2181:2181'
-  kafka-service:
-    container_name: kafka
-    #image: confluentinc/cp-kafka:latest
-    build:
-      context: ./
-      dockerfile: kafka.Dockerfile
-    environment:
-      - KAFKA_BROKER_ID=0
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper-service:2181
-      #- KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka-service:9092
-      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
-      - KAFKA_LISTENERS=LISTENER_INTERNAL://kafka-service:29092,LISTENER_EXTERNAL://kafka-service:9092
-      - KAFKA_ADVERTISED_LISTENERS=LISTENER_INTERNAL://kafka-service:29092,LISTENER_EXTERNAL://localhost:9092
-      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=LISTENER_INTERNAL:PLAINTEXT,LISTENER_EXTERNAL:PLAINTEXT
-      - KAFKA_INTER_BROKER_LISTENER_NAME=LISTENER_INTERNAL
+  kafka1:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka1
     ports:
-      - '29092:29092'
-      - '9092:9092'
-      - '8082:8082'
+      - "8097:8097"
     depends_on:
-      - zookeeper-service
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: EXTERNAL://localhost:8097,INTERNAL://kafka1:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+  kafka2:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka2
+    ports:
+      - "8098:8098"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: EXTERNAL://localhost:8098,INTERNAL://kafka2:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+  kafka3:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka3
+    ports:
+      - "8099:8099"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: EXTERNAL://localhost:8099,INTERNAL://kafka3:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
