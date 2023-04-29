@@ -1,0 +1,13 @@
+version: "3.9" #version of docker-compose
+services:
+  consumer-service:
+    container_name: producer
+    depends_on:
+      - mysql-service
+    build:
+      context: ./
+      dockerfile: consumer.Dockerfile
+    command:
+      --publish 8081:8080
+    ports:
+      - "8081:8080"
