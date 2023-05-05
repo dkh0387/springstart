@@ -23,23 +23,20 @@ class ConsumerControllerJson(
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
     /**
-     * The message coming from {@code KafkaProducer#sendMessage()} is being received:
-     * {@code http://localhost:8081/kafka/producer/publish?customerId=...}
+     * The message coming from {@code KafkaProducerJson#sendMessage()} is being received:
+     * {@code http://localhost:8081/kafka/producerjson/publishjson?customer=...}
      * Doing:
-     * 1. {@code KafkaConsumer} receives a message using {@code KafkaListener} annotation (listening to the same topic)
+     * 1. {@code KafkaConsumerJson} receives a message using {@code KafkaListener} annotation (listening to the same topic)
      * 2. This message is being passed into GET request of this REST endpoint and shown in browser
      *
      * @TODO: extract the received customer and persist in the database
      */
-    @GetMapping("/receivejson")
-    fun receiveMessageJson(@RequestParam("firstname") firstName: String): ResponseEntity<String> {
+    @PostMapping("/receivejson")
+    fun receiveMessageJson(@RequestBody customerEntity: CustomerEntity): ResponseEntity<String> {
 
         try {
-            val customerEntity = customerService.getByFirstName(firstName)
-            val customerEntityReceived = customerEntity?.let { kafkaConsumerJson.consume(it) }
-            if (customerEntityReceived != null) {
-                customerService.save(customerEntityReceived)
-            }
+            val customerEntity = kafkaConsumerJson.consume(customerEntity)
+            customerService.save(customerEntity)
             return ResponseEntity.ok(customerEntity.toString())
         } catch (exp: IllegalArgumentException) {
             throw IllegalArgumentException("Error by publishing infos for customer sending through Kafka producer!")
