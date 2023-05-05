@@ -1,25 +1,26 @@
 package de.dkh.producerdemo.controller
 
+import de.dkh.producerdemo.entity.CustomerEntity
 import de.dkh.producerdemo.kafka.KafkaConsumer
+import de.dkh.producerdemo.kafka.KafkaConsumerJson
 import de.dkh.producerdemo.service.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
+/**
+ * Consumer controller receiving JSON object from POJO being sent by producer.
+ */
 @RestController
-@RequestMapping("/kafka/consumer")
-class ConsumerController(
-    @Autowired private val kafkaConsumer: KafkaConsumer,
+@RequestMapping("/kafka/consumerjson")
+class ConsumerControllerJson(
+    @Autowired private val kafkaConsumerJson: KafkaConsumerJson,
     @Autowired private val customerService: CustomerService
 ) {
-
-    @ExceptionHandler(IllegalArgumentException::class)
-    fun handleNotFound(e: IllegalArgumentException): ResponseEntity<String> =
+    @ExceptionHandler(Exception::class)
+    fun handleNotFound(e: Exception): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
-
-    @GetMapping("/index")
-    fun showIndex(): String = "Hello World!"
 
     /**
      * The message coming from {@code KafkaProducer#sendMessage()} is being received:
@@ -30,12 +31,16 @@ class ConsumerController(
      *
      * @TODO: extract the received customer and persist in the database
      */
-    @GetMapping("/receive")
-    fun receiveMessage(@RequestParam("message") message: String): ResponseEntity<String> {
+    @GetMapping("/receivejson")
+    fun receiveMessageJson(@RequestParam("firstname") firstName: String): ResponseEntity<String> {
 
         try {
-            val messageReceivedAlert = kafkaConsumer.consume(message)
-            return ResponseEntity.ok(messageReceivedAlert)
+            val customerEntity = customerService.getByFirstName(firstName)
+            val customerEntityReceived = customerEntity?.let { kafkaConsumerJson.consume(it) }
+            if (customerEntityReceived != null) {
+                customerService.save(customerEntityReceived)
+            }
+            return ResponseEntity.ok(customerEntity.toString())
         } catch (exp: IllegalArgumentException) {
             throw IllegalArgumentException("Error by publishing infos for customer sending through Kafka producer!")
         }

@@ -1,9 +1,9 @@
 package de.dkh.producerdemo.repository
 
-import de.dkh.producerdemo.entity.Customer
+import de.dkh.producerdemo.entity.CustomerEntity
 
 class CustomerRepositoryImpl : CustomerRepositoryCustom {
 
-    override fun findByFirstName(customerList: List<Customer>, firstName: String): Customer =
-        customerList.first { it.firstName == firstName }
+    override fun findByFirstName(customerEntityList: List<CustomerEntity>, firstName: String): CustomerEntity =
+        customerEntityList.first { it.firstName == firstName }
 }

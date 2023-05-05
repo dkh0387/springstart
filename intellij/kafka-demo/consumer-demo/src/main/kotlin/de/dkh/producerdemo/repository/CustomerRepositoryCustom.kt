@@ -1,11 +1,11 @@
 package de.dkh.producerdemo.repository
 
-import de.dkh.producerdemo.entity.Customer
+import de.dkh.producerdemo.entity.CustomerEntity
 
 /**
  * Custom DAO methods.
  */
 interface CustomerRepositoryCustom {
 
-    fun findByFirstName(customerList: List<Customer>, firstName: String): Customer?
+    fun findByFirstName(customerEntityList: List<CustomerEntity>, firstName: String): CustomerEntity?
 }

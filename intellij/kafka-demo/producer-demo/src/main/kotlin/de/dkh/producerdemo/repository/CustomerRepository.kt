@@ -1,6 +1,6 @@
 package de.dkh.producerdemo.repository
 
-import de.dkh.producerdemo.entity.Customer
+import de.dkh.producerdemo.entity.CustomerEntity
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository
  * Repository implementation: contains standard CRUD and custom methods.
  */
 @Repository
-interface CustomerRepository : CrudRepository<Customer, Int>, CustomerRepositoryCustom {
+interface CustomerRepository : CrudRepository<CustomerEntity, Int>, CustomerRepositoryCustom {
 }

@@ -1,6 +1,6 @@
 package de.dkh.producerdemo.kafka
 
-import de.dkh.producerdemo.entity.Customer
+import de.dkh.producerdemo.entity.CustomerEntity
 import de.dkh.producerdemo.config.TOPIC_NAME
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -31,10 +31,10 @@ class KafkaProducer(
      * NOTE: the {@code NewTopic} singelton is being created in {@code KafkaTopicConfig}.
      */
     @Throws(IllegalArgumentException::class)
-    fun sendMessage(customer: Customer?): String {
-        val sentMessageAlert = "Customer infos for: $customer have been successfully sent!"
+    fun sendMessage(customerEntity: CustomerEntity?): String {
+        val sentMessageAlert = "Customer infos for: $customerEntity have been successfully sent!"
         logger.info(sentMessageAlert)
-        kafkaTemplate.send(TOPIC_NAME, customer.toString())
+        kafkaTemplate.send(TOPIC_NAME, customerEntity.toString())
         return sentMessageAlert
     }
 
