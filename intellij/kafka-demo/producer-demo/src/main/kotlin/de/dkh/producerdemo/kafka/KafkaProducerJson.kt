@@ -2,14 +2,13 @@ package de.dkh.producerdemo.kafka
 
 import de.dkh.producerdemo.config.TOPIC_NAME
 import de.dkh.producerdemo.entity.CustomerEntity
-import org.apache.logging.log4j.message.Message
+import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.KafkaHeaders
 import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
-import kotlin.jvm.Throws
 
 /**
  * Example of Kafka producer sending a message using a {@code KafkaTemplate}.
@@ -19,6 +18,9 @@ import kotlin.jvm.Throws
  */
 @Service
 class KafkaProducerJson(@Autowired private val kafkaTemplate: KafkaTemplate<String, CustomerEntity>) {
+
+    val LOGGER: Logger = LoggerFactory.getLogger(KafkaProducerJson::class.java)
+
     /**
      * {@code MessageBuilder} translate the entity object into JSON and processes to the broker.
      * NOTE: the whole message being sent is customer as JSON!
@@ -29,6 +31,7 @@ class KafkaProducerJson(@Autowired private val kafkaTemplate: KafkaTemplate<Stri
             .setHeader(KafkaHeaders.TOPIC, TOPIC_NAME)
             .build()
         kafkaTemplate.send(message)
+        LOGGER.info("MESSAGE FROM PRODUCER: $message")
         return message.payload
     }
 }

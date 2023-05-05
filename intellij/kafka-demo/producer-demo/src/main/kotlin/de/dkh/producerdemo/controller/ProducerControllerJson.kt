@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.*
 @Controller
 @RequestMapping("/kafka/producerjson")
 class ProducerControllerJson(
-    @Autowired private val kafkaProducerJson: KafkaProducerJson,
-    @Autowired private val customerService: CustomerService
+    @Autowired private val kafkaProducerJson: KafkaProducerJson
 ) {
 
     val LOGGER: Logger = LoggerFactory.getLogger(ProducerControllerJson::class.java)
