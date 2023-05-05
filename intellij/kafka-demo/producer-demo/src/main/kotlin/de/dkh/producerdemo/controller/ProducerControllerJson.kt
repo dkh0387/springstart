@@ -2,7 +2,6 @@ package de.dkh.producerdemo.controller
 
 import de.dkh.producerdemo.entity.CustomerEntity
 import de.dkh.producerdemo.kafka.KafkaProducerJson
-import de.dkh.producerdemo.service.CustomerService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
