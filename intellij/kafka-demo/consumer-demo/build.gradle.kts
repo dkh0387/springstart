@@ -27,7 +27,7 @@ repositories {
  * Further we need META-INF/MANIFEST.MF, where we point to the Main-Class for executing JAR.
  */
 springBoot {
-    mainClass.set("de.dkh.producerdemo.ConsumerDemoApplicationKt")
+    mainClass.set("de.dkh.consumerdemo.ConsumerDemoApplicationKt")
 }
 
 dependencies {
