@@ -2,11 +2,9 @@ package de.dkh.kafkawikimediaproducer.kafka
 
 import com.launchdarkly.eventsource.EventHandler
 import com.launchdarkly.eventsource.MessageEvent
-import de.dkh.kafkawikimediaproducer.config.KafkaTopicConfig
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.core.KafkaTemplate
-import kotlin.jvm.Throws
 
 /**
  * NOTE: we need an older version of {@code implementation("com.launchdarkly:okhttp-eventsource:2.5.0")},

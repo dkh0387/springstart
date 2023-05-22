@@ -9,6 +9,7 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 import java.net.URI
 import java.util.concurrent.TimeUnit
+import kotlin.jvm.Throws
 
 /**
  * We are reading a real time stream data from https://stream.wikimedia.org/v2/stream/recentchange,
@@ -16,8 +17,6 @@ import java.util.concurrent.TimeUnit
  */
 @Service
 class WikimediaChangesProducer(private val kafkaTemplate: KafkaTemplate<String, String>) {
-
-    val LOGGER: Logger = LoggerFactory.getLogger(WikimediaChangesProducer::class.java)
 
     /**
      * 1. Prepare event handler for sending data through kafka template to the topic
@@ -27,15 +26,18 @@ class WikimediaChangesProducer(private val kafkaTemplate: KafkaTemplate<String, 
      * NOTE: we are not calling {@code WikimediaChangesHandler.onMessage(event: String?, messageEvent: MessageEvent?)}
      * explicitly. This method is being triggered any time we read events from URI.
      */
+    @Throws(Exception::class)
     fun sendMessage() {
 
         val wikimediaChangesHandler: EventHandler =
             WikimediaChangesHandler(kafkaTemplate, KafkaTopicConfig.TOPIC_NAME)
 
-        EventSource.Builder(
+        val eventSource = EventSource.Builder(
             wikimediaChangesHandler,
             URI.create("https://stream.wikimedia.org/v2/stream/recentchange")
-        ).build()?.start()
+        ).build()
+
+        eventSource?.start()
 
         TimeUnit.MINUTES.sleep(10)
     }
