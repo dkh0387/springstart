@@ -31,6 +31,12 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.kafka:spring-kafka") // if we do not provide a version Spring boot will automatically peak the right one
+    // We need this to read wikipedia recent change events from web
+    implementation("com.launchdarkly:okhttp-eventsource:2.5.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    // for translating JSON into POJO
+    implementation("com.fasterxml.jackson.core:jackson-core:2.15.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.1")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
