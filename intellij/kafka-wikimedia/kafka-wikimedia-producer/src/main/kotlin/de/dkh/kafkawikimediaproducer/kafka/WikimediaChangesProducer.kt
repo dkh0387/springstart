@@ -3,6 +3,7 @@ package de.dkh.kafkawikimediaproducer.kafka
 import com.launchdarkly.eventsource.EventHandler
 import com.launchdarkly.eventsource.EventSource
 import de.dkh.kafkawikimediaproducer.config.KafkaTopicConfig
+import lombok.Getter
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.core.KafkaTemplate
@@ -18,6 +19,10 @@ import kotlin.jvm.Throws
 @Service
 class WikimediaChangesProducer(private val kafkaTemplate: KafkaTemplate<String, String>) {
 
+    @Getter
+    val wikimediaChangesHandler: EventHandler =
+        WikimediaChangesHandler(kafkaTemplate, KafkaTopicConfig.TOPIC_NAME)
+
     /**
      * 1. Prepare event handler for sending data through kafka template to the topic
      * 2. Create event source, which reads data from URI, and start them in a separate thread.
@@ -28,9 +33,6 @@ class WikimediaChangesProducer(private val kafkaTemplate: KafkaTemplate<String, 
      */
     @Throws(Exception::class)
     fun sendMessage() {
-
-        val wikimediaChangesHandler: EventHandler =
-            WikimediaChangesHandler(kafkaTemplate, KafkaTopicConfig.TOPIC_NAME)
 
         val eventSource = EventSource.Builder(
             wikimediaChangesHandler,

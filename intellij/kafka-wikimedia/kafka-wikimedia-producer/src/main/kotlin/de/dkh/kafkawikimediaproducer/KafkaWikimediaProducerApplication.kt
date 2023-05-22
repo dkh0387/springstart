@@ -13,6 +13,8 @@ class KafkaWikimediaProducerApplication(private val wikimediaChangesProducer: Wi
     CommandLineRunner {
     override fun run(vararg args: String?) {
         wikimediaChangesProducer.sendMessage()
+        //this list contains all events from wikimedia collected during 10 minutes of request
+        val eventData = wikimediaChangesProducer.wikimediaChangesHandler
     }
 }
 
