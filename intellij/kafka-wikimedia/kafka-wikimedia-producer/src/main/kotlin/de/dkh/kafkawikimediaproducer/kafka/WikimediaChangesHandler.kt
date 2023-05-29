@@ -2,7 +2,6 @@ package de.dkh.kafkawikimediaproducer.kafka
 
 import com.launchdarkly.eventsource.EventHandler
 import com.launchdarkly.eventsource.MessageEvent
-import lombok.Getter
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.core.KafkaTemplate
@@ -15,7 +14,7 @@ class WikimediaChangesHandler(private val kafkaTemplate: KafkaTemplate<String, S
     EventHandler {
 
     private val LOGGER: Logger = LoggerFactory.getLogger(WikimediaChangesHandler::class.java)
-    private val messageEventData: ArrayList<String> = arrayListOf<String>()
+    private val messageEventData: ArrayList<String> = arrayListOf()
 
     /**
      * We only need to implement this one.

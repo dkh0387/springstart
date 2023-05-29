@@ -9,7 +9,7 @@ import org.springframework.kafka.config.TopicBuilder
 class KafkaTopicConfig {
 
     companion object {
-        val TOPIC_NAME = "wikimedia_recentchange"
+        const val TOPIC_NAME = "wikimedia_recentchange"
     }
 
     @Bean

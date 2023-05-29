@@ -13,16 +13,14 @@ services:
       - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=admin1                    #default password of the MySQL container
-      - MYSQL_DATABASE=customer_db
+      - MYSQL_DATABASE=wikimedia_db
       - MYSQL_USER=springstudent
       - MYSQL_PASSWORD=springstudent
     volumes:
-      #- ./data:/var/lib/mysql                         #database data volume
+      #- ./data:/var/lib/mysql                         #database data volume (very usefully to backup data locally, if the container is down)
       - ./src/main/db:/docker-entrypoint-initdb.d/:ro #database files called when the container is built and started for the first time
   producer-service:
     container_name: producer
-    depends_on:
-      - mysql-service
     build:
       context: ./kafka-wikimedia-producer
       dockerfile: producer.Dockerfile
@@ -34,7 +32,6 @@ services:
     container_name: consumer
     depends_on:
       - mysql-service
-      - producer-service
     build:
       context: ./kafka-wikimedia-consumer
       dockerfile: consumer.Dockerfile
