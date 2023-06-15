@@ -7,15 +7,28 @@ import org.junit.jupiter.api.Test
 class RoomTest {
 
     @Test
-    fun `should return the right name`() {
+    fun `name should return the right name`() {
         // given
-        val result = Room(name = "A").name
+        val result = Room(name = "A", stuff = Stuff.NONE).name
 
         // when
 
 
         // then
         assertTrue(result == "A")
+
+    }
+
+    @Test
+    fun `stuff should return none, if room is empty`() {
+        // given
+        val result = Room(name = "A", stuff = Stuff.NONE).stuff
+
+        // when
+
+
+        // then
+        assertTrue(result == Stuff.NONE)
 
     }
 
