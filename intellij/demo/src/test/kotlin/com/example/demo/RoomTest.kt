@@ -20,28 +20,12 @@ class RoomTest {
     }
 
     @Test
-    fun `stuff should return none, if room is empty`() {
-        // given
-        val result = Room(name = "A", stuff = Stuff.NONE).stuff
-
-        // when
-
-
-        // then
-        assertTrue(result == Stuff.NONE)
-
-    }
-
-    @Test
     fun `stuff should return key, if room contains key`() {
-        // given
-        val result = Room(name = "A", stuff = Stuff.KEY).stuff
 
-        // when
-
-
-        // then
-        assertTrue(result == Stuff.KEY)
+        Stuff.values().forEach {
+            val result = Room(name = "A", stuff = it).stuff
+            assertTrue(result == it)
+        }
 
     }
 
