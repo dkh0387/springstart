@@ -32,4 +32,17 @@ class RoomTest {
 
     }
 
+    @Test
+    fun `stuff should return key, if room contains key`() {
+        // given
+        val result = Room(name = "A", stuff = Stuff.KEY).stuff
+
+        // when
+
+
+        // then
+        assertTrue(result == Stuff.KEY)
+
+    }
+
 }
